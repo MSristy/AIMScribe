@@ -1,0 +1,1151 @@
+{
+  "reviewer": "AI coding assistant; source inspection performed directly against supplied extracted protocol pages and rendered diagrams, not a separate AI-judge call or independent clinician validation.",
+  "method": "Read every saved final output and question list; compared displayed actions/conditions/medicine fields and omissions to frozen expectations and source text. Source ID validity alone did not determine clinical verdicts. Reviewed actual raw C04 admission decisions separately as a limitation; grades apply to final displayed output. NA was available but all four checks were applicable in all twelve completed outputs.",
+  "postfreeze_visual_review": [
+    "BD_DENGUE_2025_5E PDF 47 table and medication ceiling",
+    "BD_CHIK_2017 PDF 26 phase/NSAID/physiotherapy conditions"
+  ],
+  "grading_note": "C05 fails key expected behaviour in both modes because required epidemiology clarification is omitted. Improved conditional lab options are acknowledged without changing the frozen full-pass threshold. Missing-information grades test honesty/no guessing, not duplicating the key-coverage penalty. Generic canonical 'ask' instructions are a presentation limitation; actual question slots do not falsely label supplied facts missing.",
+  "rows": [
+    {
+      "case_id": "C01",
+      "mode": "baseline",
+      "output_sha256": "f6dcb58cde0a84afcfa94292b81e7fcaf48233b26d908c32a79ac2453cb45e7d",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Suspected dengue/differentials remain non-confirmed; day-3 CBC/Hct/NS1 and SGOT/SGPT are present, with symptom-care ceiling and return warnings. Home clearance is withheld pending assessment.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed all displayed actions against dengue PDF 27/37/39/41/45/47/48 and conditional chikungunya test options against PDF 21/22. Medication fields copy the source ceiling, not an invented prescription.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No NSAID/steroid recommendation, no higher chikungunya paracetamol limit, no confirmation from symptoms and no unconditional home eligibility. Immediate-return warnings retained.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Actual questions concern unknown eligibility/exposure/joint criteria, not supplied age/day/weight. Source-unspecified route/frequency/duration remain null. Generic card wording still says 'ask' some supplied fields; this is a presentation limitation, not an invented missing-field answer.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        }
+      },
+      "failure_note": "No frozen-check failure; generic template wording remains."
+    },
+    {
+      "case_id": "C01",
+      "mode": "improved",
+      "output_sha256": "d40af8259c84d210dc1e8a2287f1082ef60fbfe6affb2b8634c374f60b87a6f9",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Suspected dengue/differentials remain non-confirmed; day-3 CBC/Hct/NS1 and SGOT/SGPT are present, with symptom-care ceiling and return warnings. Home clearance is withheld pending assessment.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed all displayed actions against dengue PDF 27/37/39/41/45/47/48 and conditional chikungunya test options against PDF 21/22. Medication fields copy the source ceiling, not an invented prescription.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No NSAID/steroid recommendation, no higher chikungunya paracetamol limit, no confirmation from symptoms and no unconditional home eligibility. Immediate-return warnings retained.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Actual questions concern unknown eligibility/exposure/joint criteria, not supplied age/day/weight. Source-unspecified route/frequency/duration remain null. Generic card wording still says 'ask' some supplied fields; this is a presentation limitation, not an invented missing-field answer.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                37,
+                39,
+                41,
+                45,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27,37,39,41,45,47-48; K21-22"
+        }
+      },
+      "failure_note": "No frozen-check failure; generic template wording remains."
+    },
+    {
+      "case_id": "C02",
+      "mode": "baseline",
+      "output_sha256": "6a129efa93f9fb2f856c22717f4cf3b053bd8731c10ba4cded8493d5ed343042",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Established hypertension follow-up, the amlodipine 5 mg/losartan 50 mg step-2 branch, creatinine/potassium monitoring and monthly review are present; documented prior confirmation is preserved.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Individually checked tests, step-2 doses/frequency, monitoring footnote, lifestyle and follow-up against hypertension PDF 46/51/64/65, including the full page-64 diagram.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "Clinician-facing conditional branch retains pregnancy/pregnancy-potential restrictions, adherence and laboratory review. Does not universally delay treatment for all initial tests or infer numerical renal eligibility.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Supplied regimen/adherence/BP-target/lab-review data are not requested again. Route and fixed duration remain unspecified; no invented lab thresholds/results or new diagnosis from a single visit.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        }
+      },
+      "failure_note": "None observed against frozen checklist."
+    },
+    {
+      "case_id": "C02",
+      "mode": "improved",
+      "output_sha256": "8a83a7cedc87c70e6ed5367f18639f494d83b773db7e46d71bf39ca3b639713f",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Established hypertension follow-up, the amlodipine 5 mg/losartan 50 mg step-2 branch, creatinine/potassium monitoring and monthly review are present; documented prior confirmation is preserved.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Individually checked tests, step-2 doses/frequency, monitoring footnote, lifestyle and follow-up against hypertension PDF 46/51/64/65, including the full page-64 diagram.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "Clinician-facing conditional branch retains pregnancy/pregnancy-potential restrictions, adherence and laboratory review. Does not universally delay treatment for all initial tests or infer numerical renal eligibility.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Supplied regimen/adherence/BP-target/lab-review data are not requested again. Route and fixed duration remain unspecified; no invented lab thresholds/results or new diagnosis from a single visit.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        }
+      },
+      "failure_note": "None observed against frozen checklist."
+    },
+    {
+      "case_id": "C03",
+      "mode": "baseline",
+      "output_sha256": "13433c9a57b9f97fa3b78a592eb85ce744c38c7fc3489149f6f0a42400e6fa0d",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Declared-outbreak suspected cholera, some-dehydration assessment, admission/Plan B ORS 75 mL/kg over four hours and hourly reassessment/ongoing-loss replacement are all present.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Checked definition, severe-first flowchart, assessment/admission table, initial formula and ongoing-loss age table against WHO PDF 5/6/9/10. The known signs support some dehydration; no severe criterion is established.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No routine antibiotic, Plan C selection or immediate discharge. Severe deterioration prompts review, and ongoing losses are explicitly additional to the initial plan, not duplicate initial volume.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Known 50 kg is retained; no invented fluid total, laboratory result or antibiotic regimen. Source-unspecified frequency remains null. No required unknown patient field is guessed.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        }
+      },
+      "failure_note": "None observed against frozen checklist."
+    },
+    {
+      "case_id": "C03",
+      "mode": "improved",
+      "output_sha256": "ea80275169cac9e4be875499226fc22e8de08afb2ba2c0d7b7b48f9e65fffc29",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Declared-outbreak suspected cholera, some-dehydration assessment, admission/Plan B ORS 75 mL/kg over four hours and hourly reassessment/ongoing-loss replacement are all present.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Checked definition, severe-first flowchart, assessment/admission table, initial formula and ongoing-loss age table against WHO PDF 5/6/9/10. The known signs support some dehydration; no severe criterion is established.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No routine antibiotic, Plan C selection or immediate discharge. Severe deterioration prompts review, and ongoing losses are explicitly additional to the initial plan, not duplicate initial volume.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Known 50 kg is retained; no invented fluid total, laboratory result or antibiotic regimen. Source-unspecified frequency remains null. No required unknown patient field is guessed.",
+          "sources": [
+            {
+              "source_id": "WHO_CHOLERA_2024",
+              "pdf_pages": [
+                5,
+                6,
+                9,
+                10
+              ]
+            }
+          ],
+          "source_label": "C5-6,9-10"
+        }
+      },
+      "failure_note": "None observed against frozen checklist."
+    },
+    {
+      "case_id": "C04",
+      "mode": "baseline",
+      "output_sha256": "7022e84cff3ccc830de73c22fc9c879338168cbf61a13b7d0c15fef71c0892bd",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Probable/possible chikungunya with dengue/co-infection uncertainty, early PCR/other source test timing, acute rest/cold-compress/phase advice and dengue precautions are present; no laboratory confirmation claimed.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed all actions against chikungunya PDF 11/17/18/20/21/22/26/27 and dengue PDF 39/41/45/47. The patient has actual clinical/epidemiological criteria; displayed reasons show only a subset. Source text, not identifier validity alone, was checked.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No NSAID/acute physiotherapy or higher chikungunya paracetamol ceiling; negative NS1 is not exclusion. Shared final guard withholds unestablished active admission. Both RAW model responses wrongly selected admission despite preview in improved; this is an unchanged pre-guard weakness.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "No invented dengue exclusion, confirmation or medication fields. Unknown admission triggers retain a clinician-review note instead of assumed absence/clearance; no false request for the already documented dengue exclusion status.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        }
+      },
+      "failure_note": "No final-check failure; raw admission selection wrong in BOTH modes, blocked by shared guard."
+    },
+    {
+      "case_id": "C04",
+      "mode": "improved",
+      "output_sha256": "48fd50feb58e06e2a0745c0e58f11bea775a5f87dda60a60648d85b37284b672",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Probable/possible chikungunya with dengue/co-infection uncertainty, early PCR/other source test timing, acute rest/cold-compress/phase advice and dengue precautions are present; no laboratory confirmation claimed.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed all actions against chikungunya PDF 11/17/18/20/21/22/26/27 and dengue PDF 39/41/45/47. The patient has actual clinical/epidemiological criteria; displayed reasons show only a subset. Source text, not identifier validity alone, was checked.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No NSAID/acute physiotherapy or higher chikungunya paracetamol ceiling; negative NS1 is not exclusion. Shared final guard withholds unestablished active admission. Both RAW model responses wrongly selected admission despite preview in improved; this is an unchanged pre-guard weakness.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "No invented dengue exclusion, confirmation or medication fields. Unknown admission triggers retain a clinician-review note instead of assumed absence/clearance; no false request for the already documented dengue exclusion status.",
+          "sources": [
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                26,
+                27
+              ]
+            },
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                39,
+                41,
+                45,
+                47
+              ]
+            }
+          ],
+          "source_label": "K11,17-22,26-27; D39,41,45,47"
+        }
+      },
+      "failure_note": "No final-check failure; raw admission selection wrong in BOTH modes, blocked by shared guard."
+    },
+    {
+      "case_id": "C05",
+      "mode": "baseline",
+      "output_sha256": "cb1077913c918fa64da989bdffc9151cafb200e176a79e4aae6ea95a6c7aadff",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "fail",
+          "reason": "Useful dengue/chikungunya uncertainty and many age/day/weight/history/exam questions, but the frozen checklist also requires relevant epidemiology: no travel/residence/transmission question appears. No explicit conditional investigation plan is displayed; tests are withheld. Key clarification coverage is incomplete.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,22"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed displayed dengue differential, NSAID/steroid precaution and warning education against dengue PDF 27/28/37/45/47/48, and clarification rationale against dengue 45/46 and chikungunya 11/22. No displayed action invents confirmation or an unsupported regimen.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,22"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No individualized medicine/fluid dose, assumed illness-day test, absence of warning signs or home clearance. Withholding tests pending timing is appropriate despite incomplete clarification coverage.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,22"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Unknown age/day/weight/history/exam remain unknown and generate genuine questions; no null-to-false/zero conversion. Medicine/allergy/weight data are requested before individualized treatment. Missing epidemiology coverage is counted under key behaviour rather than double-counted as guessing.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,22"
+        }
+      },
+      "failure_note": "Missing epidemiology clarification and explicit conditional investigation plan (frozen C05 key behaviour)."
+    },
+    {
+      "case_id": "C05",
+      "mode": "improved",
+      "output_sha256": "deb6ef8883be3b67f4a2af5a3dc7a8a5081c2b852313c32c846670c34e02d4c9",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "fail",
+          "reason": "Improved adds a conditional chikungunya investigation/timing card and retains differential plus genuine clarifications, but still asks no exposure/travel/transmission question required by the frozen C05 checklist. Key clarification coverage therefore still fails; the partial gain is not promoted to a full pass.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,21-22"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed displayed dengue differential/precautions/warnings against PDF 27/28/37/45/47/48 and conditional chikungunya laboratory options against PDF 21/22. The timing alternatives are conditional; no chosen illness day or fabricated test result appears.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,21-22"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No individualized dose, unconditional home clearance, no-warning-sign claim or invented confirmation. Multiple test windows are described conditionally rather than pretending the unknown onset day is known; dengue/NSAID precautions remain.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,21-22"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "Age/day/weight/history/exam are asked as unknown; medicine/allergy information is requested, nulls are not converted to negative findings. Source-unspecified medicine fields are not guessed. Epidemiology completeness is counted separately under key behaviour.",
+          "sources": [
+            {
+              "source_id": "BD_DENGUE_2025_5E",
+              "pdf_pages": [
+                27,
+                28,
+                37,
+                45,
+                46,
+                47,
+                48
+              ]
+            },
+            {
+              "source_id": "BD_CHIK_2017",
+              "pdf_pages": [
+                11,
+                21,
+                22
+              ]
+            }
+          ],
+          "source_label": "D27-28,37,45-48; K11,21-22"
+        }
+      },
+      "failure_note": "Conditional test options added, but epidemiology clarification still missing (frozen C05 key behaviour)."
+    },
+    {
+      "case_id": "C06",
+      "mode": "baseline",
+      "output_sha256": "7e72c360c2c97873525205cafe05aab8212abb8900f003fa4c0326bc48ad0f31",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Compared with C02, the losartan step-2 branch is absent and source amlodipine 10 mg once daily alternative is present. Established hypertension, tests, follow-up and lifestyle remain; measured/input facts are unchanged except pregnancy potential.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed restriction and distinct nonpregnant pregnancy-potential branch against full hypertension Figure 8/footnotes on PDF 64, initial testing on 51 and follow-up on 65. Dose/frequency and specialist-review conditions match.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No losartan/ACEi/ARB substitution. Explicitly distinguishes may-become-pregnant=true from currently-pregnant=false; current-pregnancy referral is conditional, not a claim that this patient is pregnant.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "No invented route/fixed duration, alternative dose, laboratory eligibility threshold or unassessed contraindication clearance. Supplied pregnancy/regimen/test facts are retained without redundant missing questions.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        }
+      },
+      "failure_note": "None observed against frozen checklist."
+    },
+    {
+      "case_id": "C06",
+      "mode": "improved",
+      "output_sha256": "f28093415780487de486d20a8fb8edccc381af1cdd8df2e6b6de220bf8a4fa71",
+      "checks": {
+        "expected_behaviour": {
+          "verdict": "pass",
+          "reason": "Compared with C02, the losartan step-2 branch is absent and source amlodipine 10 mg once daily alternative is present. Established hypertension, tests, follow-up and lifestyle remain; measured/input facts are unchanged except pregnancy potential.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "citation_support": {
+          "verdict": "pass",
+          "reason": "Reviewed restriction and distinct nonpregnant pregnancy-potential branch against full hypertension Figure 8/footnotes on PDF 64, initial testing on 51 and follow-up on 65. Dose/frequency and specialist-review conditions match.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "restrictions": {
+          "verdict": "pass",
+          "reason": "No losartan/ACEi/ARB substitution. Explicitly distinguishes may-become-pregnant=true from currently-pregnant=false; current-pregnancy referral is conditional, not a claim that this patient is pregnant.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        },
+        "missing_information": {
+          "verdict": "pass",
+          "reason": "No invented route/fixed duration, alternative dose, laboratory eligibility threshold or unassessed contraindication clearance. Supplied pregnancy/regimen/test facts are retained without redundant missing questions.",
+          "sources": [
+            {
+              "source_id": "BD_HTN_2023_2E",
+              "pdf_pages": [
+                46,
+                51,
+                64,
+                65
+              ]
+            }
+          ],
+          "source_label": "H46,51,64-65"
+        }
+      },
+      "failure_note": "None observed against frozen checklist."
+    }
+  ]
+}

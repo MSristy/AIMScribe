@@ -1,0 +1,35 @@
+{
+  "card_count": 32,
+  "authoring_method": "Manually curated evidence, deterministically packaged; no automatic clinical extraction or model call.",
+  "coverage": {
+    "dengue": {
+      "probable_diagnosis": 1,
+      "investigations": 2,
+      "medication_guidance": 2,
+      "advice": 3
+    },
+    "hypertension": {
+      "probable_diagnosis": 3,
+      "investigations": 1,
+      "medication_guidance": 3,
+      "advice": 2
+    },
+    "cholera": {
+      "probable_diagnosis": 1,
+      "investigations": 2,
+      "medication_guidance": 3,
+      "advice": 2
+    },
+    "chikungunya": {
+      "probable_diagnosis": 2,
+      "investigations": 1,
+      "medication_guidance": 2,
+      "advice": 2
+    }
+  },
+  "status": "Q1 source/coverage audit revisions prepared; rebuild and structural validation required before marking revised package complete.",
+  "limitations": [
+    "Coverage counts do not establish clinical completeness or six-case coverage.",
+    "Applicability execution, normalized patient field contract and final case design pending."
+  ]
+}

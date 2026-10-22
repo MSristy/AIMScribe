@@ -1,0 +1,11 @@
+{
+  "case_count": 6,
+  "checklist_count": 6,
+  "frozen": false,
+  "passed": true,
+  "errors": [],
+  "modified_patient_fields": [
+    "patient.history.may_become_pregnant"
+  ],
+  "scope": "Development file structure, references and input-difference checks only. No clinical grading, model run, semantic leakage proof or final freeze."
+}

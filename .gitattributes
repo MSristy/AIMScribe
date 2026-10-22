@@ -1,0 +1,3 @@
+# Preserve exact experiment bytes (including original line endings) on clone.
+# The frozen SHA256 manifest hashes bytes, not normalized text.
+* -text

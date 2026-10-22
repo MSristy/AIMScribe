@@ -1,0 +1,23 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+tmp/
+.local/
+*.log
+.DS_Store
+Thumbs.db
+
+# Private/local source material and reproducible generated page images.
+/sources/protocols/*.pdf
+/sources/paper/*.pdf
+/data/rendered/
+
+# Local connection/account diagnostics and non-final interactive/trial logs.
+/data/index/*.json
+!/data/index/bm25.json
+/evaluation/development_trials/
+/evaluation/interactive_runs/

@@ -1,0 +1,283 @@
+{
+  "scope": "Development generation/format summary only. Not clinical grades, frozen cases or an improvement comparison.",
+  "completed": 6,
+  "expected": 6,
+  "cases": [
+    {
+      "case_id": "C01",
+      "status": "completed",
+      "selected_cards": [
+        "DEN_CONSIDER",
+        "DEN_TEST_EARLY",
+        "DEN_PARACETAMOL_LIMIT",
+        "DEN_WARNING_EDUCATION",
+        "DEN_AVOID_NSAID"
+      ],
+      "categories": [
+        "advice",
+        "investigations",
+        "medication_guidance",
+        "probable_diagnosis"
+      ],
+      "questions": 5,
+      "seconds": 1.6211,
+      "retrieved_count": 10,
+      "prompt_version": "baseline-v5-readable-grounded-decisions",
+      "model": {
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "endpoint": "https://api.groq.com/openai/v1",
+        "settings": {
+          "temperature": 0,
+          "max_completion_tokens": 900,
+          "reasoning_effort": "none"
+        },
+        "installed": true,
+        "generation_verified": true,
+        "billing_note": "Free plan/no payment confirmed by user, not independently inspected by app.",
+        "model_version": "qwen/qwen3.8-27b",
+        "system_fingerprint": "fp_21e59ac2de"
+      },
+      "usage": {
+        "queue_time": 0.056823179,
+        "prompt_tokens": 6267,
+        "prompt_time": 0.462199093,
+        "completion_tokens": 432,
+        "completion_time": 0.833659795,
+        "total_tokens": 6699,
+        "total_time": 1.295858888
+      },
+      "errors": []
+    },
+    {
+      "case_id": "C02",
+      "status": "completed",
+      "selected_cards": [
+        "HTN_INITIAL_TESTS",
+        "HTN_STEP2_FOLLOWUP",
+        "HTN_FOLLOWUP",
+        "HTN_ESTABLISHED_REVIEW",
+        "HTN_LIFESTYLE"
+      ],
+      "categories": [
+        "advice",
+        "investigations",
+        "medication_guidance",
+        "probable_diagnosis"
+      ],
+      "questions": 0,
+      "seconds": 1.3685,
+      "retrieved_count": 9,
+      "prompt_version": "baseline-v5-readable-grounded-decisions",
+      "model": {
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "endpoint": "https://api.groq.com/openai/v1",
+        "settings": {
+          "temperature": 0,
+          "max_completion_tokens": 900,
+          "reasoning_effort": "none"
+        },
+        "installed": true,
+        "generation_verified": true,
+        "billing_note": "Free plan/no payment confirmed by user, not independently inspected by app.",
+        "model_version": "qwen/qwen3.8-27b",
+        "system_fingerprint": "fp_21e59ac2de"
+      },
+      "usage": {
+        "queue_time": 0.055954034,
+        "prompt_tokens": 6430,
+        "prompt_time": 0.443989259,
+        "completion_tokens": 385,
+        "completion_time": 0.759283578,
+        "total_tokens": 6815,
+        "total_time": 1.203272837
+      },
+      "errors": []
+    },
+    {
+      "case_id": "C03",
+      "status": "completed",
+      "selected_cards": [
+        "CHO_CASE_DEFINITION",
+        "CHO_SOME_ASSESS",
+        "CHO_PLAN_B",
+        "CHO_PLAN_B_REASSESS"
+      ],
+      "categories": [
+        "advice",
+        "investigations",
+        "medication_guidance",
+        "probable_diagnosis"
+      ],
+      "questions": 0,
+      "seconds": 1.6263,
+      "retrieved_count": 10,
+      "prompt_version": "baseline-v5-readable-grounded-decisions",
+      "model": {
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "endpoint": "https://api.groq.com/openai/v1",
+        "settings": {
+          "temperature": 0,
+          "max_completion_tokens": 900,
+          "reasoning_effort": "none"
+        },
+        "installed": true,
+        "generation_verified": true,
+        "billing_note": "Free plan/no payment confirmed by user, not independently inspected by app.",
+        "model_version": "qwen/qwen3.8-27b",
+        "system_fingerprint": "fp_424cb89518"
+      },
+      "usage": {
+        "queue_time": 0.056365015,
+        "prompt_tokens": 6782,
+        "prompt_time": 0.487202758,
+        "completion_tokens": 470,
+        "completion_time": 0.93092011,
+        "total_tokens": 7252,
+        "total_time": 1.418122868
+      },
+      "errors": []
+    },
+    {
+      "case_id": "C04",
+      "status": "completed",
+      "selected_cards": [
+        "CHIK_PROBABLE_EPIDEMIOLOGY",
+        "CHIK_TEST_TIMING",
+        "CHIK_CONSIDER",
+        "CHIK_DENGUE_PRECAUTION",
+        "CHIK_PHASE_ADVICE",
+        "DEN_CONSIDER",
+        "DEN_TEST_EARLY",
+        "DEN_PARACETAMOL_LIMIT"
+      ],
+      "categories": [
+        "advice",
+        "investigations",
+        "medication_guidance",
+        "probable_diagnosis"
+      ],
+      "questions": 0,
+      "seconds": 1.3928,
+      "retrieved_count": 10,
+      "prompt_version": "baseline-v5-readable-grounded-decisions",
+      "model": {
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "endpoint": "https://api.groq.com/openai/v1",
+        "settings": {
+          "temperature": 0,
+          "max_completion_tokens": 900,
+          "reasoning_effort": "none"
+        },
+        "installed": true,
+        "generation_verified": true,
+        "billing_note": "Free plan/no payment confirmed by user, not independently inspected by app.",
+        "model_version": "qwen/qwen3.8-27b",
+        "system_fingerprint": "fp_21e59ac2de"
+      },
+      "usage": {
+        "queue_time": 0.053282774,
+        "prompt_tokens": 5742,
+        "prompt_time": 0.395970062,
+        "completion_tokens": 409,
+        "completion_time": 0.82239163,
+        "total_tokens": 6151,
+        "total_time": 1.218361692
+      },
+      "errors": []
+    },
+    {
+      "case_id": "C05",
+      "status": "completed",
+      "selected_cards": [
+        "DEN_CONSIDER",
+        "DEN_AVOID_NSAID",
+        "DEN_WARNING_EDUCATION"
+      ],
+      "categories": [
+        "advice",
+        "medication_guidance",
+        "probable_diagnosis"
+      ],
+      "questions": 13,
+      "seconds": 1.4327,
+      "retrieved_count": 10,
+      "prompt_version": "baseline-v5-readable-grounded-decisions",
+      "model": {
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "endpoint": "https://api.groq.com/openai/v1",
+        "settings": {
+          "temperature": 0,
+          "max_completion_tokens": 900,
+          "reasoning_effort": "none"
+        },
+        "installed": true,
+        "generation_verified": true,
+        "billing_note": "Free plan/no payment confirmed by user, not independently inspected by app.",
+        "model_version": "qwen/qwen3.8-27b",
+        "system_fingerprint": "fp_424cb89518"
+      },
+      "usage": {
+        "queue_time": 0.058643128,
+        "prompt_tokens": 5271,
+        "prompt_time": 0.389575853,
+        "completion_tokens": 415,
+        "completion_time": 0.809536068,
+        "total_tokens": 5686,
+        "total_time": 1.199111921
+      },
+      "errors": []
+    },
+    {
+      "case_id": "C06",
+      "status": "completed",
+      "selected_cards": [
+        "HTN_INITIAL_TESTS",
+        "HTN_FOLLOWUP",
+        "HTN_PREGNANCY_POTENTIAL_ALTERNATIVE",
+        "HTN_ESTABLISHED_REVIEW",
+        "HTN_PREGNANCY_RESTRICTION",
+        "HTN_LIFESTYLE"
+      ],
+      "categories": [
+        "advice",
+        "investigations",
+        "medication_guidance",
+        "probable_diagnosis"
+      ],
+      "questions": 0,
+      "seconds": 1.4068,
+      "retrieved_count": 9,
+      "prompt_version": "baseline-v5-readable-grounded-decisions",
+      "model": {
+        "provider": "groq",
+        "model": "qwen/qwen3.8-27b",
+        "endpoint": "https://api.groq.com/openai/v1",
+        "settings": {
+          "temperature": 0,
+          "max_completion_tokens": 900,
+          "reasoning_effort": "none"
+        },
+        "installed": true,
+        "generation_verified": true,
+        "billing_note": "Free plan/no payment confirmed by user, not independently inspected by app.",
+        "model_version": "qwen/qwen3.8-27b",
+        "system_fingerprint": "fp_21e59ac2de"
+      },
+      "usage": {
+        "queue_time": 0.075215014,
+        "prompt_tokens": 6112,
+        "prompt_time": 0.451208308,
+        "completion_tokens": 378,
+        "completion_time": 0.753849383,
+        "total_tokens": 6490,
+        "total_time": 1.205057691
+      },
+      "errors": []
+    }
+  ]
+}

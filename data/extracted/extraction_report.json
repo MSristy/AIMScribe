@@ -1,0 +1,11 @@
+{
+  "total_assigned_pages": 45,
+  "per_source": {
+    "BD_DENGUE_2025_5E": 12,
+    "BD_HTN_2023_2E": 9,
+    "WHO_CHOLERA_2024": 10,
+    "BD_CHIK_2017": 14
+  },
+  "empty_text_pages": [],
+  "note": "Extraction only; visual review and clinical validation are separate."
+}

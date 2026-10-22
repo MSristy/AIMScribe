@@ -1,0 +1,31 @@
+# AIMScribe Progress Tracker
+
+Current milestone: Q1 and Q2 implementation/experiment package completed for the current assessment scenarios. Two modes in one app; 37 software tests passed. Six unchanged inputs and source-linked checklists frozen BEFORE the 12 fresh comparison calls; code/data hashes and exact pair isolation verified. Assistant source review: Baseline 23/24 checks and 5/6 all-four-pass cases; Improved 23/24 and 5/6, with 708 extra input tokens and no extra calls. C05 key-behaviour failure remains in both; no net improvement demonstrated. Complete table/manual reasons/392-word comparison note are in evaluation/experiment/. These self-authored cases are not independent clinical validation. Prior development outputs/replay remain separate. Free model: Qwen 3.8 27B, temperature 0, reasoning none, max completion 900; maximum 10 retrieved cards. Google remains Restricted; no billing enabled. Whole-assessment work after Q2 remains pending. See master section 16.3.
+
+- [x] 01. Verify VS Code interpreter, folders and Python environment setup
+- [x] 02. Collect correct protocol editions and register sources
+- [x] 03. Review assigned 45 pages, tables, footnotes and hypertension algorithm
+- [x] 04. Prepare source-linked evidence notes
+- [x] 05. Define canonical card schema and field explanations (schema v1.0; user-run validation passed)
+- [x] 06. Compare two representations of a complex recommendation and implement one (structured conditions selected; limited source-condition runtime checks now implemented)
+- [x] 07. Create and verify cards covering all four protocols and output categories (Q1 source/coverage audit completed; user rebuilt and validated revised 32-card package successfully)
+- [x] 08. Create six fictional patient cases including a single-prerequisite modification; original development drafts retained, authoritative final experiment copies frozen in evaluation/experiment/
+- [x] 08a. Preserve original input, null/false/assessed-empty distinctions, exact fact references and traceable limited clinical normalization; no exhaustive free-text extraction claim
+- [x] 08b. Implement limited three-state observed prerequisite/exclusion checks and source-advice links as baseline corrections; unresolved clinical interpretations retain model/clinician review
+- [x] 09. Build RAG index and reproducible rebuild script (32 canonical cards only; hash freshness check and retrieval tests passed)
+- [x] 10. Working explicit Groq Free connection: qwen/qwen3.8-27b, temperature 0, reasoning none, max completion 900; six successful real development generations and an independent new-input live UI generation. Quota-limited; no automatic fallback or deterministic guarantee
+- [x] 11. Light guided editable UI; fix identified investigation retrieval/purpose/timing, unsupported reason text, supplied-fact questions and omitted dependent advice. Four ordinary cases cover all four output categories. Inline citations, exact patient context, medication fields and missing information visible; 46/46 targeted saved-output checks passed
+- [x] 12. Add one improvement: pre-model applicability preview only; same model/corpus/retrieval/guards. Prespecified hypothesis/falsifier/cost in evaluation/experiment/plan.md; 37 software tests passed
+- [x] 13. Functional development tests: 34 software tests passed; final new guided-form patient generated all four output categories, purpose/timing, medicine table and source references. Exact 55 kg weight retained, not asked again. Run: evaluation/interactive_runs/20261021T175859123945Z.json. Clinical interpretation is not independently validated
+- [x] 14. Freeze six unchanged cases and source-linked expected checklists before final comparison; 22 Oct 2026 00:58:49 Asia/Dhaka, 19 files hashed in evaluation/experiment/manifest.json
+- [x] 15. Save 12 fresh final outputs with full evidence, exact requests/responses, settings, timings and freeze-manifest hash; no replay, retries or replaced failure
+- [x] 16. Source-review all four checks for each output; manual_reviews.json holds verdicts/reasons/PDF pages and exact output hashes. results-table.md/results.json report denominators and honest C05 failures
+- [x] 17. Write 392-word one-page comparison note plus separate table; report unchanged/worse cost, C05 partial gain/remaining failure, raw C04 weakness, model variability and next test
+- [ ] 18. Complete architecture, design defence, trade-off and future NER/feedback/acceptance/prescription connections
+- [ ] 19. Read assigned paper and write 200-300-word summary with referenced result and Bangladesh transfer limitation
+- [ ] 20. Prepare 5-10 slides and approximately 10-minute presentation
+- [x] 21a. Q2 README launch/rebuild instructions, current model/settings, replay caveat and AI assistance disclosure
+- [ ] 21. Complete whole-assessment submission README/disclosure after remaining questions and experiment
+- [ ] 22. Verify clean setup, complete submission package and rehearse live demo
+
+

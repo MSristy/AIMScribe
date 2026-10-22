@@ -1,0 +1,7 @@
+{
+  "input": "data/cards/cards.jsonl",
+  "card_count": 32,
+  "passed": true,
+  "errors": [],
+  "scope": "Schema, ID, registered-source/page and reference consistency only; not clinical or applicability execution validation."
+}

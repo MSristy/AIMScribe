@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIMScribe canonical recommendation card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "card_id", "disease", "clinical_category", "title", "clinical_context", "relevant_symptoms", "applicability", "exclusions", "required_patient_fields", "recommended_action", "medications", "missing_information_policy", "evidence", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "card_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]+$"},
+    "disease": {"enum": ["dengue", "hypertension", "cholera", "chikungunya"]},
+    "clinical_category": {"enum": ["probable_diagnosis", "investigations", "medication_guidance", "advice"]},
+    "title": {"$ref": "#/$defs/nonempty"},
+    "clinical_context": {"$ref": "#/$defs/nonempty"},
+    "relevant_symptoms": {"type": "array", "items": {"$ref": "#/$defs/nonempty"}, "uniqueItems": true},
+    "applicability": {"$ref": "#/$defs/condition"},
+    "exclusions": {"type": "array", "items": {"$ref": "#/$defs/condition"}},
+    "required_patient_fields": {"type": "array", "items": {"$ref": "#/$defs/nonempty"}, "uniqueItems": true},
+    "recommended_action": {"$ref": "#/$defs/nonempty"},
+    "investigation_details": {
+      "type": "object", "additionalProperties": false,
+      "required": ["purpose", "timing", "conditions", "evidence_ids"],
+      "properties": {
+        "purpose": {"$ref": "#/$defs/nonempty"},
+        "timing": {"$ref": "#/$defs/nonempty"},
+        "conditions": {"$ref": "#/$defs/nonempty"},
+        "evidence_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonempty"}}
+      }
+    },
+    "monitoring_details": {
+      "type": "object", "additionalProperties": false,
+      "required": ["action", "purpose", "timing", "conditions", "evidence_ids"],
+      "properties": {
+        "action": {"$ref": "#/$defs/nonempty"},
+        "purpose": {"$ref": "#/$defs/nonempty"},
+        "timing": {"$ref": "#/$defs/nonempty"},
+        "conditions": {"$ref": "#/$defs/nonempty"},
+        "evidence_ids": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/nonempty"}}
+      }
+    },
+    "medications": {"type": "array", "items": {"$ref": "#/$defs/medication"}},
+    "missing_information_policy": {"const": "Preserve unknown values; identify missing prerequisites; withhold the dependent action until assessed; retain independently supported recommendations."},
+    "evidence": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+    "limitations": {"type": "array", "items": {"$ref": "#/$defs/nonempty"}}
+  },
+  "$defs": {
+    "nonempty": {"type": "string", "minLength": 1},
+    "nullable_text": {"anyOf": [{"$ref": "#/$defs/nonempty"}, {"type": "null"}]},
+    "condition": {
+      "oneOf": [
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["op", "conditions"],
+          "properties": {
+            "op": {"enum": ["all", "any"]},
+            "conditions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/condition"}}
+          }
+        },
+        {
+          "type": "object", "additionalProperties": false,
+          "required": ["op", "field", "value", "evidence_ids"],
+          "properties": {
+            "op": {"enum": ["eq", "ne", "gt", "gte", "lt", "lte"]},
+            "field": {"$ref": "#/$defs/nonempty"},
+            "value": {"type": ["string", "number", "boolean"]},
+            "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/nonempty"}}
+          },
+          "allOf": [
+            {"if": {"properties": {"op": {"enum": ["gt", "gte", "lt", "lte"]}}}, "then": {"properties": {"value": {"type": "number"}}}}
+          ]
+        }
+      ]
+    },
+    "medication": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name", "dose", "route", "frequency", "duration", "instructions", "evidence_ids"],
+      "properties": {
+        "name": {"$ref": "#/$defs/nonempty"},
+        "dose": {"$ref": "#/$defs/nullable_text"},
+        "route": {"$ref": "#/$defs/nullable_text"},
+        "frequency": {"$ref": "#/$defs/nullable_text"},
+        "duration": {"$ref": "#/$defs/nullable_text"},
+        "instructions": {"$ref": "#/$defs/nullable_text"},
+        "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/nonempty"}}
+      }
+    },
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_id", "source_id", "source_title", "source_version", "pdf_page", "kind", "locator", "passage", "transcription_note"],
+      "properties": {
+        "evidence_id": {"$ref": "#/$defs/nonempty"},
+        "source_id": {"$ref": "#/$defs/nonempty"},
+        "source_title": {"$ref": "#/$defs/nonempty"},
+        "source_version": {"$ref": "#/$defs/nonempty"},
+        "pdf_page": {"type": "integer", "minimum": 1},
+        "kind": {"enum": ["text", "table", "figure", "footnote"]},
+        "locator": {"$ref": "#/$defs/nonempty"},
+        "passage": {"$ref": "#/$defs/nonempty"},
+        "transcription_note": {"$ref": "#/$defs/nullable_text"}
+      }
+    }
+  }
+}

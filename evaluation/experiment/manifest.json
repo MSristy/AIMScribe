@@ -1,0 +1,38 @@
+{
+  "experiment_id": "q2-applicability-preview-v1",
+  "frozen_at": "2026-10-21T18:58:49.714509+00:00",
+  "model": "qwen/qwen3.8-27b",
+  "settings": {
+    "temperature": 0,
+    "max_completion_tokens": 900,
+    "reasoning_effort": "none"
+  },
+  "top_k": 10,
+  "prompt_version": "baseline-v5-readable-grounded-decisions",
+  "policy_version": "source-observations-and-advice-v2",
+  "improvement_version": "pre-model-applicability-preview-v1",
+  "case_count": 6,
+  "outputs_expected": 12,
+  "scope": "Within-RAG, one pre-model preview change; not independent clinical validation.",
+  "sha256": {
+    "app.py": "f4c5580dad8464b3430f4fb963ca76ea7fbebb209bcf2072e8c66055916ba299",
+    "data/cards/cards.jsonl": "2a5d99bd7402ea3a05d9d51abae32082761c3c702eef0567bf2ba9b39db8084a",
+    "data/index/bm25.json": "0c47f9a1937b6194f465ea2a9656e3d5167c83ece45a1755ba4dc9ecd9e9330b",
+    "evaluation/experiment/cases.json": "e99eb58399239c0d6046858c85d77872f4c47399104ea4be941e4f130a55604c",
+    "evaluation/experiment/checklists.json": "426bb17d477953ea26299c622b5aa8456737556e77f963eab3ae7130da631e7d",
+    "evaluation/experiment/plan.md": "11639379520a589272455174a7b88d06787eb8e2b2c18372802d6b94fca93c5c",
+    "evaluation/experiment/source_review.json": "faa23108b768ef660df66213f0f7877ac53421be30cee990c3f0e4869494306a",
+    "scripts/run_comparison.py": "95f3da1ba7bfb43d2751dc287470fba4acfd1d1d0a59ab2f07565cf93bb6b017",
+    "src/__init__.py": "b631ce93410576adcbe6cf142634b676af6576faa91c43525920e1a00fe2a5f7",
+    "src/clinical_context.py": "0a314663c81c0153d234f0f92ce99c10e58e2801756d8a0704033e1be32b7c1f",
+    "src/engine.py": "0ef66772817a4e65686873c2d5ba82efe1c7e23aff12c3282953d4d50ab1542d",
+    "src/gemini.py": "112fbbbcce3a32836dc07c546285ced37e050f625f6c478d978b17ce29846571",
+    "src/groq_api.py": "7131ba985a7ebb751979e8ad4e9640adef8766ee017a9bd56776b1f36d56a147",
+    "src/model.py": "787b67232140fc4a02bb0f8f6df8cea88628e936b51976f2f54c931dd0ce96c0",
+    "src/observed_constraints.py": "9b74205adb968765bf56a31a4a80be77f1dd8a073f195f525695d4906292cefc",
+    "src/patient.py": "c9b398ff0cca68897b9f8749c943274bcc014665e8ab09507a9890f3e3f0a9d3",
+    "src/patient_facts.py": "cdc16ed1c8f98550fbc40435e51f4ca71372a39ffdd6eb7e614252e021ff2a26",
+    "src/prompt_transport.py": "594818035c86270c2f9bd81570b68c71476f51c32b81c500bce0b5443ed28083",
+    "src/retrieval.py": "4d72203cbe8b7cf1184857ad36ee30b9c629f5172d859717428ebac664d17e87"
+  }
+}

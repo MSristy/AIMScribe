@@ -1,0 +1,106 @@
+{
+  "version": "draft-1",
+  "frozen": false,
+  "purpose": "Fictional patient inputs for development; no expected answers or card IDs in patient data.",
+  "cases": [
+    {
+      "case_id": "C01", "case_type": "ordinary", "modified_from": null,
+      "patient": {
+        "age_years": 29, "sex": "male", "weight_kg": 60,
+        "chief_complaint": "Sudden fever, severe headache, pain behind the eyes and body aches.",
+        "illness_day": 3, "temperature_c": 39.2,
+        "symptoms": {"fever": true, "headache": true, "retro_orbital_pain": true, "myalgia": true, "rash": true,
+          "vomiting": false, "severe_abdominal_pain": false, "bleeding": false, "breathing_difficulty": false},
+        "history": {"comorbidities": [], "current_medicines": [], "known_allergies": [], "pregnant": false},
+        "examination": {"mental_status": "alert", "gcs": 15, "bp_mmhg": {"systolic": 118, "diastolic": 76},
+          "oral_fluids_tolerated": true, "urine_output_report": "Normal frequency and volume; no recent reduction.",
+          "warning_sign_screen": "Examining clinician reports no warning signs identified at this assessment."},
+        "social_context": {"lives_alone": false, "caregiver_available": true, "healthcare_access": "available", "transport_available": true},
+        "available_tests": [],
+        "additional_context": "No confirmatory infection test has been performed. Wants investigation and symptom-care planning."
+      }
+    },
+    {
+      "case_id": "C02", "case_type": "ordinary", "modified_from": null,
+      "patient": {
+        "age_years": 32, "sex": "female", "weight_kg": 62,
+        "chief_complaint": "Follow-up for repeatedly elevated blood pressure despite taking the current tablet regularly.",
+        "illness_day": null, "temperature_c": 36.8,
+        "symptoms": {"chest_pain": false, "breathing_difficulty": false, "focal_neurological_symptoms": false, "postural_dizziness": false},
+        "history": {"elevated_bp_confirmed_on_prior_visits": true, "comorbidities": [],
+          "current_medicines": [{"name": "amlodipine", "dose": "5 mg", "frequency": "once daily", "months_on_regimen": 1}],
+          "medicines_taken_regularly_and_correctly": true, "known_allergies": [], "pregnant": false, "may_become_pregnant": false},
+        "examination": {"office_bp_readings_mmhg": [{"systolic": 152, "diastolic": 94}, {"systolic": 150, "diastolic": 94}, {"systolic": 152, "diastolic": 96}],
+          "hmod_assessment": "No hypertension-mediated organ damage identified by the treating clinician.",
+          "clinician_recorded_bp_target": "below 140/90 mmHg"},
+        "available_tests": [{"name": "serum creatinine", "value": 0.8, "unit": "mg/dL", "timing": "this visit", "reviewed_by_clinician": true},
+          {"name": "serum potassium", "value": 4.2, "unit": "mmol/L", "timing": "this visit", "reviewed_by_clinician": true}],
+        "additional_context": "This is a treatment follow-up, not the first isolated high reading. Current pregnancy and pregnancy potential were explicitly assessed."
+      }
+    },
+    {
+      "case_id": "C03", "case_type": "ordinary", "modified_from": null,
+      "patient": {
+        "age_years": 26, "sex": "male", "weight_kg": 50,
+        "chief_complaint": "Repeated acute watery diarrhoea since yesterday, with marked thirst.",
+        "illness_day": 2, "temperature_c": 37.0,
+        "symptoms": {"acute_watery_diarrhoea": true, "watery_stools_last_24_hours": 8, "vomiting": false, "thirst": true},
+        "history": {"comorbidities": [], "current_medicines": [], "known_allergies": [], "pregnant": false},
+        "epidemiology": {"cholera_outbreak_declared_in_area": true},
+        "examination": {"mental_status": "awake and alert", "restless": true, "pulse": "rapid but not weak or absent",
+          "respiratory_distress": false, "eyes": "sunken", "drinking": "eagerly; can drink safely",
+          "skin_pinch": "returns slowly, not very slowly", "passing_urine": true, "walks_without_assistance": true,
+          "hours_since_last_watery_stool": 1},
+        "available_tests": [],
+        "additional_context": "Patient is not elderly. Needs assessment of hydration and initial treatment; no microbiological confirmation is available."
+      }
+    },
+    {
+      "case_id": "C04", "case_type": "ordinary", "modified_from": null,
+      "patient": {
+        "age_years": 28, "sex": "female", "weight_kg": 58,
+        "chief_complaint": "Abrupt fever with marked symmetric wrist and ankle pain and a rash.",
+        "illness_day": 3, "temperature_c": 39.0,
+        "symptoms": {"acute_fever_onset": true, "severe_arthralgia_or_arthritis": true, "symmetric_joint_pain": true,
+          "rash": true, "bleeding": false, "altered_sensorium": false, "persistent_vomiting": false},
+        "history": {"alternative_condition_explaining_joint_symptoms": false, "comorbidities": [], "current_medicines": [],
+          "known_allergies": [], "pregnant": false, "preexisting_liver_or_kidney_disease": false},
+        "epidemiology": {"residence_or_travel_to_epidemic_area": true, "reported_local_transmission_within_15_days_before_onset": true},
+        "examination": {"bp_mmhg": {"systolic": 116, "diastolic": 74}, "mental_status": "alert",
+          "oral_fluids_tolerated": true, "urine_output_report": "No recent reduction; clinician reports no oliguria."},
+        "available_tests": [{"name": "dengue NS1", "result": "negative", "illness_day_of_sample": 2}],
+        "additional_context": "Dengue has not been excluded by the clinician. Still febrile; no chikungunya-specific confirmation test yet. Joint symptoms have not been treated for three days."
+      }
+    },
+    {
+      "case_id": "C05", "case_type": "ambiguous_incomplete", "modified_from": null,
+      "patient": {
+        "age_years": null, "sex": null, "weight_kg": null,
+        "chief_complaint": "Fever, body pain and joint pain. Cannot recall when the illness started.",
+        "illness_day": null, "temperature_c": null,
+        "symptoms": {"fever": true, "myalgia": true, "joint_pain": true, "rash": null, "bleeding": null},
+        "history": {"comorbidities": null, "current_medicines": null, "known_allergies": null, "pregnant": null},
+        "epidemiology": null, "examination": null, "available_tests": [],
+        "additional_context": "No further examination or history is available yet."
+      }
+    },
+    {
+      "case_id": "C06", "case_type": "modified", "modified_from": "C02",
+      "patient": {
+        "age_years": 32, "sex": "female", "weight_kg": 62,
+        "chief_complaint": "Follow-up for repeatedly elevated blood pressure despite taking the current tablet regularly.",
+        "illness_day": null, "temperature_c": 36.8,
+        "symptoms": {"chest_pain": false, "breathing_difficulty": false, "focal_neurological_symptoms": false, "postural_dizziness": false},
+        "history": {"elevated_bp_confirmed_on_prior_visits": true, "comorbidities": [],
+          "current_medicines": [{"name": "amlodipine", "dose": "5 mg", "frequency": "once daily", "months_on_regimen": 1}],
+          "medicines_taken_regularly_and_correctly": true, "known_allergies": [], "pregnant": false, "may_become_pregnant": true},
+        "examination": {"office_bp_readings_mmhg": [{"systolic": 152, "diastolic": 94}, {"systolic": 150, "diastolic": 94}, {"systolic": 152, "diastolic": 96}],
+          "hmod_assessment": "No hypertension-mediated organ damage identified by the treating clinician.",
+          "clinician_recorded_bp_target": "below 140/90 mmHg"},
+        "available_tests": [{"name": "serum creatinine", "value": 0.8, "unit": "mg/dL", "timing": "this visit", "reviewed_by_clinician": true},
+          {"name": "serum potassium", "value": 4.2, "unit": "mmol/L", "timing": "this visit", "reviewed_by_clinician": true}],
+        "additional_context": "This is a treatment follow-up, not the first isolated high reading. Current pregnancy and pregnancy potential were explicitly assessed."
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "stage": "Before freeze and before final generations",
+  "reviewer": "AI coding assistant inspecting supplied protocol text and rendered source pages; not independent clinician review",
+  "numbering": "One-based PDF positions, cover is page 1",
+  "additional_clinical_pages_used": [],
+  "method": "Re-read extracted assigned-page text; visually re-open full hypertension algorithm PDF 64 and WHO flowchart PDF 5, including boxes/arrows/footnotes. Retain original PNGs for audit. Final per-output review will check actions, applicability and references against these sources.",
+  "sources": [
+    {
+      "source_id": "BD_DENGUE_2025_5E",
+      "pages_rechecked": [27,28,37,39,41,45,46,47,48],
+      "findings": "Clinical symptoms do not establish confirmation. Investigations depend on illness day: CBC/Hct, NS1 and liver tests in first five days; antibody pathway from day six. Home eligibility depends on assessments, not reassuring symptoms alone. Adult paracetamol ceiling 3 g/day is not a full prescription. Avoid NSAIDs/steroids and retain return precautions. Null history/examination cannot establish absence of risk."
+    },
+    {
+      "source_id": "BD_HTN_2023_2E",
+      "pages_rechecked": [46,48,51,52,64,65],
+      "visual_pages_rechecked": [64],
+      "findings": "Figure 8: after one month of amlodipine 5 mg daily with target unmet, standard step 2 adds losartan 50 mg daily. Footnotes require adherence review and creatinine/potassium checks before and several weeks after losartan. Women who may become pregnant must not receive losartan/ACEi/ARB; separate step 2 increases amlodipine to 10 mg daily. Current pregnancy has a distinct specialist-referral instruction. Monthly review after medicine initiation/change; treatment should not be universally delayed for unavailable initial tests."
+    },
+    {
+      "source_id": "WHO_CHOLERA_2024",
+      "pages_rechecked": [5,6,9,10],
+      "visual_pages_rechecked": [5],
+      "findings": "Outbreak changes suspected-case definition. Severe criteria take precedence; some dehydration requires no danger signs and at least two listed signs, with Plan B and admission. ORS 75 mL/kg over four hours, hourly reassessment and additional ongoing losses. Antibiotics are conditional, including severe dehydration, pregnancy or elderly status; discharge requires all listed conditions."
+    },
+    {
+      "source_id": "BD_CHIK_2017",
+      "pages_rechecked": [11,17,18,19,20,21,22,26,27],
+      "findings": "Probable case requires clinical plus epidemiological criteria; confirmation requires laboratory evidence. Dengue may overlap/co-infect; manage suspected chikungunya with dengue precautions until excluded. A negative NS1 alone is insufficient in the still-febrile case. PCR within five days; source antibody timing retained. No acute physiotherapy; source-specific medication ceilings must not be blended. Admission triggers include instability, oliguria, altered sensorium, bleeding, persistent disabling symptoms after treatment and high-risk groups; joint pain alone does not establish every trigger."
+    }
+  ]
+}

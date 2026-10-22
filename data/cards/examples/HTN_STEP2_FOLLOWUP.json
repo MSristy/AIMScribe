@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "card_id": "HTN_STEP2_FOLLOWUP",
+  "disease": "hypertension",
+  "clinical_category": "medication_guidance",
+  "title": "Clinician consideration of step 2 after step 1 review",
+  "clinical_context": "Follow-up branch of Figure 8 for adults already on step 1 amlodipine 5 mg once daily. This card does not implement the separate immediate high-BP entry branch, alternate 2.5 mg starting dose or pregnancy-potential pathway.",
+  "relevant_symptoms": [],
+  "applicability": {
+    "op": "all",
+    "conditions": [
+      {"op": "gte", "field": "age_years", "value": 18, "evidence_ids": ["H64_POPULATION"]},
+      {"op": "eq", "field": "current_htn_step", "value": "amlodipine_5mg_once_daily", "evidence_ids": ["H64_STEP2"]},
+      {"op": "gte", "field": "months_since_step1_started", "value": 1, "evidence_ids": ["H64_STEP2"]},
+      {"op": "eq", "field": "bp_target_met", "value": false, "evidence_ids": ["H64_STEP2"]},
+      {"op": "eq", "field": "medicines_taken_regularly_correctly", "value": true, "evidence_ids": ["H64_ADHERENCE"]},
+      {"op": "eq", "field": "pregnant", "value": false, "evidence_ids": ["H64_PREGNANCY"]},
+      {"op": "eq", "field": "may_become_pregnant", "value": false, "evidence_ids": ["H64_PREGNANCY"]},
+      {"op": "eq", "field": "pre_losartan_creatinine_checked", "value": true, "evidence_ids": ["H64_MONITORING"]},
+      {"op": "eq", "field": "pre_losartan_potassium_checked", "value": true, "evidence_ids": ["H64_MONITORING"]}
+    ]
+  },
+  "exclusions": [
+    {"op": "eq", "field": "pregnant", "value": true, "evidence_ids": ["H64_PREGNANCY"]},
+    {"op": "eq", "field": "may_become_pregnant", "value": true, "evidence_ids": ["H64_PREGNANCY"]}
+  ],
+  "required_patient_fields": ["age_years", "current_htn_step", "months_since_step1_started", "bp_target_met", "medicines_taken_regularly_correctly", "pregnant", "may_become_pregnant", "pre_losartan_creatinine_checked", "pre_losartan_potassium_checked"],
+  "recommended_action": "If this follow-up branch applies, show step 2 (amlodipine 5 mg plus losartan 50 mg once daily) for clinician consideration, retaining laboratory review and pregnancy restrictions. Arrange repeat creatinine and potassium several weeks after starting losartan and review BP after one month.",
+  "medications": [
+    {
+      "name": "amlodipine", "dose": "5 mg", "route": null,
+      "frequency": "once daily", "duration": null,
+      "instructions": "Part of the step 2 combination; one-month review is not a fixed treatment duration.",
+      "evidence_ids": ["H64_STEP2"]
+    },
+    {
+      "name": "losartan", "dose": "50 mg", "route": null,
+      "frequency": "once daily", "duration": null,
+      "instructions": "Check serum creatinine and potassium before initiation and several weeks afterward; do not use this pathway in pregnancy or if the patient may become pregnant.",
+      "evidence_ids": ["H64_STEP2", "H64_MONITORING", "H64_PREGNANCY"]
+    }
+  ],
+  "missing_information_policy": "Preserve unknown values; identify missing prerequisites; withhold the dependent action until assessed; retain independently supported recommendations.",
+  "evidence": [
+    {
+      "evidence_id": "H64_POPULATION", "source_id": "BD_HTN_2023_2E",
+      "source_title": "National Guideline on Hypertension", "source_version": "2nd edition, November 2023",
+      "pdf_page": 64, "kind": "figure", "locator": "Figure 8, population heading",
+      "passage": "Measure blood pressure of all adults >=18 years",
+      "transcription_note": "Visually transcribed image text; comparison symbol normalized to ASCII; heading references footnote ** about risk assessment in patients >=40."
+    },
+    {
+      "evidence_id": "H64_STEP2", "source_id": "BD_HTN_2023_2E",
+      "source_title": "National Guideline on Hypertension", "source_version": "2nd edition, November 2023",
+      "pdf_page": 64, "kind": "figure", "locator": "Figure 8, steps 1-3",
+      "passage": "Start amlodipine 5 mg once daily. Review after 1 month. If treatment target not met, amlodipine 5 mg + losartan 50 mg once daily.",
+      "transcription_note": "Adjacent step 1/2 text joined and superscript markers omitted; step 3 also specifies review after 1 month. Original layout retained in PDF/PNG."
+    },
+    {
+      "evidence_id": "H64_ADHERENCE", "source_id": "BD_HTN_2023_2E",
+      "source_title": "National Guideline on Hypertension", "source_version": "2nd edition, November 2023",
+      "pdf_page": 64, "kind": "footnote", "locator": "Figure 8, footnote c",
+      "passage": "Check that the patient has been taking drugs regularly and correctly.",
+      "transcription_note": "Visually transcribed image text."
+    },
+    {
+      "evidence_id": "H64_MONITORING", "source_id": "BD_HTN_2023_2E",
+      "source_title": "National Guideline on Hypertension", "source_version": "2nd edition, November 2023",
+      "pdf_page": 64, "kind": "footnote", "locator": "Figure 8, footnote d",
+      "passage": "Before initiating and several weeks after starting losartan, check serum creatinine and serum potassium.",
+      "transcription_note": "Visually transcribed image text."
+    },
+    {
+      "evidence_id": "H64_PREGNANCY", "source_id": "BD_HTN_2023_2E",
+      "source_title": "National Guideline on Hypertension", "source_version": "2nd edition, November 2023",
+      "pdf_page": 64, "kind": "figure", "locator": "Figure 8, pregnancy-potential warning and footnote ***",
+      "passage": "DO NOT PRESCRIBE losartan or any ACE inhibitor or ARB to women who may become pregnant. This protocol should not be used for pregnant patients. If patient is pregnant, refer to a specialist.",
+      "transcription_note": "Warning panel and footnote *** joined; line breaks normalized. This restriction is not inferred from sex alone."
+    }
+  ],
+  "limitations": [
+    "Selected representation included in the canonical dataset; working clinical application and runtime condition checks are not yet implemented. Clinician assessment remains necessary.",
+    "Checked lab flags do not establish acceptable lab results or all contraindications; this source figure supplies no numerical renal/potassium eligibility thresholds.",
+    "BP-target status and pregnancy-potential status must be assessed explicitly, not guessed by the model from age or sex.",
+    "Operational gating on assessed prerequisites is this prototype's representation choice; the source does not supply a computer-executable predicate.",
+    "Route and fixed prescription duration are not specified in Figure 8 and remain null. Other drugs, allergies, comorbidities and clinician judgement can still affect suitability."
+  ]
+}
