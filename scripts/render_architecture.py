@@ -61,7 +61,7 @@ def main():
     folder = ROOT/'docs'
     folder.mkdir(exist_ok=True)
     svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-labelledby="title desc">',
-           '<title id="title">AIMScribe complete architecture: implemented and future components</title>',
+           '<title id="title">Clinical NLP complete architecture: implemented and future components</title>',
            '<desc id="desc">Protocol preparation and canonical-card BM25 retrieval feed one model call and common checks; Improved adds a pre-model applicability preview. Future NER is confirmed before input; future doctor acceptance, prescription drafts and governed feedback connect after output.</desc>',
            '<rect width="100%" height="100%" fill="#ffffff"/>']
     canvas = Image.new('RGB', (WIDTH, HEIGHT), 'white')
@@ -76,7 +76,7 @@ def main():
         svg.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{radius}" fill="{fill}" stroke="{stroke}" stroke-width="2"'+(' stroke-dasharray="8 6"' if dashed else '')+'/>')
         draw.rounded_rectangle((x,y,x+w,y+h), radius=radius, fill=fill, outline=stroke, width=2)
         # Dashed arrows and explicit F labels distinguish futures in the PNG.
-    text(45,24,'AIMScribe | Complete recommender architecture',34,bold=True)
+    text(45,24,'Clinical NLP | Complete recommender architecture',34,bold=True)
     text(45,70,'I = implemented prototype     F = future design only     Orange = tested optional preview     Dashed arrows = future connections',21)
     groups = [(35,110,1690,295,'OFFLINE | Protocol preparation and source provenance'),
               (35,455,490,330,'INPUT | Patient facts remain available throughout'),

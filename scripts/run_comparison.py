@@ -15,10 +15,8 @@ FOLDER = ROOT/'evaluation/experiment'
 
 
 def verify_manifest():
-    manifest = json.loads((FOLDER/'manifest.json').read_text(encoding='utf-8'))
-    for filename, expected in manifest['sha256'].items():
-        if hashlib.sha256((ROOT/filename).read_bytes()).hexdigest() != expected:
-            raise ValueError('Frozen file changed: '+filename)
+    from src.release_integrity import verify_frozen_snapshot
+    manifest = verify_frozen_snapshot(ROOT)
     if configured_model_name() != manifest['model'] or SETTINGS != manifest['settings']:
         raise ValueError('Model/settings changed after freeze.')
     return manifest
@@ -26,6 +24,8 @@ def verify_manifest():
 
 def main():
     manifest = verify_manifest()
+    if (FOLDER/'branding-amendment.json').exists():
+        raise SystemExit('This post-experiment branding release preserves the original saved comparison. Create a separately versioned plan/freeze for new batch calls; do not attribute renamed runtime bytes to the original freeze.')
     cases = json.loads((FOLDER/'cases.json').read_text(encoding='utf-8'))['cases']
     destination = FOLDER/'outputs'
     destination.mkdir(exist_ok=True)

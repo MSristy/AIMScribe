@@ -28,7 +28,7 @@ def request(path, key, payload=None):
     body = None if payload is None else json.dumps(payload).encode('utf-8')
     req = Request(ENDPOINT+path, data=body,
                   headers={'Content-Type': 'application/json', 'Authorization': 'Bearer '+key,
-                           'User-Agent': 'Mozilla/5.0 (compatible; AIMScribe-Prototype/0.1)'})
+                           'User-Agent': 'Mozilla/5.0 (compatible; Clinical-NLP-Prototype/0.1)'})
     try:
         with urlopen(req, timeout=180) as response:
             return json.load(response)

@@ -10,7 +10,7 @@ from src.model import model_status, configured_model_name
 from src.patient import prepare_patient
 
 ROOT = Path(__file__).resolve().parent
-st.set_page_config(page_title='AIMScribe | Clinical guideline assistant', page_icon='🩺', layout='wide')
+st.set_page_config(page_title='Clinical NLP | Clinical guideline assistant', page_icon='🩺', layout='wide')
 st.markdown('''<style>
 .stApp {background:#f5f8fc;color:#172b45} [data-testid="stSidebar"] {background:#fff;border-right:1px solid #e3eaf2}
 .block-container {padding-top:2rem;max-width:1600px} h1,h2,h3 {color:#12304e}
@@ -19,7 +19,7 @@ st.markdown('''<style>
 .hero h1 {margin:0;font-size:2.2rem}.hero p {margin:6px 0;color:#48637b}
 .stButton>button {border-radius:9px} [data-testid="stMetricValue"] {font-size:1.5rem}
 </style>''', unsafe_allow_html=True)
-st.markdown('<div class="hero"><h1>AIMScribe</h1><p>From patient findings to a source-linked care plan</p><p>Fictional assessment prototype · Recommendations require clinician review</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="hero"><h1>Clinical NLP</h1><p>From patient findings to a source-linked care plan</p><p>Fictional assessment prototype · Recommendations require clinician review</p></div>', unsafe_allow_html=True)
 
 
 @st.cache_data
@@ -319,4 +319,4 @@ with right:
             st.json({'model': record.get('model'), 'prompt_version': record.get('prompt_version'), 'retrieval_query': record.get('query'), 'card_decisions': record.get('raw_decisions')})
             if record.get('errors'):
                 st.write(record['errors'])
-            st.download_button('Download input, plan & evidence', json.dumps(record, ensure_ascii=False, indent=2), 'aimscribe-run.json', 'application/json')
+            st.download_button('Download input, plan & evidence', json.dumps(record, ensure_ascii=False, indent=2), 'clinical-nlp-run.json', 'application/json')

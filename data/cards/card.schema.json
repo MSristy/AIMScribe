@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AIMScribe canonical recommendation card",
+  "title": "Clinical NLP canonical recommendation card",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "card_id", "disease", "clinical_category", "title", "clinical_context", "relevant_symptoms", "applicability", "exclusions", "required_patient_fields", "recommended_action", "medications", "missing_information_policy", "evidence", "limitations"],

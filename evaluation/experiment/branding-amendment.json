@@ -1,0 +1,65 @@
+{
+  "release": "clinical-nlp-branding-v1",
+  "created_at_utc": "2026-10-22T07:11:01.396498+00:00",
+  "scope": "Post-experiment display/download/transport-label rename plus verification adapter and batch replay guard. No clinical recommendation, source corpus, patient case, checklist, model setting or saved output changed.",
+  "original_manifest_sha256": "fc24e5d0dd3e08f5d2e271f97a7638151182fac465ec2e22499533a35fdcc4e2",
+  "original_experiment_is_not_rerun": true,
+  "integrity_method": "Verify current release hashes, reverse the exact recorded base64 byte substitutions, then verify original pre-call frozen hashes. Base64 encodes auditable patch literals, not credentials.",
+  "new_batch_policy": "New batch calls require a separately versioned plan/freeze. Interactive modes remain runnable.",
+  "files": {
+    "app.py": {
+      "original_sha256": "f4c5580dad8464b3430f4fb963ca76ea7fbebb209bcf2072e8c66055916ba299",
+      "release_sha256": "41c64f23d627e54eed3c9928e3303f3f2830ceeb7b992f1bfec7cb4f8724bc38",
+      "replacements": [
+        {
+          "before_base64": "QUlNU2NyaWJl",
+          "after_base64": "Q2xpbmljYWwgTkxQ",
+          "count": 2
+        },
+        {
+          "before_base64": "YWltc2NyaWJlLXJ1bi5qc29u",
+          "after_base64": "Y2xpbmljYWwtbmxwLXJ1bi5qc29u",
+          "count": 1
+        }
+      ]
+    },
+    "src/__init__.py": {
+      "original_sha256": "b631ce93410576adcbe6cf142634b676af6576faa91c43525920e1a00fe2a5f7",
+      "release_sha256": "f00481a6b4749ecff2a03f9a98c758f3d85f5e01a69d908028be6ae105f595d4",
+      "replacements": [
+        {
+          "before_base64": "QUlNU2NyaWJl",
+          "after_base64": "Q2xpbmljYWwgTkxQ",
+          "count": 1
+        }
+      ]
+    },
+    "src/groq_api.py": {
+      "original_sha256": "7131ba985a7ebb751979e8ad4e9640adef8766ee017a9bd56776b1f36d56a147",
+      "release_sha256": "2870366c1ac114e73175d3783d2fcb7cf18ff121c63a176e1191011ef2e026c4",
+      "replacements": [
+        {
+          "before_base64": "QUlNU2NyaWJlLVByb3RvdHlwZQ==",
+          "after_base64": "Q2xpbmljYWwtTkxQLVByb3RvdHlwZQ==",
+          "count": 1
+        }
+      ]
+    },
+    "scripts/run_comparison.py": {
+      "original_sha256": "95f3da1ba7bfb43d2751dc287470fba4acfd1d1d0a59ab2f07565cf93bb6b017",
+      "release_sha256": "36065f76af826f43b5a58e6cdb168236d7ecfc5e252cbe2a2ec73cc101adcf69",
+      "replacements": [
+        {
+          "before_base64": "ICAgIG1hbmlmZXN0ID0ganNvbi5sb2FkcygoRk9MREVSLydtYW5pZmVzdC5qc29uJykucmVhZF90ZXh0KGVuY29kaW5nPSd1dGYtOCcpKQogICAgZm9yIGZpbGVuYW1lLCBleHBlY3RlZCBpbiBtYW5pZmVzdFsnc2hhMjU2J10uaXRlbXMoKToKICAgICAgICBpZiBoYXNobGliLnNoYTI1NigoUk9PVC9maWxlbmFtZSkucmVhZF9ieXRlcygpKS5oZXhkaWdlc3QoKSAhPSBleHBlY3RlZDoKICAgICAgICAgICAgcmFpc2UgVmFsdWVFcnJvcignRnJvemVuIGZpbGUgY2hhbmdlZDogJytmaWxlbmFtZSkK",
+          "after_base64": "ICAgIGZyb20gc3JjLnJlbGVhc2VfaW50ZWdyaXR5IGltcG9ydCB2ZXJpZnlfZnJvemVuX3NuYXBzaG90CiAgICBtYW5pZmVzdCA9IHZlcmlmeV9mcm96ZW5fc25hcHNob3QoUk9PVCkK",
+          "count": 1
+        },
+        {
+          "before_base64": "ZGVmIG1haW4oKToKICAgIG1hbmlmZXN0ID0gdmVyaWZ5X21hbmlmZXN0KCkK",
+          "after_base64": "ZGVmIG1haW4oKToKICAgIG1hbmlmZXN0ID0gdmVyaWZ5X21hbmlmZXN0KCkKICAgIGlmIChGT0xERVIvJ2JyYW5kaW5nLWFtZW5kbWVudC5qc29uJykuZXhpc3RzKCk6CiAgICAgICAgcmFpc2UgU3lzdGVtRXhpdCgnVGhpcyBwb3N0LWV4cGVyaW1lbnQgYnJhbmRpbmcgcmVsZWFzZSBwcmVzZXJ2ZXMgdGhlIG9yaWdpbmFsIHNhdmVkIGNvbXBhcmlzb24uIENyZWF0ZSBhIHNlcGFyYXRlbHkgdmVyc2lvbmVkIHBsYW4vZnJlZXplIGZvciBuZXcgYmF0Y2ggY2FsbHM7IGRvIG5vdCBhdHRyaWJ1dGUgcmVuYW1lZCBydW50aW1lIGJ5dGVzIHRvIHRoZSBvcmlnaW5hbCBmcmVlemUuJykK",
+          "count": 1
+        }
+      ]
+    }
+  }
+}

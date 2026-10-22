@@ -1,6 +1,8 @@
-# AIMScribe assessment submission
+# Clinical NLP assessment submission
 
 This folder contains the runnable two-mode prototype and all requested assessment deliverables. Start here. All patients are fictional. The six self-authored cases and assistant source review are not independent clinical validation.
+
+This is a post-experiment branding release. The original manifest, clinical cards/index, cases/checklists and twelve output records are unchanged. `evaluation/experiment/branding-amendment.json` records the exact reversible branding patches, so checks verify the current release and reconstruct original frozen bytes. No experiment was rerun or regraded for the name change. Both interactive modes work; new batch comparison calls require a separately versioned plan/freeze. Post-rename verification includes 40 passing software tests.
 
 ## Requirement-to-file map
 
@@ -20,7 +22,7 @@ This folder contains the runnable two-mode prototype and all requested assessmen
 | Short comparison note, separate from table | `evaluation/experiment/comparison-note.md` (392 words) |
 | Complete architecture and design defence | `docs/architecture.svg`, `.png`, `.mmd`; master documentation section 18 |
 | Paper summary | `docs/paper-summary.txt` (256 words) |
-| Offline ten-slide deck, including Bengali notes | `slides/AIMScribe_Research_Prototype.pptx` |
+| Offline ten-slide deck, including Bengali notes | `slides/Clinical_NLP_Research_Prototype.pptx` |
 | Editable Canva link and content/timing backup | `slides/canva-delivery.json`, `slides/q4-slide-content.json` |
 | Tools and AI assistance disclosure | `AI_ASSISTANCE_DISCLOSURE.md` |
 | Full development documentation | `docs/project-documentation.md` |

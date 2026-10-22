@@ -1,1 +1,1 @@
-"""AIMScribe baseline recommender components."""
+"""Clinical NLP baseline recommender components."""

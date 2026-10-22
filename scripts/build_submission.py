@@ -14,7 +14,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 ROOT = Path(__file__).resolve().parents[1]
 DESTINATION = ROOT / 'submission'
 ZIP_PATH = ROOT / 'submission.zip'
-DECK = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.home() / 'Downloads/AIMScribe Research Prototype.pptx'
+DECK = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.home() / 'Downloads/Clinical NLP Research Prototype.pptx'
 
 
 def digest(path):
@@ -34,9 +34,9 @@ def main():
     if not DECK.is_file():
         raise RuntimeError('The actual Canva-exported PowerPoint is required before packaging')
     frozen = json.loads((ROOT / 'evaluation/experiment/manifest.json').read_text(encoding='utf-8'))
-    for name, expected in frozen['sha256'].items():
-        if digest(ROOT / name) != expected:
-            raise RuntimeError('Frozen experiment changed: ' + name)
+    sys.path.insert(0, str(ROOT))
+    from src.release_integrity import verify_frozen_snapshot
+    verify_frozen_snapshot(ROOT)
     DESTINATION.mkdir()
 
     names = ['app.py', 'requirements.txt', '.streamlit/config.toml', '.streamlit/secrets.toml.example',
@@ -63,7 +63,7 @@ def main():
     shutil.copy2(ROOT / 'README.md', DESTINATION / 'docs/prototype-readme.md')
     shutil.copy2(ROOT / 'docs/submission-readme-template.md', DESTINATION / 'README.md')
     shutil.copy2(ROOT / 'docs/ai-assistance-disclosure.md', DESTINATION / 'AI_ASSISTANCE_DISCLOSURE.md')
-    shutil.copy2(DECK, DESTINATION / 'slides/AIMScribe_Research_Prototype.pptx')
+    shutil.copy2(DECK, DESTINATION / 'slides/Clinical_NLP_Research_Prototype.pptx')
 
     # Select the recorded model for offline report checks, using an EMPTY key only.
     # Remove this temporary configuration before hashing or packaging.
@@ -99,9 +99,7 @@ def main():
             temporary_config.unlink()
 
     # Recheck exact source bytes after tests/report generation.
-    for name, expected in frozen['sha256'].items():
-        if digest(DESTINATION / name) != expected:
-            raise RuntimeError('Packaged frozen bytes changed: ' + name)
+    verify_frozen_snapshot(DESTINATION)
     private_values = []
     with (ROOT / '.streamlit/secrets.toml').open('rb') as handle:
         config = tomllib.load(handle)
@@ -129,7 +127,7 @@ def main():
                   'source_pdfs': 'Not bundled: supplied reading materials. Source manifest, assigned extraction and rebuild instructions included.',
                   'slide_source': 'Actual ten-slide Canva PowerPoint export with ten Bengali note parts'}
     write_json(DESTINATION / 'submission-validation.json', validation)
-    manifest = {'format': 'AIMScribe assessment submission v1',
+    manifest = {'format': 'Clinical NLP assessment submission v1',
                 'created_at_utc': datetime.now(timezone.utc).isoformat(),
                 'hash_algorithm': 'SHA256', 'zip_root': 'submission/',
                 'sha256': {p.relative_to(DESTINATION).as_posix(): digest(p)

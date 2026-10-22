@@ -1,4 +1,6 @@
-# AIMScribe
+# Clinical NLP
+
+Post-experiment branding release: the project and repository are now **Clinical NLP** / **MSristy/Clinical-NLP**. The clinical corpus/index, six frozen inputs/checklists, original freeze manifest and twelve saved outputs are unchanged. `evaluation/experiment/branding-amendment.json` records exact reversible substitutions for the renamed app labels, download filename, component docstring and transport label, plus the integrity adapter. Verification reconstructs original frozen bytes rather than pretending the renamed runtime existed before the experiment. Interactive Baseline/Improved remain runnable; the historical batch runner requires a separately versioned plan/freeze for new calls. The post-rename suite has **40 passing tests**, including rejection of unrelated runtime/case changes. Existing local workspace-path references remain literal paths, not display branding.
 
 Interactive Streamlit guideline assistant for fictional assessment patients. Existing Groq-hosted Qwen 3.8 27B selects source-backed recommendations; no training is performed.
 
@@ -8,7 +10,7 @@ Q1 contains 32 canonical cards across the four supplied protocols. Original PDFs
 
 ## System architecture (Question 3)
 
-![Complete AIMScribe architecture: implemented components, optional tested preview and future integrations](docs/architecture.svg)
+![Complete Clinical NLP architecture: implemented components, optional tested preview and future integrations](docs/architecture.svg)
 
 Teal **I** boxes are implemented; orange is the tested pre-model preview; purple **F** boxes/dashed connections are future NER, doctor acceptance, prescription draft and governed feedback design. The app implements neither NER nor a signed prescription workflow. Full Q3 explanation, architectural defence, patient-detail example and cost trade-off: [master documentation, section 18](docs/project-documentation.md#18-question-3-complete-system-architecture). [PNG preview](docs/architecture.png), [editable Mermaid](docs/architecture.mmd); regenerate using `python scripts/render_architecture.py` (Pillow, Windows Segoe UI fonts in the current authoring environment). This documentation change does not alter the frozen Q2 runtime/experiment.
 
@@ -17,8 +19,8 @@ Teal **I** boxes are implemented; orange is the tested pre-model preview; purple
 For a new checkout:
 
 ```powershell
-git clone https://github.com/MSristy/AIMScribe.git
-cd AIMScribe
+git clone https://github.com/MSristy/Clinical-NLP.git
+cd Clinical-NLP
 ```
 
 From the project root in PowerShell (create the environment only if absent):
@@ -139,7 +141,7 @@ Portal package: the local `submission/` folder and `submission.zip` contain all 
 
 Q4 paper discussion: [256-word summary](docs/paper-summary.txt), [editable ten-slide Canva deck](https://www.canva.com/design/DAHYtmFW57U/o3QoYfGj5_GTCnqDOCQQfg/edit), [content with Bengali rehearsal notes](slides/q4-slide-content.json), and master documentation section 19. Bengali notes and per-slide targets in Canva total ten minutes for manual delivery, followed by a live demonstration. Default animation timing is not the talk schedule. [Delivery metadata](slides/canva-delivery.json) records review/editability limits; Canva account permissions govern access and no public-sharing setting was changed. Paper references distinguish printed journal pages from supplied PDF positions and separate automated ablations from the human simulated study. Bangladesh transfer concerns are stated as inference, not local validation results.
 
-Repository: https://github.com/MSristy/AIMScribe (Public), current publishing branch `master`. Changes are uploaded through reviewed commits and `git push`; uploading source code does not host the Streamlit website. A fresh checkout still needs dependencies and its own local API configuration before generation. For later updates, stage the intended files, review `git diff --cached --stat`, run the public-upload check successfully, commit with a descriptive message and push. No background auto-publishing service is configured.
+Repository: https://github.com/MSristy/Clinical-NLP (Public), current publishing branch `master`. Changes are uploaded through reviewed commits and `git push`; uploading source code does not host the Streamlit website. A fresh checkout still needs dependencies and its own local API configuration before generation. For later updates, stage the intended files, review `git diff --cached --stat`, run the public-upload check successfully, commit with a descriptive message and push. No background auto-publishing service is configured.
 
 Public source snapshot: original protocol/paper PDFs, rendered page images, temporary files, virtual environments, credentials, local account diagnostics and interactive/development-trial archives remain local and are excluded by `.gitignore`. Canonical cards, extracted assigned-page text, BM25 index, code, development summary outputs and the complete frozen 12-output experiment are included. See `sources/protocols/README.md` for exact source filenames and extraction/render rebuild commands. The app can use the included cards/index without original PDFs. `.gitattributes` preserves exact file bytes so Windows line-ending conversion does not invalidate frozen SHA256 hashes. Do not run `freeze_experiment.py` again to overwrite the delivered experiment.
 

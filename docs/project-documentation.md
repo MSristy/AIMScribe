@@ -1,4 +1,4 @@
-# AIMScribe - Master Project Documentation
+# Clinical NLP - Master Project Documentation
 
 This is the single master narrative document for project progress, decisions, verification, evidence review and submission preparation. Update it alongside each completed task. The requirement tracker is a checklist; the source manifest and future cards, code and evaluation outputs remain separate machine-readable artifacts.
 
@@ -888,7 +888,7 @@ The user then supplied a Cloud Console screenshot showing the intended project c
 
 The user's subsequent screenshots show the correct Default Gemini Project dashboard is accessible with the key-creating account; the visible project ID matches the reported API-key project. The second screenshot is a public Resource Manager documentation page, not a project setting. No account restriction banner is visible on the shown dashboard. The Start free trial promotion is not a prerequisite for this project's selected no-billing setup and was not activated. This resolves the Console-view diagnostic but does not establish API generation access. One minimal text generation probe using the current model configuration returned the same HTTP 403 project-denied message in 0.635 seconds. Saved the sanitized result in `data/index/generation_probe.json`. No patient case batch was started. Next read-only check is the Generative Language API overview/enabled status for this exact project; do not assume the missing project-view permission was the API-generation failure's cause.
 
-The user clarified that the missing interface was the AIMScribe app itself, not Google settings. Local health probe found no server listening on port 8501. Restarted Streamlit as a hidden background process using the existing project virtual environment, localhost binding and telemetry disabled; stdout/stderr saved under `.local/app/`. Health returned HTTP 200 `ok`. Created a visible in-app browser tab at http://127.0.0.1:8501/, verified the actual AIMScribe page, loaded fictional C01 and clicked Preview retrieved evidence. The UI displayed the patient object and 12 BM25 results in preview mode; no model/API generation was requested. Kept the app tab as a deliverable and saved screenshot `.local/app/interface-preview.png`. This verifies visible input/retrieval interaction, not clinical applicability or a working Gemini recommendation. Google 403 and the incomplete six-case model demonstration remain unresolved; no Q2 improvement experiment was started.
+The user clarified that the missing interface was the Clinical NLP app itself, not Google settings. Local health probe found no server listening on port 8501. Restarted Streamlit as a hidden background process using the existing project virtual environment, localhost binding and telemetry disabled; stdout/stderr saved under `.local/app/`. Health returned HTTP 200 `ok`. Created a visible in-app browser tab at http://127.0.0.1:8501/, verified the actual Clinical NLP page, loaded fictional C01 and clicked Preview retrieved evidence. The UI displayed the patient object and 12 BM25 results in preview mode; no model/API generation was requested. Kept the app tab as a deliverable and saved screenshot `.local/app/interface-preview.png`. This verifies visible input/retrieval interaction, not clinical applicability or a working Gemini recommendation. Google 403 and the incomplete six-case model demonstration remain unresolved; no Q2 improvement experiment was started.
 
 ### 15.6 Google project restriction confirmed (21 October 2026)
 
@@ -1090,7 +1090,7 @@ The user reported ERR_CONNECTION_REFUSED at http://127.0.0.1:8501/. Checked the 
 
 ## 17. GitHub source snapshot and ongoing version control
 
-The user requested uploading the current work to GitHub account MSristy and explicitly selected the Public repository name AIMScribe. Prepared the source snapshot without altering frozen runtime/corpus/experiment files. The local repository had no prior commits or remote. GitHub browser sign-in was completed by the user; no password/OTP was requested in chat.
+The user requested uploading the current work to GitHub account MSristy and explicitly selected the Public repository name Clinical NLP. Prepared the source snapshot without altering frozen runtime/corpus/experiment files. The local repository had no prior commits or remote. GitHub browser sign-in was completed by the user; no password/OTP was requested in chat.
 
 Expanded .gitignore to exclude original protocol/paper PDFs, generated rendered pages, tmp/.local/virtual environment, secret configuration, local model/account connection diagnostics, interactive runs and development-trial archives. The 161 MB hypertension original exceeds GitHub regular-file limits; originals remain intact locally. Included canonical cards, extracted assigned-page text, BM25 index, runtime and test code, documentation, development summaries and the complete 12-output frozen experiment. Added sources/protocols/README.md with source filenames and extraction/render instructions. The app uses included cards/index; original PDFs are needed only to repeat source extraction/visual review.
 
@@ -1098,7 +1098,7 @@ Added .gitattributes with text conversion disabled to preserve frozen byte hashe
 
 ### 17.1 First upload verified
 
-Created the user-authorized Public repository https://github.com/MSristy/AIMScribe under the verified signed-in MSristy account, with no remotely generated README/license/gitignore commit. Initial source commit 9ddfeae (87 files) was pushed on the pre-existing local master branch; origin/master tracks it. The user personally completed Git Credential Manager authorization when the initial push waited for Git authentication. No token/password was displayed or copied into project files.
+Created the user-authorized Public repository https://github.com/MSristy/Clinical-NLP under the verified signed-in MSristy account, with no remotely generated README/license/gitignore commit. Initial source commit 9ddfeae (87 files) was pushed on the pre-existing local master branch; origin/master tracks it. The user personally completed Git Credential Manager authorization when the initial push waited for Git authentication. No token/password was displayed or copied into project files.
 
 Verified git ls-remote origin refs/heads/master equals local HEAD: 9ddfeae2f9baf80ed4dd16e1db3c0587e2518eaf. Verified the tracked file list contains no actual secrets.toml, original PDF, virtual environment, .local/tmp files, interactive run logs or rendered source images. Exported exactly the commit into an ignored clean local folder and ran all 37 software tests there successfully without private credentials, source PDFs or local diagnostic archives. The archive/snapshot copy stays under .local/ and is not uploaded. Existing bare-mode/mock HTTP resource warnings do not fail the suite.
 
@@ -1108,7 +1108,7 @@ Updated README with clone/environment setup and ongoing reviewed-commit workflow
 
 ### 18.1 One architecture diagram and implementation boundary
 
-![AIMScribe complete architecture: implemented pipeline, tested preview and future integrations](architecture.svg)
+![Clinical NLP complete architecture: implemented pipeline, tested preview and future integrations](architecture.svg)
 
 The same diagram is available as `docs/architecture.svg` (scalable), `docs/architecture.png` (preview) and `docs/architecture.mmd` (editable Mermaid). `scripts/render_architecture.py` regenerates all three from the same nodes/edges without an API call. **I** and teal identify implemented prototype components; **F**, purple and dashed arrows identify future design only. Orange is the implemented optional improvement tested in Q2. Future components are connection points, not claims of working NER, feedback capture or prescription generation.
 
@@ -1202,18 +1202,18 @@ The abstract reports superiority on 29/32 axes including 7/9 multimodal metrics.
 
 | Slide | Topic | Seconds |
 |---|---|---:|
-| 1 | AIMScribe and conversational diagnostic AI | 30 |
+| 1 | Clinical NLP | 30 |
 | 2 | Research problem | 60 |
 | 3 | State-aware AMIE design | 75 |
 | 4 | Two evaluation settings | 75 |
 | 5 | Specific result and safety trade-off | 65 |
 | 6 | Bangladesh transfer limitation | 65 |
 | 7 | Adopt explicit gaps and reassessment | 75 |
-| 8 | AIMScribe architecture, implemented/future boundaries | 65 |
+| 8 | Clinical NLP architecture, implemented/future boundaries | 65 |
 | 9 | Our unchanged experiment result | 60 |
 | 10 | Transition to live demonstration | 30 |
 
-Presentation design brief: white background, navy typography, restrained teal emphasis, 16:9, readable flat compositions. Keep text, two evidence tables and simplified process diagrams editable. Cite the paper on relevant slides/notes. Separate AMIE/Gemini paper findings from AIMScribe/Groq Qwen results. No invented screenshots, patient images or claim of reproducing AMIE.
+Presentation design brief: white background, navy typography, restrained teal emphasis, 16:9, readable flat compositions. Keep text, two evidence tables and simplified process diagrams editable. Cite the paper on relevant slides/notes. Separate AMIE/Gemini paper findings from Clinical NLP/Groq Qwen results. No invented screenshots, patient images or claim of reproducing AMIE.
 
 The user specifically requested Canva editing. After the user signed into Canva in the task browser, the assistant created the actual ten-page design through the signed-in Canva UI. No plugin connection was needed for the browser route. Editable design: https://www.canva.com/design/DAHYtmFW57U/o3QoYfGj5_GTCnqDOCQQfg/edit . Delivery metadata is `slides/canva-delivery.json`. No paid plan, trial, payment method or sharing-permission change was activated.
 
@@ -1251,3 +1251,17 @@ Packaging checks run within the copied folder with the existing local interprete
 The user can upload `submission.zip` directly or zip the unchanged `submission` folder. The assistant does not submit to the portal on the user's behalf. Portal-specific size limits or naming rules were not supplied. Actual user rehearsal and the interview/live demonstration remain outstanding; preparing an archive does not mean either has occurred.
 
 Preparation result on 22 October 2026: the copied submission passed all 37 software tests, card/case structural validators and offline saved-experiment report verification. Final standard-library verification passed with 83 files, 19 unchanged frozen files, 32 cards, six cases/checklists, twelve outputs/review hashes, a 256-word summary and ten PowerPoint slides/note parts. Actual local credential values were checked in memory without disclosure and none were included. No real API request was made during packaging. The archive is approximately 18 MB. Folder and ZIP have matching hashed file contents; private preparation logs remain outside the package in `.local/submission-build/`.
+
+## 21. Clinical NLP naming correction after the experiment
+
+The user requested changing the project name everywhere to **Clinical NLP**, including GitHub. GitHub's repository identifier uses the space-free slug **Clinical-NLP**, preserving the repository/commit history rather than creating another repository. Current URL: https://github.com/MSristy/Clinical-NLP . Updated the local origin URL, application page title/heading/download filename, component/transport labels, schema title, documentation, architecture title/image, slide content/notes, Canva design title and offline presentation filename. The working directory itself and historical diagnostic saved-path values remain literal existing paths so the active Windows environment and its interpreter/configuration are not broken. Private historical backups and Git history retain original bytes.
+
+The first proposed broad replacement script was rejected by automatic approval review because it could modify frozen artifacts without a complete backup. It was not executed. A safer plan named individual branding files, backed up all 99 tracked files in a verified private ZIP, and checked protected-evidence hashes before and after applying the limited changes. Cases, expected checklists, clinical cards/index, the original freeze manifest and twelve output records were not rewritten.
+
+Three originally frozen runtime files contain branding: app display/download text, the component package docstring and HTTP User-Agent label. The original pre-call manifest remains unchanged. A new `evaluation/experiment/branding-amendment.json` records exact before/after byte substitutions (base64 patch literals), original/release SHA256 values and the original manifest's SHA256. `src/release_integrity.py` verifies current release bytes, reverses only the registered substitutions and verifies the reconstructed original frozen hashes. It also covers the batch verification adapter and a new guard against running a renamed runtime under the historical freeze. New comparison batches need a separate versioned plan/freeze. Interactive Baseline and Improved modes remain available with identical clinical behaviour/settings. Saved output review hashes and original results remain authoritative; this is not a rerun, regrading or a claim the renamed source existed at the original freeze time.
+
+The Git staged-file check, submission builder and offline package verifier use this explicit original-freeze/branding verification. Three meaningful regression tests ensure the audited release verifies, an unrelated app edit fails verification, and a frozen case edit still fails. The post-rename software suite passed all 40 tests without real API requests. Original pre-rename 37-test results remain historical evidence, rather than being relabeled as a 40-test pre-freeze run.
+
+In Canva, renamed the design to Clinical NLP Research Prototype, used the native Find and replace command for all seven slide-text occurrences and updated all ten Bengali presenter-note/source fields. Shortened the cover title to Clinical NLP to prevent overlap after the longer name. Reviewed the revised layout, and exported a new PowerPoint through Canva. ZIP/XML checks found ten slides, ten note parts and no prior brand in any exported XML/relationships. Current offline deck is `slides/Clinical_NLP_Research_Prototype.pptx` inside the rebuilt submission. The Canva design ID/edit URL is unchanged. No paid plan or sharing-permission change was made.
+
+The old submission folder/archive are preserved privately under `.local/rename/` before creating the updated `submission` folder and `submission.zip`. The new package includes the rename amendment and verifier, current code/docs, unchanged experimental evidence and newly exported slides. The root package README explains the naming release and batch-freeze boundary. Never upload the preserved old archive in place of the current renamed one.

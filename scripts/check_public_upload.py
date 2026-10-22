@@ -31,11 +31,12 @@ def main():
     manifest = json.loads((ROOT/'evaluation/experiment/manifest.json').read_text(encoding='utf-8'))
     import hashlib
     indexed = {p.decode('utf-8') for p in git('ls-files', '-z').split(b'\0') if p}
-    for name, expected in manifest['sha256'].items():
-        if name not in indexed:
-            errors.append({'path': name, 'issue': 'Required frozen experiment file missing from Git index'})
-        elif hashlib.sha256(git('show', ':'+name)).hexdigest() != expected:
-            errors.append({'path': name, 'issue': 'Indexed bytes differ from frozen experiment manifest'})
+    try:
+        sys.path.insert(0, str(ROOT))
+        from src.release_integrity import verify_frozen_snapshot
+        verify_frozen_snapshot(ROOT, read_bytes=lambda name: git('show', ':'+name))
+    except (ValueError, AssertionError, subprocess.CalledProcessError) as exc:
+        errors.append({'path': 'evaluation/experiment', 'issue': 'Original freeze / audited branding release verification failed: '+str(exc)})
     for name in names:
         if name == '.streamlit/secrets.toml' or name == '.env' or name.startswith(('.venv/', '.local/', 'tmp/')):
             errors.append({'path': name, 'issue': 'Private/local path staged'})
@@ -47,8 +48,8 @@ def main():
             errors.append({'path': name, 'issue': 'Known local credential value found; value not printed'})
         if any(re.search(pattern, content) for pattern in patterns):
             errors.append({'path': name, 'issue': 'Credential-like pattern found; value not printed'})
-        if name in manifest['sha256'] and hashlib.sha256(content).hexdigest() != manifest['sha256'][name]:
-            errors.append({'path': name, 'issue': 'Staged bytes differ from frozen experiment manifest'})
+        # All frozen/staged release bytes were checked above, including exact
+        # reverse reconstruction of the original post-experiment rename.
     print(json.dumps({'staged_file_count': len(names), 'staged_bytes': total,
                       'credential_values_checked_without_display': len(private_values),
                       'passed': bool(names) and not errors, 'errors': errors}, indent=2))

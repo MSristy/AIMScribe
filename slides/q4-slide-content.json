@@ -1,5 +1,5 @@
 {
-  "title": "AIMScribe: protocol recommendations and multimodal diagnostic AI",
+  "title": "Clinical NLP: protocol recommendations and multimodal diagnostic AI",
   "language": "English slides with Bengali rehearsal notes",
   "format": "16:9 editable presentation",
   "design": "White background, dark navy typography, restrained teal emphasis. Flat compositions, large readable type. Native editable text, data tables and architecture diagram. No decorative clinical imagery or invented screenshots.",
@@ -8,10 +8,10 @@
   "demo_after_presentation": true,
   "slides": [
     {
-      "number": 1, "seconds": 30, "title": "AIMScribe and conversational diagnostic AI",
+      "number": 1, "seconds": 30, "title": "Clinical NLP",
       "subtitle": "Protocol-based recommendations, a controlled experiment and lessons from multimodal AMIE",
       "body": ["Saab et al. · Nature Medicine · 2026", "Paper discussion and prototype assessment"],
-      "speaker_notes_bn": "আজ প্রথমে Saab ও সহকর্মীদের multimodal AMIE paper ব্যাখ্যা করব। তারপর Bangladesh-এর চারটি protocol ব্যবহার করা AIMScribe prototype-এর architecture ও experiment দেখাব। Paper-এর research system ও আমাদের prototype আলাদা। Presentation প্রায় দশ মিনিট, এরপর live demonstration।",
+      "speaker_notes_bn": "আজ প্রথমে Saab ও সহকর্মীদের multimodal AMIE paper ব্যাখ্যা করব। তারপর Bangladesh-এর চারটি protocol ব্যবহার করা Clinical NLP prototype-এর architecture ও experiment দেখাব। Paper-এর research system ও আমাদের prototype আলাদা। Presentation প্রায় দশ মিনিট, এরপর live demonstration।",
       "sources": ["Saab et al., title and abstract, journal p1726 / PDF p1; DOI above"]
     },
     {
@@ -24,7 +24,7 @@
       "number": 3, "seconds": 75, "title": "AMIE tracks an evolving patient state",
       "body": ["Base model: Gemini 2.0 Flash", "History-taking: update patient profile, differential and information gaps", "Diagnosis and management: validate and explain the assessment", "Follow-up: address questions and update context"],
       "diagram": {"editable": true, "nodes": ["History-taking", "Diagnosis and management", "Follow-up"], "shared_state": "Patient profile, evolving differential, information gaps", "detail": "Targeted questions and artifact requests depend on the evolving state"},
-      "speaker_notes_bn": "Figure 6-এ তিনটি dialogue phase আছে। প্রথমে history-taking, তারপর diagnosis ও management, শেষে follow-up। System একটি evolving patient profile, internal differential এবং information gaps ধরে রাখে। দরকার হলে ছবি বা ভালো angle-এর ছবি চাইতে পারে। State-aware মানে শুধু আগের conversation মনে রাখা নয়, বরং এখন কী জানা আছে এবং কী জানা দরকার তা explicitভাবে track করা। এই uncertainty formally calibrated diagnostic probability নয়। Paper-এর offline post-questionnaire ধাপে constrained web search ব্যবহার হয়েছে; সেটিকে প্রতিটি live turn-এর RAG বলে বর্ণনা করা ঠিক হবে না। আমাদের AIMScribe-এ এই পুরো conversational framework implement করা হয়নি।",
+      "speaker_notes_bn": "Figure 6-এ তিনটি dialogue phase আছে। প্রথমে history-taking, তারপর diagnosis ও management, শেষে follow-up। System একটি evolving patient profile, internal differential এবং information gaps ধরে রাখে। দরকার হলে ছবি বা ভালো angle-এর ছবি চাইতে পারে। State-aware মানে শুধু আগের conversation মনে রাখা নয়, বরং এখন কী জানা আছে এবং কী জানা দরকার তা explicitভাবে track করা। এই uncertainty formally calibrated diagnostic probability নয়। Paper-এর offline post-questionnaire ধাপে constrained web search ব্যবহার হয়েছে; সেটিকে প্রতিটি live turn-এর RAG বলে বর্ণনা করা ঠিক হবে না। আমাদের Clinical NLP-এ এই পুরো conversational framework implement করা হয়নি।",
       "sources": ["Saab et al., Figure 6, journal p1734 / PDF p9; Methods, PDF pp12–13, including offline post-questionnaire retrieval"]
     },
     {
@@ -54,16 +54,16 @@
     },
     {
       "number": 7, "seconds": 75, "title": "Adoption: explicit gaps and reassessment",
-      "body": ["Adopt: preserve known facts, track missing information and reassess new restrictions", "Reason: late allergy or pregnancy information can change the treatment branch", "Defer autonomous multimodal diagnosis until local validation", "AIMScribe uses source-linked cards and doctor review as a future workflow"],
+      "body": ["Adopt: preserve known facts, track missing information and reassess new restrictions", "Reason: late allergy or pregnancy information can change the treatment branch", "Defer autonomous multimodal diagnosis until local validation", "Clinical NLP uses source-linked cards and doctor review as a future workflow"],
       "speaker_notes_bn": "Paper থেকে আমি explicit information-gap tracking এবং নতুন তথ্য এলে reassessment-এর ধারণা নেব। উদাহরণ হিসেবে রোগী পরে allergy বা pregnancy-related restriction জানালে আগের plan নতুন করে evaluate করতে হবে। Paper-এ structured phase-এর rigidity, বিশেষ করে late contraindication এলে সমস্যা, limitation হিসেবে বলা আছে। আমাদের prototype exact patient facts ও unknowns ধরে রাখে এবং edit হলে পুরোনো result hide করে। তবে এটি AMIE-এর পূর্ণ multi-turn state machine নয়। Multimodal autonomous diagnosis এখন adopt করব না, কারণ local evidence, resource feasibility ও clinical validation নেই। Future doctor acceptance ও prescription signing design করা আছে, এখন implement করা হয়নি।",
-      "sources": ["Saab et al., Figure 6 / PDF p9; Discussion late contraindication limitation, journal p1734 / PDF p9; AIMScribe master documentation section 18"]
+      "sources": ["Saab et al., Figure 6 / PDF p9; Discussion late contraindication limitation, journal p1734 / PDF p9; Clinical NLP master documentation section 18"]
     },
     {
-      "number": 8, "seconds": 65, "title": "AIMScribe architecture",
+      "number": 8, "seconds": 65, "title": "Clinical NLP architecture",
       "body": ["4 protocols, 45 assigned pages and 32 canonical cards", "BM25 plus protocol/category coverage retrieves at most 10 cards", "Groq Qwen selects card and patient references", "Shared checks and canonical rendering produce cited recommendations"],
       "diagram": {"editable": true, "nodes": ["Extract and curate", "Cards and BM25", "Patient and retrieval", "Model selection", "Checks and interface"], "future": ["Reviewed NER connects to patient input", "Doctor acceptance connects to prescription drafts and feedback"], "tested_improvement": "applicability_preview between retrieval and model, Improved only"},
       "speaker_notes_bn": "এখন আমাদের implemented system দেখাচ্ছি। চার protocol-এর assigned ৪৫ পৃষ্ঠা থেকে manually curated ৩২ card। BM25 ও coverage policy সর্বোচ্চ দশ card retrieve করে। Model patient facts ও card IDs select করে, তারপর common checks এবং source card থেকে rendering হয়। Tested improvement retrieval-এর পরে model-এর আগে applicability_preview। Source IDs পুরো pipeline-এ থাকে। NER, doctor acceptance, prescription assembly ও feedback future, এগুলো working feature হিসেবে দাবি করছি না। Canonical card রাখায় dose, condition ও source explicit হয়, কিন্তু manual curation ও coverage maintenance লাগে।",
-      "sources": ["AIMScribe docs/project-documentation.md section 18; docs/architecture.mmd; src/engine.py and src/retrieval.py; canonical cards and frozen experiment"]
+      "sources": ["Clinical NLP docs/project-documentation.md section 18; docs/architecture.mmd; src/engine.py and src/retrieval.py; canonical cards and frozen experiment"]
     },
     {
       "number": 9, "seconds": 60, "title": "Our controlled experiment found no net gain",
@@ -71,14 +71,14 @@
       "body": ["Only change: pre-model applicability_preview", "Same model, cards, cases, retrieval and final checks", "C05 missed required exposure clarification in both modes", "Preview added 708 input tokens across six cases and no extra calls"],
       "footnote": "Six self-authored cases, assistant source review. No independent clinical validation. Times exclude quota waits.",
       "speaker_notes_bn": "এই results আমাদের prototype-এর, paper-এর results নয়। Cases ও expected checklists final run-এর আগে freeze করেছি। দুই mode-এ একই model ও source corpus, শুধু preview field আলাদা। ১২ output-এ চারটি করে check করেছি। দুই mode-এই ২৪-এর ২৩ pass, ৬-এর ৫ case সব check pass। C05-তে exposure clarification miss হয়েছে। Missing relevant card/question coverage preview দিয়ে পূরণ হয়নি। Mean time difference থেকে reliable latency effect বলা যায় না। পরের test হবে repeated matched runs, independently authored cases এবং clinician review। Paper-এর reported gain আমাদের ছোট preview experiment-এ reproduce হয়েছে এমন দাবি করছি না।",
-      "sources": ["AIMScribe evaluation/experiment/results.json; results-table.md; manual_reviews.json; comparison-note.md; plan.md"]
+      "sources": ["Clinical NLP evaluation/experiment/results.json; results-table.md; manual_reviews.json; comparison-note.md; plan.md"]
     },
     {
       "number": 10, "seconds": 30, "title": "Live demonstration",
       "body": ["Load C02 and inspect patient context, evidence and plan", "Load C06: change only pregnancy potential", "Show the source-supported branch change and unchanged context", "Enter a new case without a disease label"],
       "footnote": "Live app: http://127.0.0.1:8501/ · Saved comparison outputs remain separate from new runs",
       "speaker_notes_bn": "এখন presentation শেষ করে live demo শুরু করব। আগে C02, তারপর শুধু pregnancy potential বদলানো C06 দেখাব। Source page 64 ও branch restriction দেখাব। শেষে interviewer-এর নতুন case disease name ছাড়াই input দেওয়া যাবে। Free-tier cooldown থাকলে আগের generation-এর পর অন্তত ৬৫ সেকেন্ড ব্যবধান রাখতে হবে। Saved outputs দেখালে স্পষ্ট বলব সেগুলো saved experiment, live response নয়। API unavailable হলে সমস্যা জানাব এবং saved evidence আলাদা করে দেখাব।",
-      "sources": ["AIMScribe evaluation/experiment/cases.json and checklists.json; hypertension protocol PDF p64; app.py; README.md"]
+      "sources": ["Clinical NLP evaluation/experiment/cases.json and checklists.json; hypertension protocol PDF p64; app.py; README.md"]
     }
   ]
 }

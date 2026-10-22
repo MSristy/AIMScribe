@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1580" viewBox="0 0 1760 1580" role="img" aria-labelledby="title desc">
-<title id="title">AIMScribe complete architecture: implemented and future components</title>
+<title id="title">Clinical NLP complete architecture: implemented and future components</title>
 <desc id="desc">Protocol preparation and canonical-card BM25 retrieval feed one model call and common checks; Improved adds a pre-model applicability preview. Future NER is confirmed before input; future doctor acceptance, prescription drafts and governed feedback connect after output.</desc>
 <rect width="100%" height="100%" fill="#ffffff"/>
-<text x="45" y="58" font-family="Segoe UI,Arial,sans-serif" font-size="34" fill="#17324d" font-weight="700">AIMScribe | Complete recommender architecture</text>
+<text x="45" y="58" font-family="Segoe UI,Arial,sans-serif" font-size="34" fill="#17324d" font-weight="700">Clinical NLP | Complete recommender architecture</text>
 <text x="45" y="91" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#17324d" font-weight="400">I = implemented prototype     F = future design only     Orange = tested optional preview     Dashed arrows = future connections</text>
 <rect x="35" y="110" width="1690" height="295" rx="13" fill="#fafcfe" stroke="#d6e0ea" stroke-width="2"/>
 <text x="51" y="141" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="700">OFFLINE | Protocol preparation and source provenance</text>

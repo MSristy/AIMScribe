@@ -23,9 +23,12 @@ def verify(root=ROOT):
             problems.append('Package bytes changed: ' + name)
     experiment = root / 'evaluation/experiment'
     frozen = json.loads((experiment / 'manifest.json').read_text(encoding='utf-8'))
-    for name, digest in frozen['sha256'].items():
-        if not (root / name).is_file() or hashlib.sha256((root / name).read_bytes()).hexdigest() != digest:
-            problems.append('Frozen experiment bytes changed: ' + name)
+    sys.path.insert(0, str(root))
+    from src.release_integrity import verify_frozen_snapshot
+    try:
+        verify_frozen_snapshot(root)
+    except (ValueError, AssertionError) as exc:
+        problems.append('Original freeze / audited branding verification failed: ' + str(exc))
     reviews = json.loads((experiment / 'manual_reviews.json').read_text(encoding='utf-8'))['rows']
     for row in reviews:
         p = experiment / 'outputs' / (row['case_id'] + '_' + row['mode'] + '.json')
@@ -43,7 +46,7 @@ def verify(root=ROOT):
     words = len((root / 'docs/paper-summary.txt').read_text(encoding='utf-8').split())
     if not 200 <= words <= 300:
         problems.append('Paper summary is outside 200–300 words')
-    pptx = root / 'slides/AIMScribe_Research_Prototype.pptx'
+    pptx = root / 'slides/Clinical_NLP_Research_Prototype.pptx'
     with ZipFile(pptx) as archive:
         slides = [n for n in archive.namelist() if re.fullmatch(r'ppt/slides/slide\d+\.xml', n)]
         notes = [n for n in archive.namelist() if re.fullmatch(r'ppt/notesSlides/notesSlide\d+\.xml', n)]
