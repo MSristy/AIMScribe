@@ -35,3 +35,5 @@ Current milestone: Q1 and Q2 implementation/experiment package completed for the
 
 
 
+
+- [x] Care-plan no-evidence display retains four categories and the existing empty-recommendation message.

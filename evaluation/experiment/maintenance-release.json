@@ -1,6 +1,6 @@
 {
   "release": "positive-source-anchor-gate-v1",
-  "created_at_utc": "2026-10-22T18:54:44.241674+00:00",
+  "created_at_utc": "2026-10-22T19:01:58.179803+00:00",
   "scope": "Post-comparison retrieval maintenance: conservative English negative-list removal from search text, positive source-anchor gating, no zero-score/category padding, and honest no-evidence UI without a model call. Raw patient data, model settings, source corpus and original experiment evidence are unchanged.",
   "original_manifest_sha256": "fc24e5d0dd3e08f5d2e271f97a7638151182fac465ec2e22499533a35fdcc4e2",
   "original_source_archive": "evaluation/experiment/frozen-source.zip",
@@ -8,7 +8,7 @@
   "original_results_apply_to_archived_source_only": true,
   "no_new_paired_experiment_claim": true,
   "current_files_sha256": {
-    "app.py": "5ca8182c54c11ffcafb4e46b264b6ab78fada9fa53e7b8abc8264cbc143844ac",
+    "app.py": "74e63ac3096ae45057c95afb5a171bdc0a4bf9e210233e361b5180400937b224",
     "data/cards/cards.jsonl": "2a5d99bd7402ea3a05d9d51abae32082761c3c702eef0567bf2ba9b39db8084a",
     "data/index/bm25.json": "0c47f9a1937b6194f465ea2a9656e3d5167c83ece45a1755ba4dc9ecd9e9330b",
     "evaluation/experiment/cases.json": "e99eb58399239c0d6046858c85d77872f4c47399104ea4be941e4f130a55604c",

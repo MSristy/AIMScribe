@@ -216,6 +216,13 @@ with left:
             st.error(str(exc))
 
 
+CARE_PLAN_LABELS = {'probable_diagnosis': 'Probable diagnoses & alternatives',
+                    'investigations': 'Investigations & assessment',
+                    'medication_guidance': 'Medication & treatment planning',
+                    'advice': 'Advice, warnings & follow-up'}
+EMPTY_RECOMMENDATION = 'No recommendation selected here. Check clarification needs and evidence; this does not mean that no care is needed.'
+
+
 def show_citations(card_ids, hits):
     for ref in evidence_for(card_ids, hits):
         grouped = {}
@@ -263,6 +270,10 @@ with right:
             if record['status'] == 'no_evidence':
                 st.warning('Insufficient relevant protocol evidence. The available positive findings do not match the supported guideline retrieval anchors. No model request was made.')
                 st.caption('This prototype covers four protocols only. Review the patient clinically and use an appropriate source. No matching evidence does not mean no care is needed. English negation handling is limited; inspect the original patient context.')
+                for label in CARE_PLAN_LABELS.values():
+                    with st.container(border=True):
+                        st.markdown('#### '+label)
+                        st.caption(EMPTY_RECOMMENDATION)
             elif record['errors']:
                 st.error('A complete plan could not be created. No answer has been substituted.')
                 if any('rate limit' in error.lower() or 'quota' in error.lower() for error in record['errors']):
@@ -281,14 +292,12 @@ with right:
                             st.write('• '+question['question'])
                             st.caption(question['why_needed'])
                             show_citations(question['card_ids'], record['retrieved'])
-                labels = {'probable_diagnosis': 'Probable diagnoses & alternatives', 'investigations': 'Investigations & assessment',
-                          'medication_guidance': 'Medication & treatment planning', 'advice': 'Advice, warnings & follow-up'}
-                for category, label in labels.items():
+                for category, label in CARE_PLAN_LABELS.items():
                     with st.container(border=True):
                         st.markdown('#### '+label)
                         items = [r for r in output['recommendations'] if r['category'] == category]
                         if not items:
-                            st.caption('No recommendation selected here. Check clarification needs and evidence; this does not mean that no care is needed.')
+                            st.caption(EMPTY_RECOMMENDATION)
                         for item in items:
                             st.write(item['action'])
                             st.caption(item['patient_reason'])
