@@ -6,6 +6,12 @@ Interactive Streamlit guideline assistant for fictional assessment patients. Exi
 
 Q1 contains 32 canonical cards across the four supplied protocols. Original PDFs, assigned-page extraction/rendering, source IDs and PDF positions are retained. Q2's light guided interface and two runnable modes are implemented. Q2 continued is complete: frozen cases/checklists, 12 fresh paired outputs, source-reviewed verdicts, compact table and a 392-word comparison note are under `evaluation/experiment/`. Result: both modes 23/24 checks and 5/6 cases passing all four; the preview did not demonstrate net benefit and used 708 extra input tokens. Do not interpret software completion or self-authored case checks as independent clinical validation. Public deployment, training, ASR/NER training and hospital integration are outside scope.
 
+## System architecture (Question 3)
+
+![Complete AIMScribe architecture: implemented components, optional tested preview and future integrations](docs/architecture.svg)
+
+Teal **I** boxes are implemented; orange is the tested pre-model preview; purple **F** boxes/dashed connections are future NER, doctor acceptance, prescription draft and governed feedback design. The app implements neither NER nor a signed prescription workflow. Full Q3 explanation, architectural defence, patient-detail example and cost trade-off: [master documentation, section 18](docs/project-documentation.md#18-question-3-complete-system-architecture). [PNG preview](docs/architecture.png), [editable Mermaid](docs/architecture.mmd); regenerate using `python scripts/render_architecture.py` (Pillow, Windows Segoe UI fonts in the current authoring environment). This documentation change does not alter the frozen Q2 runtime/experiment.
+
 ## Install and launch
 
 For a new checkout:

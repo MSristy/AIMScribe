@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1580" viewBox="0 0 1760 1580" role="img" aria-labelledby="title desc">
+<title id="title">AIMScribe complete architecture: implemented and future components</title>
+<desc id="desc">Protocol preparation and canonical-card BM25 retrieval feed one model call and common checks; Improved adds a pre-model applicability preview. Future NER is confirmed before input; future doctor acceptance, prescription drafts and governed feedback connect after output.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="45" y="58" font-family="Segoe UI,Arial,sans-serif" font-size="34" fill="#17324d" font-weight="700">AIMScribe | Complete recommender architecture</text>
+<text x="45" y="91" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#17324d" font-weight="400">I = implemented prototype     F = future design only     Orange = tested optional preview     Dashed arrows = future connections</text>
+<rect x="35" y="110" width="1690" height="295" rx="13" fill="#fafcfe" stroke="#d6e0ea" stroke-width="2"/>
+<text x="51" y="141" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="700">OFFLINE | Protocol preparation and source provenance</text>
+<rect x="35" y="455" width="490" height="330" rx="13" fill="#fafcfe" stroke="#d6e0ea" stroke-width="2"/>
+<text x="51" y="486" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="700">INPUT | Patient facts remain available throughout</text>
+<rect x="560" y="455" width="1140" height="675" rx="13" fill="#fafcfe" stroke="#d6e0ea" stroke-width="2"/>
+<text x="576" y="486" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="700">RUNTIME | Shared pipeline</text>
+<rect x="35" y="795" width="490" height="300" rx="13" fill="#fafcfe" stroke="#d6e0ea" stroke-width="2"/>
+<text x="51" y="826" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="700">FUTURE | NER input connector</text>
+<rect x="35" y="1160" width="1010" height="315" rx="13" fill="#fafcfe" stroke="#d6e0ea" stroke-width="2"/>
+<text x="51" y="1191" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="700">FUTURE | Clinician workflow and governed feedback</text>
+<text x="60" y="328" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#17324d" font-weight="400">Provenance travels with evidence: source ID + title/version + PDF page -&gt; evidence ID -&gt; card ID -&gt; output references</text>
+<polyline points="335,225 380,225" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="380,225 369,219 369,231" fill="#376277"/>
+<polyline points="670,225 715,225" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="715,225 704,219 704,231" fill="#376277"/>
+<polyline points="1035,225 1080,225" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1080,225 1069,219 1069,231" fill="#376277"/>
+<polyline points="280,610 280,655" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="280,655 274,644 286,644" fill="#376277"/>
+<polyline points="1252,285 1252,430 900,430 900,505" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="900,505 894,494 906,494" fill="#376277"/>
+<text x="1060" y="422" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#376277" font-weight="400">indexed cards</text>
+<polyline points="500,707 545,707 545,558 590,558" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="590,558 579,552 579,564" fill="#376277"/>
+<text x="510" y="643" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#376277" font-weight="400">query</text>
+<polyline points="500,682 535,682 535,655 1390,655 1390,705" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1390,705 1384,694 1396,694" fill="#376277"/>
+<text x="850" y="641" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#376277" font-weight="400">same patient facts in BOTH modes</text>
+<polyline points="1050,550 1510,550 1510,705" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1510,705 1504,694 1516,694" fill="#376277"/>
+<text x="1260" y="538" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#376277" font-weight="400">Baseline: patient + cards</text>
+<polyline points="820,610 820,705" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="820,705 814,694 826,694" fill="#376277"/>
+<text x="830" y="689" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#376277" font-weight="400">Improved path</text>
+<polyline points="1050,760 1110,760" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1110,760 1099,754 1099,766" fill="#376277"/>
+<polyline points="1390,830 1390,880" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1390,880 1384,869 1396,869" fill="#376277"/>
+<polyline points="1110,938 1050,938" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1050,938 1061,932 1061,944" fill="#376277"/>
+<polyline points="1390,995 1390,1025" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1390,1025 1384,1014 1396,1014" fill="#376277"/>
+<polyline points="1390,1105 1390,1145" fill="none" stroke="#376277" stroke-width="2.5"/>
+<polygon points="1390,1145 1384,1134 1396,1134" fill="#376277"/>
+<polyline points="280,945 280,985" fill="none" stroke="#7955a0" stroke-width="2.5" stroke-dasharray="9 7"/>
+<polygon points="280,985 274,974 286,974" fill="#7955a0"/>
+<polyline points="60,1025 30,1025 30,707 60,707" fill="none" stroke="#7955a0" stroke-width="2.5" stroke-dasharray="9 7"/>
+<polygon points="60,707 49,701 49,713" fill="#7955a0"/>
+<polyline points="1110,1217 1070,1217 1070,1135 280,1135 280,1210" fill="none" stroke="#7955a0" stroke-width="2.5" stroke-dasharray="9 7"/>
+<polygon points="280,1210 274,1199 286,1199" fill="#7955a0"/>
+<text x="595" y="1125" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#7955a0" font-weight="400">clinician workflow (future)</text>
+<polyline points="280,1300 280,1345" fill="none" stroke="#7955a0" stroke-width="2.5" stroke-dasharray="9 7"/>
+<polygon points="280,1345 274,1334 286,1334" fill="#7955a0"/>
+<text x="292" y="1331" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#7955a0" font-weight="400">accepted items</text>
+<polyline points="500,1255 585,1255" fill="none" stroke="#7955a0" stroke-width="2.5" stroke-dasharray="9 7"/>
+<polygon points="585,1255 574,1249 574,1261" fill="#7955a0"/>
+<polyline points="800,1300 800,1345" fill="none" stroke="#7955a0" stroke-width="2.5" stroke-dasharray="9 7"/>
+<polygon points="800,1345 794,1334 806,1334" fill="#7955a0"/>
+<polyline points="1015,1395 1725,1395 1725,153 875,153 875,165" fill="none" stroke="#7955a0" stroke-width="2.5" stroke-dasharray="9 7"/>
+<polygon points="875,165 869,154 881,154" fill="#7955a0"/>
+<text x="1210" y="143" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#7955a0" font-weight="400">reviewed source/card update - not automatic</text>
+<rect x="60" y="165" width="275" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="74" y="198" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Supplied protocols</text>
+<text x="74" y="221" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">4 guidelines; 45 PDF pages</text>
+<text x="74" y="246" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Cover = page 1</text>
+<text x="74" y="271" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Source ID / edition / page</text>
+<rect x="380" y="165" width="290" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="394" y="198" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Extract + visual review</text>
+<text x="394" y="221" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">pypdf text; PDFium images</text>
+<text x="394" y="246" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Tables, footnotes, HTN p64</text>
+<text x="394" y="269" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#17324d" font-weight="400">Extraction is not clinical inference</text>
+<rect x="715" y="165" width="320" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="729" y="197" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#17324d" font-weight="700">I | Curate + validate 32 cards</text>
+<text x="729" y="220" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="400">Canonical JSONL; source passages</text>
+<text x="729" y="246" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Prerequisites / exclusions / doses</text>
+<text x="729" y="270" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#17324d" font-weight="400">card_id + evidence_id + source_id</text>
+<rect x="1080" y="165" width="345" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="1094" y="198" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | RAG storage + indexing</text>
+<text x="1094" y="221" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">cards.jsonl -&gt; BM25 JSON index</text>
+<text x="1094" y="246" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Corpus SHA256; rebuild script</text>
+<text x="1094" y="271" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">No case answers in the index</text>
+<rect x="60" y="505" width="440" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="74" y="538" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Editable Streamlit input</text>
+<text x="74" y="561" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Symptoms, duration, age, history,</text>
+<text x="74" y="586" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">medicines, allergies; optional details</text>
+<text x="74" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">No disease name required</text>
+<rect x="60" y="655" width="440" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="74" y="688" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Preserve patient context</text>
+<text x="74" y="711" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Validation; known facts / unknowns</text>
+<text x="74" y="736" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Null != false != assessed none</text>
+<text x="74" y="761" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Limited derived facts + provenance</text>
+<rect x="590" y="505" width="460" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="604" y="538" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Retrieve patient-specific cards</text>
+<text x="604" y="561" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">BM25 + protocol/category coverage</text>
+<text x="604" y="586" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Maximum 10; same hits in both modes</text>
+<text x="604" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Full original evidence stays available</text>
+<rect x="590" y="705" width="460" height="120" rx="13" fill="#fff7e6" stroke="#bd7a10" stroke-width="2"/>
+<text x="604" y="738" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | TESTED: Improved mode only</text>
+<text x="604" y="761" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">applicability_preview before model</text>
+<text x="604" y="786" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Existing per-card check status</text>
+<text x="604" y="811" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Baseline omits only this preview</text>
+<rect x="1110" y="705" width="560" height="125" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="1124" y="738" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | One configured model request</text>
+<text x="1124" y="761" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Groq Qwen 3.8 27B selects card / F / Q IDs</text>
+<text x="1124" y="786" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Clinical fields + sources; F facts / Q slots</text>
+<text x="1124" y="811" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Full passages are kept in UI / saved records</text>
+<rect x="1110" y="880" width="560" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="1124" y="913" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Shared checks in BOTH modes</text>
+<text x="1124" y="936" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Schema / retrieved IDs / fact + question refs</text>
+<text x="1124" y="961" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Limited observed prerequisites + exclusions</text>
+<text x="1124" y="986" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Unknowns -&gt; clarification / review, not clearance</text>
+<rect x="590" y="880" width="460" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="604" y="913" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Saved run / experiment evidence</text>
+<text x="604" y="936" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Patient, original cards, prompt + response</text>
+<text x="604" y="961" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Mode, timing; freeze hash for final batch</text>
+<text x="604" y="986" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Expected checklists: evaluation only</text>
+<rect x="1110" y="1025" width="560" height="95" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="1124" y="1058" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Canonical output renderer</text>
+<text x="1124" y="1081" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Copy source actions / medication fields</text>
+<text x="1124" y="1106" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Exact input facts explain selections</text>
+<rect x="1110" y="1145" width="560" height="145" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
+<text x="1124" y="1178" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Recommendation interface</text>
+<text x="1124" y="1201" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Probable diagnoses / investigations</text>
+<text x="1124" y="1226" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Medication planning / advice</text>
+<text x="1124" y="1251" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Source title / version / PDF citations</text>
+<text x="1124" y="1276" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Patient context, evidence + missing-info tabs</text>
+<rect x="60" y="845" width="440" height="100" rx="13" fill="#f7f2ff" stroke="#7955a0" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="74" y="878" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">F | NER from clinical text</text>
+<text x="74" y="901" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Entities + spans, negation, temporality,</text>
+<text x="74" y="926" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">units and confidence; preserve raw text</text>
+<rect x="60" y="985" width="440" height="95" rx="13" fill="#f7f2ff" stroke="#7955a0" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="74" y="1018" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">F | Doctor confirms NER suggestions</text>
+<text x="74" y="1041" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Resolve ambiguity before patient merge</text>
+<text x="74" y="1066" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Uncertain values remain unknown</text>
+<rect x="60" y="1210" width="440" height="95" rx="13" fill="#f7f2ff" stroke="#7955a0" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="74" y="1243" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">F | Doctor review + acceptance</text>
+<text x="74" y="1266" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Accept / edit / reject each recommendation</text>
+<text x="74" y="1291" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Link to run, card + source version</text>
+<rect x="60" y="1345" width="440" height="100" rx="13" fill="#f7f2ff" stroke="#7955a0" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="74" y="1378" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">F | Prescription draft assembly</text>
+<text x="74" y="1401" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Accepted medicine items; verify all fields</text>
+<text x="74" y="1426" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Doctor resolves gaps + signs before use</text>
+<rect x="585" y="1210" width="430" height="95" rx="13" fill="#f7f2ff" stroke="#7955a0" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="599" y="1243" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">F | Doctor feedback store</text>
+<text x="599" y="1266" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">run_id / card_id / source / version</text>
+<text x="599" y="1291" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Decision, changes, reason + timestamp</text>
+<rect x="585" y="1345" width="430" height="120" rx="13" fill="#f7f2ff" stroke="#7955a0" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="599" y="1378" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">F | Governed maintenance</text>
+<text x="599" y="1401" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Review feedback; revalidate source/cards</text>
+<text x="599" y="1426" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">New corpus version + prospective tests</text>
+<text x="599" y="1451" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">No automatic truth labels or training</text>
+<text x="45" y="1522" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#17324d" font-weight="400">Full source passages stay in canonical cards / retrieved records / UI; the model receives the readable clinical-field projection.</text>
+<text x="45" y="1555" font-family="Segoe UI,Arial,sans-serif" font-size="21" fill="#17324d" font-weight="400">Limited checks are not full clinical validation. Frozen expected answers remain outside prompts and the retrieval index.</text>
+</svg>

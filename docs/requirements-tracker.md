@@ -1,6 +1,6 @@
 # AIMScribe Progress Tracker
 
-Current milestone: Q1 and Q2 implementation/experiment package completed for the current assessment scenarios. Two modes in one app; 37 software tests passed. Six unchanged inputs and source-linked checklists frozen BEFORE the 12 fresh comparison calls; code/data hashes and exact pair isolation verified. Assistant source review: Baseline 23/24 checks and 5/6 all-four-pass cases; Improved 23/24 and 5/6, with 708 extra input tokens and no extra calls. C05 key-behaviour failure remains in both; no net improvement demonstrated. Complete table/manual reasons/392-word comparison note are in evaluation/experiment/. These self-authored cases are not independent clinical validation. Prior development outputs/replay remain separate. Free model: Qwen 3.8 27B, temperature 0, reasoning none, max completion 900; maximum 10 retrieved cards. Google remains Restricted; no billing enabled. Whole-assessment work after Q2 remains pending. See master section 16.3.
+Current milestone: Q1 and Q2 implementation/experiment package completed for the current assessment scenarios. Two modes in one app; 37 software tests passed. Six unchanged inputs and source-linked checklists frozen BEFORE the 12 fresh comparison calls; code/data hashes and exact pair isolation verified. Assistant source review: Baseline 23/24 checks and 5/6 all-four-pass cases; Improved 23/24 and 5/6, with 708 extra input tokens and no extra calls. C05 key-behaviour failure remains in both; no net improvement demonstrated. Complete table/manual reasons/392-word comparison note are in evaluation/experiment/. These self-authored cases are not independent clinical validation. Prior development outputs/replay remain separate. Free model: Qwen 3.8 27B, temperature 0, reasoning none, max completion 900; maximum 10 retrieved cards. Google remains Restricted; no billing enabled. Q3 architecture and design defence are also complete (master section 18). Paper summary, slides and final submission work remain pending. See master sections 16.3 and 18.
 
 - [x] 01. Verify VS Code interpreter, folders and Python environment setup
 - [x] 02. Collect correct protocol editions and register sources
@@ -21,11 +21,12 @@ Current milestone: Q1 and Q2 implementation/experiment package completed for the
 - [x] 15. Save 12 fresh final outputs with full evidence, exact requests/responses, settings, timings and freeze-manifest hash; no replay, retries or replaced failure
 - [x] 16. Source-review all four checks for each output; manual_reviews.json holds verdicts/reasons/PDF pages and exact output hashes. results-table.md/results.json report denominators and honest C05 failures
 - [x] 17. Write 392-word one-page comparison note plus separate table; report unchanged/worse cost, C05 partial gain/remaining failure, raw C04 weakness, model variability and next test
-- [ ] 18. Complete architecture, design defence, trade-off and future NER/feedback/acceptance/prescription connections
+- [x] 18. Q3 complete architecture diagram (SVG/PNG/Mermaid), implemented/future labels, pre-model tested-preview location, source-ID flow, patient-detail counterfactual, design defence and cost trade-off; future NER/doctor acceptance/feedback/prescription connections are design only. See master section 18
 - [ ] 19. Read assigned paper and write 200-300-word summary with referenced result and Bangladesh transfer limitation
 - [ ] 20. Prepare 5-10 slides and approximately 10-minute presentation
 - [x] 21a. Q2 README launch/rebuild instructions, current model/settings, replay caveat and AI assistance disclosure
 - [ ] 21. Complete whole-assessment submission README/disclosure after remaining questions and experiment
 - [ ] 22. Verify clean setup, complete submission package and rehearse live demo
+
 
 
