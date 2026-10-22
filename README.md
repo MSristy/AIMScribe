@@ -8,9 +8,17 @@ Q1 contains 32 canonical cards across the four supplied protocols. Original PDFs
 
 ## Install and launch
 
-From the project root in PowerShell:
+For a new checkout:
 
 ```powershell
+git clone https://github.com/MSristy/AIMScribe.git
+cd AIMScribe
+```
+
+From the project root in PowerShell (create the environment only if absent):
+
+```powershell
+if (-not (Test-Path .venv)) { python -m venv .venv }
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python scripts/build_index.py
@@ -120,6 +128,8 @@ Delivered experiment artifacts:
 Mean elapsed: baseline 1.4882 s, improved 1.5371 s, quota waits excluded. Total input tokens 35,905 versus 36,613; completion tokens 2,516 versus 2,525. One call per case/mode, no added call. A small latency difference from six observations does not establish a performance effect. Source support was reviewed by the assistant against actual source text/diagrams, not inferred solely from valid card IDs. Keep Baseline as the default; the name Improved identifies the experimental variant, not proven superiority. Pre-freeze software suite: 37 tests passed. Subsequent report generation verified all frozen code/data hashes unchanged.
 
 ## Documentation and AI assistance
+
+Repository: https://github.com/MSristy/AIMScribe (Public), current publishing branch `master`. Changes are uploaded through reviewed commits and `git push`; uploading source code does not host the Streamlit website. A fresh checkout still needs dependencies and its own local API configuration before generation. For later updates, stage the intended files, review `git diff --cached --stat`, run the public-upload check successfully, commit with a descriptive message and push. No background auto-publishing service is configured.
 
 Public source snapshot: original protocol/paper PDFs, rendered page images, temporary files, virtual environments, credentials, local account diagnostics and interactive/development-trial archives remain local and are excluded by `.gitignore`. Canonical cards, extracted assigned-page text, BM25 index, code, development summary outputs and the complete frozen 12-output experiment are included. See `sources/protocols/README.md` for exact source filenames and extraction/render rebuild commands. The app can use the included cards/index without original PDFs. `.gitattributes` preserves exact file bytes so Windows line-ending conversion does not invalidate frozen SHA256 hashes. Do not run `freeze_experiment.py` again to overwrite the delivered experiment.
 
