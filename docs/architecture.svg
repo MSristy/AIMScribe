@@ -97,9 +97,9 @@
 <text x="74" y="761" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Limited derived facts + provenance</text>
 <rect x="590" y="505" width="460" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
 <text x="604" y="538" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Retrieve patient-specific cards</text>
-<text x="604" y="561" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">BM25 + protocol/category coverage</text>
-<text x="604" y="586" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Maximum 10; same hits in both modes</text>
-<text x="604" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Full original evidence stays available</text>
+<text x="604" y="561" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Positive source anchors + BM25</text>
+<text x="604" y="586" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Maximum 10; no padding; zero allowed</text>
+<text x="604" y="611" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Same retrieval policy in both modes</text>
 <rect x="590" y="705" width="460" height="120" rx="13" fill="#fff7e6" stroke="#bd7a10" stroke-width="2"/>
 <text x="604" y="738" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | TESTED: Improved mode only</text>
 <text x="604" y="761" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">applicability_preview before model</text>

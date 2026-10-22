@@ -5,6 +5,7 @@ import json
 import math
 from pathlib import Path
 import re
+from src.retrieval_context import positive_text, source_anchor_matches, RETRIEVAL_VERSION
 
 ROOT = Path(__file__).resolve().parents[1]
 CARDS = ROOT / 'data/cards/cards.jsonl'
@@ -82,32 +83,28 @@ class CardIndex:
         Candidate disease names come from the indexed cards, never case labels.
         Candidate-protocol membership is not a diagnosis or applicability decision.
         """
+        if not 1 <= top_k <= len(self.data['documents']):
+            raise ValueError('top_k must be between 1 and the card count.')
+        query = positive_text(query)
         ranked = self.search(query, len(self.data['documents']))
-        diagnostic = [h for h in ranked if h['card']['clinical_category'] == 'probable_diagnosis']
+        diagnostic = [h for h in ranked if h['card']['clinical_category'] == 'probable_diagnosis'
+                      and source_anchor_matches(h['card'], query)]
         if not diagnostic:
-            return ranked[:top_k]
+            return []
         disease_scores = {}
         for hit in diagnostic:
             disease = hit['card']['disease']
             disease_scores[disease] = max(disease_scores.get(disease, 0), hit['score'])
-        query_terms = set(tokenize(query))
-        anchors = {}
-        for doc in self.data['documents']:
-            card = doc['card']
-            if card['clinical_category'] == 'probable_diagnosis':
-                anchors.setdefault(card['disease'], set()).update(tokenize(' '.join(card['relevant_symptoms'])))
-        candidates = [d for d in sorted(disease_scores, key=lambda d: (-disease_scores[d], d))
-                      if query_terms & anchors.get(d, set())][:2]
+        candidates = sorted(disease_scores, key=lambda d: (-disease_scores[d], d))[:2]
         if not candidates:
-            return ranked[:top_k]
-        by_id = {h['card']['card_id']: h for h in ranked}
+            return []
         pools = {}
         for disease in candidates:
-            pool = [by_id.get(doc['card']['card_id'], {'card': doc['card'], 'score': 0.0, 'matched_terms': []})
-                    for doc in self.data['documents'] if doc['card']['disease'] == disease]
+            pool = [h for h in ranked if h['card']['disease'] == disease
+                    and (not h['card']['relevant_symptoms'] or source_anchor_matches(h['card'], query))]
             pools[disease] = sorted(pool, key=lambda h: (-h['score'], h['card']['card_id']))
         chosen = []
-        # Complete the primary protocol first; use remaining budget for differentials.
+        # Cover categories only within positive-anchor-matched, nonzero-score hits.
         for disease in candidates:
             for category in ('probable_diagnosis', 'investigations', 'medication_guidance', 'advice'):
                 match = next((h for h in pools[disease] if h['card']['clinical_category'] == category), None)
@@ -120,7 +117,7 @@ class CardIndex:
                     if hit['card']['card_id'] not in {h['card']['card_id'] for h in chosen}:
                         chosen.append(hit)
         ids = {h['card']['card_id'] for h in chosen}
-        # Fill remaining slots from primary protocol, then secondary, by BM25.
+        # Return fewer than top_k if the relevant pools run out; never add padding.
         for disease in candidates:
             for hit in pools[disease]:
                 if len(chosen) >= top_k:
@@ -128,5 +125,6 @@ class CardIndex:
                 if hit['card']['card_id'] not in ids:
                     chosen.append(hit)
                     ids.add(hit['card']['card_id'])
-        return [{**h, 'retrieval_policy': 'diagnostic-protocol/category coverage + BM25',
+        return [{**h, 'retrieval_policy': RETRIEVAL_VERSION,
+                 'positive_source_anchors': source_anchor_matches(h['card'], query),
                  'candidate_protocols': candidates} for h in chosen]

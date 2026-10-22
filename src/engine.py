@@ -15,6 +15,7 @@ from src.retrieval import CardIndex
 from src.patient_facts import fact_table, missing_slots, display_fact, questions_for_card, question_maps
 from src.observed_constraints import constraint_review
 from src.clinical_context import normalized_context
+from src.retrieval_context import RETRIEVAL_VERSION
 
 TOP_K = 10
 PROMPT_VERSION = 'baseline-v5-readable-grounded-decisions'
@@ -201,12 +202,13 @@ def recommend(patient, top_k=TOP_K, mode='baseline'):
     retrieved_at = perf_counter()
     record = {'created_at': datetime.now(timezone.utc).isoformat(), 'mode': mode,
               'prompt_version': PROMPT_VERSION, 'patient': patient, 'query': query, 'top_k': top_k,
-              'retrieved': hits, 'status': 'pending', 'output': None, 'errors': []}
+              'retrieved': hits, 'status': 'pending', 'output': None, 'errors': [],
+              'retrieval_version': RETRIEVAL_VERSION, 'api_call_attempted': False}
     record['policy_version'] = POLICY_VERSION
     record['improvement_version'] = IMPROVEMENT_VERSION if mode == 'improved' else None
     record['derived_context'] = normalized_context(patient)
     if not hits:
-        record.update(status='no_evidence', errors=['No matching evidence; no model call made.'])
+        record.update(status='no_evidence', evidence_message='Insufficient relevant protocol evidence for the available positive findings. No model request was made. This does not mean no care is needed.')
     else:
         messages = messages_for(patient, hits, mode)
         record['prompt_sha256'] = hashlib.sha256(json.dumps(messages, ensure_ascii=False).encode()).hexdigest()
@@ -221,6 +223,7 @@ def recommend(patient, top_k=TOP_K, mode='baseline'):
             _, relevant_slots = question_maps(patient, hits)
             schema = selection_schema([h['card']['card_id'] for h in hits],
                                       [f['id'] for f in fact_table(patient)], relevant_slots)
+            record['api_call_attempted'] = True
             raw, status = chat(messages, schema)
             record['model'] = status
             record['raw_response'] = raw

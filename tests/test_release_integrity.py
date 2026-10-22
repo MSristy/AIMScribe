@@ -14,7 +14,12 @@ class ReleaseIntegrityTests(unittest.TestCase):
         manifest = json.loads((ROOT/'evaluation/experiment/manifest.json').read_text())
         names = list(manifest['sha256']) + ['evaluation/experiment/manifest.json',
                                           'evaluation/experiment/branding-amendment.json']
-        for name in names:
+        maintenance = ROOT/'evaluation/experiment/maintenance-release.json'
+        if maintenance.exists():
+            release = json.loads(maintenance.read_text())
+            names += list(release['current_files_sha256'])
+            names += ['evaluation/experiment/maintenance-release.json', release['original_source_archive']]
+        for name in set(names):
             target = destination/name
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(ROOT/name, target)

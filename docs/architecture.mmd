@@ -5,7 +5,7 @@ flowchart TB
   D["I | RAG storage + indexing<br/>cards.jsonl -&gt; BM25 JSON index<br/>Corpus SHA256; rebuild script<br/>No case answers in the index"]
   P["I | Editable Streamlit input<br/>Symptoms, duration, age, history,<br/>medicines, allergies; optional details<br/>No disease name required"]
   V["I | Preserve patient context<br/>Validation; known facts / unknowns<br/>Null != false != assessed none<br/>Limited derived facts + provenance"]
-  R["I | Retrieve patient-specific cards<br/>BM25 + protocol/category coverage<br/>Maximum 10; same hits in both modes<br/>Full original evidence stays available"]
+  R["I | Retrieve patient-specific cards<br/>Positive source anchors + BM25<br/>Maximum 10; no padding; zero allowed<br/>Same retrieval policy in both modes"]
   X["I | TESTED: Improved mode only<br/>applicability_preview before model<br/>Existing per-card check status<br/>Baseline omits only this preview"]
   M["I | One configured model request<br/>Groq Qwen 3.8 27B selects card / F / Q IDs<br/>Clinical fields + sources; F facts / Q slots<br/>Full passages are kept in UI / saved records"]
   K["I | Shared checks in BOTH modes<br/>Schema / retrieved IDs / fact + question refs<br/>Limited observed prerequisites + exclusions<br/>Unknowns -&gt; clarification / review, not clearance"]

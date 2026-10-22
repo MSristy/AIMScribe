@@ -8,6 +8,7 @@ import streamlit as st
 from src.engine import evidence_for, recommend, retrieve
 from src.model import model_status, configured_model_name
 from src.patient import prepare_patient
+from src.retrieval_context import RETRIEVAL_VERSION
 
 ROOT = Path(__file__).resolve().parent
 st.set_page_config(page_title='Clinical NLP | Clinical guideline assistant', page_icon='🩺', layout='wide')
@@ -198,11 +199,13 @@ with left:
             patient = prepare_patient(patient)
             if preview:
                 prepared, query, hits = retrieve(patient)
-                st.session_state.record = {'status': 'preview', 'mode': recommendation_mode, 'patient': prepared, 'query': query, 'retrieved': hits, 'output': None, 'errors': []}
+                st.session_state.record = {'status': 'preview' if hits else 'no_evidence', 'mode': recommendation_mode, 'patient': prepared, 'query': query, 'retrieved': hits, 'output': None, 'errors': [], 'api_call_attempted': False, 'retrieval_version': RETRIEVAL_VERSION}
             else:
-                st.session_state.last_api_start = time.time()
+                generation_started = time.time()
                 with st.spinner('Reviewing protocol evidence and patient findings…'):
                     record = recommend(patient, mode=recommendation_mode)
+                if record.get('api_call_attempted'):
+                    st.session_state.last_api_start = generation_started
                 folder = ROOT/'evaluation/interactive_runs'
                 folder.mkdir(parents=True, exist_ok=True)
                 saved = folder/(datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')+'.json')
@@ -237,8 +240,8 @@ with st.sidebar:
 with right:
     st.subheader('2 · Evidence → 3 · Care plan')
     record = st.session_state.get('record')
-    if record and (record['patient'] != patient or record.get('mode', 'baseline') != recommendation_mode):
-        st.info('Patient information or recommendation mode has changed. Preview evidence or generate a new plan to update the results.')
+    if record and (record['patient'] != patient or record.get('mode', 'baseline') != recommendation_mode or record.get('retrieval_version') != RETRIEVAL_VERSION):
+        st.info('Patient information or recommendation mode has changed, or the retrieval policy was updated. Preview evidence or generate a new plan to update the results.')
         record = None
     if not record:
         with st.container(border=True):
@@ -247,12 +250,20 @@ with right:
             st.caption('A disease name is optional. Unknown information stays unknown.')
     else:
         a, b, c = st.columns(3)
-        a.metric('Source cards', len(record['retrieved']))
-        b.metric('Plan status', 'Ready for review' if record['status'] == 'completed' else record['status'].replace('_', ' ').title())
+        a.metric('Retrieved source cards', len(record['retrieved']))
+        plan_status = record['status'].replace('_', ' ').title()
+        if record['status'] == 'no_evidence':
+            plan_status = 'Insufficient evidence'
+        elif record['status'] == 'completed':
+            plan_status = 'Ready for review' if record['output']['recommendations'] else 'No supported plan'
+        b.metric('Plan status', plan_status)
         c.metric('Elapsed', f"{record.get('timing_seconds', {}).get('total', 0):.1f} s")
         tabs = st.tabs(['Care plan', 'Source evidence', 'Patient context', 'Run details'])
         with tabs[0]:
-            if record['errors']:
+            if record['status'] == 'no_evidence':
+                st.warning('Insufficient relevant protocol evidence. The available positive findings do not match the supported guideline retrieval anchors. No model request was made.')
+                st.caption('This prototype covers four protocols only. Review the patient clinically and use an appropriate source. No matching evidence does not mean no care is needed. English negation handling is limited; inspect the original patient context.')
+            elif record['errors']:
                 st.error('A complete plan could not be created. No answer has been substituted.')
                 if any('rate limit' in error.lower() or 'quota' in error.lower() for error in record['errors']):
                     st.warning('The Free model quota has been reached. Wait for its reset before trying again. No paid upgrade or fallback was attempted.')
@@ -316,7 +327,7 @@ with right:
         with tabs[3]:
             st.caption(record.get('verification_scope', 'Evidence preview only; no model generation.'))
             st.write('Saved file:', record.get('saved_path', 'Preview not saved automatically'))
-            st.json({'model': record.get('model'), 'prompt_version': record.get('prompt_version'), 'retrieval_query': record.get('query'), 'card_decisions': record.get('raw_decisions')})
+            st.json({'model': record.get('model'), 'prompt_version': record.get('prompt_version'), 'retrieval_version': record.get('retrieval_version'), 'retrieval_query': record.get('query'), 'card_decisions': record.get('raw_decisions')})
             if record.get('errors'):
                 st.write(record['errors'])
             st.download_button('Download input, plan & evidence', json.dumps(record, ensure_ascii=False, indent=2), 'clinical-nlp-run.json', 'application/json')

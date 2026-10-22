@@ -2,6 +2,7 @@
 import copy
 import json
 import math
+from src.retrieval_context import positive_text
 
 
 def prepare_patient(value):
@@ -28,8 +29,8 @@ def retrieval_query(patient):
     """Use available patient facts; don't add disease labels or expected answers.
 
     False/null structured findings are not positive search terms. They remain in
-    the full patient object supplied to the model. Prose is preserved as written;
-    negation interpretation remains the model's responsibility in this baseline.
+    the full patient object supplied to the model. Explicit absent/unknown prose
+    clauses are omitted from the search copy only by a limited English heuristic.
     """
     pieces = []
 
@@ -39,7 +40,9 @@ def retrieval_query(patient):
         if value is True:
             pieces.append(label.replace('_', ' '))
         elif isinstance(value, str):
-            pieces.append(label.replace('_', ' ') + ' ' + value)
+            positive = positive_text(value)
+            if positive:
+                pieces.append(label.replace('_', ' ') + ' ' + positive)
         elif isinstance(value, (int, float)):
             pieces.append(label.replace('_', ' ') + ' ' + str(value))
         elif isinstance(value, dict):

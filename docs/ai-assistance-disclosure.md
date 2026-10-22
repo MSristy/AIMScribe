@@ -13,3 +13,6 @@ The tested preview did not improve the total passed-check count: both modes pass
 The paper summary and slides paraphrase Saab et al., Nature Medicine (2026), DOI https://doi.org/10.1038/s41591-026-04371-0. They distinguish automated ablations from the simulated human study and label Bangladesh transfer concerns as inference. Decorative clinical imagery in the deck is illustrative, not evidence from the paper or a real prototype patient. Future NER/feedback/acceptance/prescription components are architectural proposals, not implemented features.
 
 No API keys, passwords, account tokens, real patient data or virtual environment are included in the submitted package. Reviewers need their own authorized model configuration for fresh generations. No new training, hospital integration, production deployment or paid plan was undertaken.
+
+
+Retrieval maintenance disclosure (2026-10-23): Codex implemented the positive source-anchor gate, limited English negative-list handling, honest zero-evidence UI and regression tests in response to the user-reported unrelated-case bug. No real model calls or new clinical grading were performed for this repair. The exact original frozen source is archived separately; the historical 12 outputs and reported counts were not altered.

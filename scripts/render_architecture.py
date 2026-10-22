@@ -16,7 +16,7 @@ NODES = [
  ('D', 1080, 165, 345, 120, 'implemented', ['I | RAG storage + indexing', 'cards.jsonl -> BM25 JSON index', 'Corpus SHA256; rebuild script', 'No case answers in the index']),
  ('P', 60, 505, 440, 105, 'implemented', ['I | Editable Streamlit input', 'Symptoms, duration, age, history,', 'medicines, allergies; optional details', 'No disease name required']),
  ('V', 60, 655, 440, 105, 'implemented', ['I | Preserve patient context', 'Validation; known facts / unknowns', 'Null != false != assessed none', 'Limited derived facts + provenance']),
- ('R', 590, 505, 460, 105, 'implemented', ['I | Retrieve patient-specific cards', 'BM25 + protocol/category coverage', 'Maximum 10; same hits in both modes', 'Full original evidence stays available']),
+ ('R', 590, 505, 460, 105, 'implemented', ['I | Retrieve patient-specific cards', 'Positive source anchors + BM25', 'Maximum 10; no padding; zero allowed', 'Same retrieval policy in both modes']),
  ('X', 590, 705, 460, 110, 'improvement', ['I | TESTED: Improved mode only', 'applicability_preview before model', 'Existing per-card check status', 'Baseline omits only this preview']),
  ('M', 1110, 705, 560, 125, 'implemented', ['I | One configured model request', 'Groq Qwen 3.8 27B selects card / F / Q IDs', 'Clinical fields + sources; F facts / Q slots', 'Full passages are kept in UI / saved records']),
  ('K', 1110, 880, 560, 115, 'implemented', ['I | Shared checks in BOTH modes', 'Schema / retrieved IDs / fact + question refs', 'Limited observed prerequisites + exclusions', 'Unknowns -> clarification / review, not clearance']),

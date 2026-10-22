@@ -2,7 +2,7 @@
 
 This folder contains the runnable two-mode prototype and all requested assessment deliverables. Start here. All patients are fictional. The six self-authored cases and assistant source review are not independent clinical validation.
 
-This is a post-experiment branding release. The original manifest, clinical cards/index, cases/checklists and twelve output records are unchanged. `evaluation/experiment/branding-amendment.json` records the exact reversible branding patches, so checks verify the current release and reconstruct original frozen bytes. No experiment was rerun or regraded for the name change. Both interactive modes work; new batch comparison calls require a separately versioned plan/freeze. Post-rename verification includes 40 passing software tests.
+Post-comparison retrieval maintenance (2026-10-23): 10 cards is a maximum, not a target. Explicit English negative/unknown clauses are excluded from search text, positive source-authored symptom anchors are required, and category coverage never pads with unrelated/zero-score cards. Zero relevant cards displays Insufficient evidence and skips the model call. Raw patient information remains unchanged. The complete software suite passes 49 tests. This limited heuristic is not comprehensive NER or clinical validation. The original 12-output experiment and its results are unchanged and apply to the original 19 source files preserved exactly in evaluation/experiment/frozen-source.zip. A separate maintenance-release.json verifies current runtime hashes; this maintenance release has not undergone a new paired model comparison.
 
 ## Requirement-to-file map
 
@@ -16,6 +16,7 @@ This is a post-experiment branding release. The original manifest, clinical card
 | Six authoritative frozen case inputs | `evaluation/experiment/cases.json` |
 | Source-linked expected-behaviour checklists | `evaluation/experiment/checklists.json` |
 | Prespecified plan, freeze and source review | `evaluation/experiment/plan.md`, `manifest.json`, `source_review.json` |
+| Original frozen source and current maintenance provenance | `evaluation/experiment/frozen-source.zip`, `maintenance-release.json` |
 | Twelve fresh saved outputs | `evaluation/experiment/outputs/` |
 | Four checks, source pages and reasons per output | `evaluation/experiment/manual_reviews.json` |
 | Compact results table and machine-readable counts | `evaluation/experiment/results-table.md`, `results.json` |
@@ -47,7 +48,7 @@ Copy the example only when creating a fresh local configuration; do not overwrit
 python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501 --browser.gatherUsageStats false
 ```
 
-Open http://127.0.0.1:8501/ while the server runs. Enter symptoms and available patient details without requiring a disease name. **Preview evidence** uses local retrieval without a generation. **Generate care plan** needs Internet, a valid configured key and provider quota. Use the same interface's **Recommendation mode** selector for Baseline/Improved. Allow at least 65 seconds between requests under the recorded free quota. Future provider/model availability and quotas may change; do not silently substitute another model and describe it as the original comparison.
+Open http://127.0.0.1:8501/ while the server runs. Enter symptoms and available patient details without requiring a disease name. **Preview evidence** uses local retrieval without a generation. **Generate care plan** needs Internet, a valid configured key and provider quota when relevant evidence exists. With zero relevant cards it abstains locally and makes no model request. Use the same interface's **Recommendation mode** selector for Baseline/Improved. Allow at least 65 seconds between requests under the recorded free quota. Future provider/model availability and quotas may change; do not silently substitute another model and describe it as the original comparison.
 
 Active experiment model: Groq `qwen/qwen3.8-27b`, temperature 0, reasoning `none`, maximum completion 900 tokens, at most 10 retrieved cards. Only Improved adds the pre-model `applicability_preview`; retrieval, source corpus, model/settings, renderer and final checks remain fixed. Model settings do not guarantee identical repeated generations.
 
@@ -59,7 +60,7 @@ This standard-library check requires no API key or additional packages:
 python scripts/verify_submission.py
 ```
 
-It checks packaged file hashes, the original 19 frozen hashes, all 12 reviewed-output hashes, six cases/checklists, 32 cards, summary length, slide/note counts and absence of credentials. It verifies integrity and structure, not clinical correctness. Do this before making changes. Generated validation reports, edited files or a new real-key configuration change the original package snapshot, so a later integrity mismatch must be interpreted accordingly.
+It checks packaged file hashes, the original 19 frozen hashes inside the archived source and current maintenance hashes, all 12 reviewed-output hashes, six cases/checklists, 32 cards, summary length, slide/note counts and absence of credentials. It verifies integrity and structure, not clinical correctness. Do this before making changes. Generated validation reports, edited files or a new real-key configuration change the original package snapshot, so a later integrity mismatch must be interpreted accordingly.
 
 After dependencies are installed:
 
