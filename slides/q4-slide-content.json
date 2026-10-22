@@ -1,0 +1,84 @@
+{
+  "title": "AIMScribe: protocol recommendations and multimodal diagnostic AI",
+  "language": "English slides with Bengali rehearsal notes",
+  "format": "16:9 editable presentation",
+  "design": "White background, dark navy typography, restrained teal emphasis. Flat compositions, large readable type. Native editable text, data tables and architecture diagram. No decorative clinical imagery or invented screenshots.",
+  "paper": {"title": "Advancing conversational diagnostic AI with multimodal reasoning", "authors": "Saab et al.", "journal": "Nature Medicine 32, 1726–1736 (2026)", "doi": "https://doi.org/10.1038/s41591-026-04371-0", "local_pdf": "sources/paper/Advancing conversational diag.pdf"},
+  "presentation_seconds": 600,
+  "demo_after_presentation": true,
+  "slides": [
+    {
+      "number": 1, "seconds": 30, "title": "AIMScribe and conversational diagnostic AI",
+      "subtitle": "Protocol-based recommendations, a controlled experiment and lessons from multimodal AMIE",
+      "body": ["Saab et al. · Nature Medicine · 2026", "Paper discussion and prototype assessment"],
+      "speaker_notes_bn": "আজ প্রথমে Saab ও সহকর্মীদের multimodal AMIE paper ব্যাখ্যা করব। তারপর Bangladesh-এর চারটি protocol ব্যবহার করা AIMScribe prototype-এর architecture ও experiment দেখাব। Paper-এর research system ও আমাদের prototype আলাদা। Presentation প্রায় দশ মিনিট, এরপর live demonstration।",
+      "sources": ["Saab et al., title and abstract, journal p1726 / PDF p1; DOI above"]
+    },
+    {
+      "number": 2, "seconds": 60, "title": "The research problem",
+      "body": ["Clinical conversations often depend on visual evidence", "Text-only evaluation misses skin photos, ECGs and scanned reports", "The research asks how AI can request and use these artifacts during a consultation"],
+      "speaker_notes_bn": "একজন রোগীর বর্ণনা থেকে সব clinical information পাওয়া যায় না। Rash-এর ছবি, ECG tracing বা laboratory report-এ দরকারি তথ্য থাকতে পারে। শুধু image classification করাও যথেষ্ট নয়, কারণ patient history-ও দরকার। Paper-এর প্রশ্ন হলো কথোপকথনের মধ্যে কখন artifact চাইবে, কীভাবে interpret করবে এবং নতুন evidence পেলে differential বদলাবে। এখানে multimodal বলতে text-এর সঙ্গে skin photographs, ECG ও clinical documents বোঝানো হয়েছে। Radiology বা সব ধরনের medical imaging evaluate করা হয়নি।",
+      "sources": ["Saab et al., Introduction, journal pp1726–1727 / PDF pp1–2"]
+    },
+    {
+      "number": 3, "seconds": 75, "title": "AMIE tracks an evolving patient state",
+      "body": ["Base model: Gemini 2.0 Flash", "History-taking: update patient profile, differential and information gaps", "Diagnosis and management: validate and explain the assessment", "Follow-up: address questions and update context"],
+      "diagram": {"editable": true, "nodes": ["History-taking", "Diagnosis and management", "Follow-up"], "shared_state": "Patient profile, evolving differential, information gaps", "detail": "Targeted questions and artifact requests depend on the evolving state"},
+      "speaker_notes_bn": "Figure 6-এ তিনটি dialogue phase আছে। প্রথমে history-taking, তারপর diagnosis ও management, শেষে follow-up। System একটি evolving patient profile, internal differential এবং information gaps ধরে রাখে। দরকার হলে ছবি বা ভালো angle-এর ছবি চাইতে পারে। State-aware মানে শুধু আগের conversation মনে রাখা নয়, বরং এখন কী জানা আছে এবং কী জানা দরকার তা explicitভাবে track করা। এই uncertainty formally calibrated diagnostic probability নয়। Paper-এর offline post-questionnaire ধাপে constrained web search ব্যবহার হয়েছে; সেটিকে প্রতিটি live turn-এর RAG বলে বর্ণনা করা ঠিক হবে না। আমাদের AIMScribe-এ এই পুরো conversational framework implement করা হয়নি।",
+      "sources": ["Saab et al., Figure 6, journal p1734 / PDF p9; Methods, PDF pp12–13, including offline post-questionnaire retrieval"]
+    },
+    {
+      "number": 4, "seconds": 75, "title": "Two evaluation settings",
+      "columns": [
+        {"heading": "Human comparative study", "body": ["105 scenarios and 210 paired consultations", "19 PCPs, patient-actors and 18 independent specialists", "Randomized order and blinded assessments", "Diagnostic matching also used an auto-rater"]},
+        {"heading": "Automated ablations", "body": ["Synthetic dialogues grounded in artifact datasets", "Same Gemini model with or without state-aware reasoning", "Auto-rated diagnosis, information gathering and safety"]}
+      ],
+      "body": ["Exploratory simulated evaluation. No preregistered clinical trial or patient-outcome evidence."],
+      "speaker_notes_bn": "দুটি evaluation আলাদা করে বলতে হবে। Human OSCE-style study-তে প্রতি scenario-তে একই patient-actor একবার AMIE এবং একবার physician-এর সঙ্গে কথা বলেছেন, order randomized ছিল। তাই ১০৫ scenario থেকে ২১০ consultation। Specialists ও actors quality rate করেছেন; diagnostic matching-এ automated rater ব্যবহৃত হয়েছে। Figure 2-এ diagnostic ও patient-centric analysis-এর n 210, expert ratings-এর n 204, তাই সব analysis একই denominator নয়। Automated ablation-এ simulated dialogue দিয়ে state-aware reasoning-এর contribution পরীক্ষা করা হয়েছে। এটি real patient outcome trial নয়। Paper-এর participant paragraph actor total ও geographic subtotals-এর মধ্যে অসঙ্গতি আছে, তাই slide-এ actor সংখ্যা দিচ্ছি না।",
+      "sources": ["Saab et al., Figure 2 caption, journal p1729 / PDF p4; Methods: Scenario packs, Study design, Participants and Statistical analysis, PDF pp15–16"]
+    },
+    {
+      "number": 5, "seconds": 65, "title": "Higher diagnostic scores retain safety trade-offs",
+      "body": ["Human study: higher overall top-k differential accuracy (Figure 2a, P < 0.001)", "Automated Clinical Documents ablation:"],
+      "table": {"columns": ["Metric", "Vanilla", "State-aware AMIE"], "rows": [["Top-1 accuracy", "0.89", "0.98"], ["Hallucination rate", "0.00", "0.04"]]},
+      "footnote": "Extended Data Table 2, PDF p25. Auto-rated simulated dialogues, not the human-study result.",
+      "speaker_notes_bn": "Human study-তে overall differential accuracy AMIE-এর বেশি ছিল, Figure 2a-তে P less than 0.001। তবে এবার যে table দেখাচ্ছি সেটি আলাদা automated ablation। একই Gemini base model-এর vanilla ও state-aware version তুলনা করেছে। Clinical Documents-এ top-1 accuracy 89 থেকে 98 শতাংশ, অর্থাৎ 9 percentage-point gain। কিন্তু hallucination rate 0 থেকে 4 শতাংশ হয়েছে। তাই diagnosis score ভালো হওয়া মানে safety issue শেষ নয়। Hallucination metric fabricated information দেখে, সব diagnostic বা management reasoning error ধরে না। এই সংখ্যাগুলোকে Bangladesh clinic-এর accuracy বলা যাবে না।",
+      "sources": ["Saab et al., Figure 2a and caption, journal p1729 / PDF p4; Extended Data Table 2, supplied PDF p25; hallucination metric definition, Methods PDF p14"]
+    },
+    {
+      "number": 6, "seconds": 65, "title": "Transfer to Bangladesh GP clinics remains untested",
+      "body": ["Simulated encounters do not establish performance in Bangladesh clinics", "Bangla communication, local disease mix and available tests need prospective evaluation", "Chat limits physical examination and non-verbal assessment", "Public artifacts may overlap with pretraining data"],
+      "footnote": "Bangladesh transfer concerns are our inference. The paper discusses simulation, chat and leakage limitations.",
+      "speaker_notes_bn": "একটি প্রধান transfer limitation হলো Bangladesh GP clinic-এ performance evaluate করা হয়নি। India ও Canada-র simulated encounter থেকে Bangla conversation, স্থানীয় disease prevalence বা test availability-এর performance জানা যায় না। এগুলো আমাদের transfer concern, paper-এর Bangladesh-specific finding নয়। Paper নিজেও physical examination না থাকা, style দেখে blinding ভাঙার সম্ভাবনা এবং public skin image ও raw ECG pretraining-এ দেখা হয়ে থাকতে পারে বলে স্বীকার করেছে। Synthetic scenario দিয়ে নতুন context তৈরি করলেও contamination পুরো বাদ যায় না। তাই local prospective study, resource constraints এবং clinician review দরকার।",
+      "sources": ["Saab et al., Discussion, journal pp1733–1735 / PDF pp8–10; OSCE participants, Methods PDF p15; Bangladesh implications explicitly presenter inference"]
+    },
+    {
+      "number": 7, "seconds": 75, "title": "Adoption: explicit gaps and reassessment",
+      "body": ["Adopt: preserve known facts, track missing information and reassess new restrictions", "Reason: late allergy or pregnancy information can change the treatment branch", "Defer autonomous multimodal diagnosis until local validation", "AIMScribe uses source-linked cards and doctor review as a future workflow"],
+      "speaker_notes_bn": "Paper থেকে আমি explicit information-gap tracking এবং নতুন তথ্য এলে reassessment-এর ধারণা নেব। উদাহরণ হিসেবে রোগী পরে allergy বা pregnancy-related restriction জানালে আগের plan নতুন করে evaluate করতে হবে। Paper-এ structured phase-এর rigidity, বিশেষ করে late contraindication এলে সমস্যা, limitation হিসেবে বলা আছে। আমাদের prototype exact patient facts ও unknowns ধরে রাখে এবং edit হলে পুরোনো result hide করে। তবে এটি AMIE-এর পূর্ণ multi-turn state machine নয়। Multimodal autonomous diagnosis এখন adopt করব না, কারণ local evidence, resource feasibility ও clinical validation নেই। Future doctor acceptance ও prescription signing design করা আছে, এখন implement করা হয়নি।",
+      "sources": ["Saab et al., Figure 6 / PDF p9; Discussion late contraindication limitation, journal p1734 / PDF p9; AIMScribe master documentation section 18"]
+    },
+    {
+      "number": 8, "seconds": 65, "title": "AIMScribe architecture",
+      "body": ["4 protocols, 45 assigned pages and 32 canonical cards", "BM25 plus protocol/category coverage retrieves at most 10 cards", "Groq Qwen selects card and patient references", "Shared checks and canonical rendering produce cited recommendations"],
+      "diagram": {"editable": true, "nodes": ["Extract and curate", "Cards and BM25", "Patient and retrieval", "Model selection", "Checks and interface"], "future": ["Reviewed NER connects to patient input", "Doctor acceptance connects to prescription drafts and feedback"], "tested_improvement": "applicability_preview between retrieval and model, Improved only"},
+      "speaker_notes_bn": "এখন আমাদের implemented system দেখাচ্ছি। চার protocol-এর assigned ৪৫ পৃষ্ঠা থেকে manually curated ৩২ card। BM25 ও coverage policy সর্বোচ্চ দশ card retrieve করে। Model patient facts ও card IDs select করে, তারপর common checks এবং source card থেকে rendering হয়। Tested improvement retrieval-এর পরে model-এর আগে applicability_preview। Source IDs পুরো pipeline-এ থাকে। NER, doctor acceptance, prescription assembly ও feedback future, এগুলো working feature হিসেবে দাবি করছি না। Canonical card রাখায় dose, condition ও source explicit হয়, কিন্তু manual curation ও coverage maintenance লাগে।",
+      "sources": ["AIMScribe docs/project-documentation.md section 18; docs/architecture.mmd; src/engine.py and src/retrieval.py; canonical cards and frozen experiment"]
+    },
+    {
+      "number": 9, "seconds": 60, "title": "Our controlled experiment found no net gain",
+      "table": {"columns": ["Measure", "Baseline", "Improved"], "rows": [["Passed checks", "23/24", "23/24"], ["Cases passing all four checks", "5/6", "5/6"], ["Mean response time", "1.4882 s", "1.5371 s"]]},
+      "body": ["Only change: pre-model applicability_preview", "Same model, cards, cases, retrieval and final checks", "C05 missed required exposure clarification in both modes", "Preview added 708 input tokens across six cases and no extra calls"],
+      "footnote": "Six self-authored cases, assistant source review. No independent clinical validation. Times exclude quota waits.",
+      "speaker_notes_bn": "এই results আমাদের prototype-এর, paper-এর results নয়। Cases ও expected checklists final run-এর আগে freeze করেছি। দুই mode-এ একই model ও source corpus, শুধু preview field আলাদা। ১২ output-এ চারটি করে check করেছি। দুই mode-এই ২৪-এর ২৩ pass, ৬-এর ৫ case সব check pass। C05-তে exposure clarification miss হয়েছে। Missing relevant card/question coverage preview দিয়ে পূরণ হয়নি। Mean time difference থেকে reliable latency effect বলা যায় না। পরের test হবে repeated matched runs, independently authored cases এবং clinician review। Paper-এর reported gain আমাদের ছোট preview experiment-এ reproduce হয়েছে এমন দাবি করছি না।",
+      "sources": ["AIMScribe evaluation/experiment/results.json; results-table.md; manual_reviews.json; comparison-note.md; plan.md"]
+    },
+    {
+      "number": 10, "seconds": 30, "title": "Live demonstration",
+      "body": ["Load C02 and inspect patient context, evidence and plan", "Load C06: change only pregnancy potential", "Show the source-supported branch change and unchanged context", "Enter a new case without a disease label"],
+      "footnote": "Live app: http://127.0.0.1:8501/ · Saved comparison outputs remain separate from new runs",
+      "speaker_notes_bn": "এখন presentation শেষ করে live demo শুরু করব। আগে C02, তারপর শুধু pregnancy potential বদলানো C06 দেখাব। Source page 64 ও branch restriction দেখাব। শেষে interviewer-এর নতুন case disease name ছাড়াই input দেওয়া যাবে। Free-tier cooldown থাকলে আগের generation-এর পর অন্তত ৬৫ সেকেন্ড ব্যবধান রাখতে হবে। Saved outputs দেখালে স্পষ্ট বলব সেগুলো saved experiment, live response নয়। API unavailable হলে সমস্যা জানাব এবং saved evidence আলাদা করে দেখাব।",
+      "sources": ["AIMScribe evaluation/experiment/cases.json and checklists.json; hypertension protocol PDF p64; app.py; README.md"]
+    }
+  ]
+}

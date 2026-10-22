@@ -22,8 +22,8 @@ Current milestone: Q1 and Q2 implementation/experiment package completed for the
 - [x] 16. Source-review all four checks for each output; manual_reviews.json holds verdicts/reasons/PDF pages and exact output hashes. results-table.md/results.json report denominators and honest C05 failures
 - [x] 17. Write 392-word one-page comparison note plus separate table; report unchanged/worse cost, C05 partial gain/remaining failure, raw C04 weakness, model variability and next test
 - [x] 18. Q3 complete architecture diagram (SVG/PNG/Mermaid), implemented/future labels, pre-model tested-preview location, source-ID flow, patient-detail counterfactual, design defence and cost trade-off; future NER/doctor acceptance/feedback/prescription connections are design only. See master section 18
-- [ ] 19. Read assigned paper and write 200-300-word summary with referenced result and Bangladesh transfer limitation
-- [ ] 20. Prepare 5-10 slides and approximately 10-minute presentation
+- [x] 19. Read assigned paper and write 200-300-word summary with referenced result and Bangladesh transfer limitation. 256-word summary in docs/paper-summary.txt; Figure 2 and Extended Data Table 2 checked, including hallucination trade-off. Master section 19 records sources and inference boundaries
+- [ ] 20. Prepare 5-10 slides and approximately 10-minute presentation. Ten-slide content, Bengali rehearsal notes and 600-second timing prepared in slides/q4-slide-content.json; actual Canva deck pending account connection, creation and inspection
 - [x] 21a. Q2 README launch/rebuild instructions, current model/settings, replay caveat and AI assistance disclosure
 - [ ] 21. Complete whole-assessment submission README/disclosure after remaining questions and experiment
 - [ ] 22. Verify clean setup, complete submission package and rehearse live demo

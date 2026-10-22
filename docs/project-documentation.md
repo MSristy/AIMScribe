@@ -1159,3 +1159,73 @@ The cost is manual source curation, schema/question mapping maintenance and limi
 ### 18.7 Q3 artifact verification
 
 Compared the diagram and explanation against current engine, retrieval, input, fact/condition checker and Streamlit code. Rendered and visually reviewed the SVG/PNG layout; checked machine-readable SVG structure and the common node/edge export. No prototype runtime, frozen input/checklist, corpus/index, experiment output or model setting was modified for Q3. The diagram authoring script is documentation tooling only. Master documentation and tracker record completion; GitHub receives a separate architecture/documentation commit after the staged secret/frozen-byte check. Subsequent assessment paper summary/slides remain separate tasks.
+
+## 19. Question 4: research paper and presentation
+
+### 19.1 Source and reading method
+
+Read Saab et al., *Advancing conversational diagnostic AI with multimodal reasoning*, Nature Medicine 32, 1726–1736, published 14 May 2026, DOI https://doi.org/10.1038/s41591-026-04371-0. The supplied 30-page PDF is `sources/paper/Advancing conversational diag.pdf`. Read the introduction, results, discussion and Methods from local pypdf extraction; rendered PDF pages 4, 9, 15 and 25 with PDFium for verification of Figure 2, Figure 6, study design and Extended Data Table 2. Private extraction/previews stay in `.local/q4/`. The publisher article was also opened for attribution and publication metadata. Original paper PDF remains local and is excluded from the public repository.
+
+Page references distinguish printed journal pages from PDF positions. For example, Figure 2 is journal p1729 / PDF p4; Figure 6 is journal p1734 / PDF p9; Extended Data Table 2 is supplied PDF p25, without a printed journal page number.
+
+### 19.2 Submission summary
+
+The standalone submission text is `docs/paper-summary.txt`, 256 whitespace-delimited words (excluding this documentation). It covers research problem, Gemini 2.0 Flash state-aware design, automated versus human evaluation, findings, a precise table/figure reference, an explicitly inferred Bangladesh transfer limitation and a justified adoption/defer decision.
+
+Saab and colleagues investigate how diagnostic AI can combine conversation with skin photographs, ECGs and clinical documents, rather than relying on text alone. Their multimodal AMIE system uses Gemini 2.0 Flash with an inference-time, state-aware framework. It maintains a patient profile, evolving differential diagnoses and information gaps across history-taking, diagnosis and management, and follow-up. It requests relevant artifacts and updates its assessment as information arrives.
+
+Evaluation combined automated simulations and a randomized, blinded, exploratory OSCE-style comparison. In the human study, each of 105 scenarios generated an AMIE and a primary-care-physician consultation, producing 210 conversations. Nineteen physicians participated, while patient-actors and 18 independent specialists assessed consultation quality. Diagnostic matching also used an automated rater. This was not a preregistered clinical trial or a study of patient outcomes.
+
+AMIE achieved higher overall differential-diagnosis accuracy than physicians (Figure 2a, journal page 1729, P < 0.001), alongside stronger ratings on many communication and management measures. A separate automated ablation provides a concrete result: Clinical Documents top-1 accuracy increased from 0.89 to 0.98 with state-aware reasoning, but hallucination rate increased from 0.00 to 0.04 (Extended Data Table 2, supplied PDF page 25). Improved diagnostic scores therefore did not eliminate safety failures.
+
+Transfer to Bangladesh GP clinics remains untested: simulated encounters involving India and Canada do not establish performance with Bangla consultations, local case mixes or clinic resources. I would adopt explicit tracking of missing information and reassessment when new restrictions appear, retaining source-linked recommendations and doctor review. I would defer autonomous multimodal diagnosis until prospective local evaluation demonstrates safety and usefulness.
+
+### 19.3 Evidence ledger and interpretation boundaries
+
+| Claim | Source | Interpretation |
+|---|---|---|
+| Research problem involves text with skin photos, ECGs and documents | Introduction, journal pp1726–1727 / PDF pp1–2 | Does not establish support for every imaging modality |
+| Gemini 2.0 Flash with evolving patient profile, DDx and information gaps | Figure 6, journal p1734 / PDF p9; Methods PDF pp12–13 | Heuristic internal uncertainty is not a calibrated diagnostic probability |
+| 105 paired scenarios, 210 consultations, 19 PCPs, 18 independent specialists | Methods PDF pp15–16 | Simulated, exploratory, randomized/blinded order, not a preregistered clinical trial |
+| Higher overall top-k DDx accuracy, P < 0.001 | Figure 2a/caption, journal p1729 / PDF p4 | Diagnostic matching uses an auto-rater. Figure reports n210 for diagnosis/patient ratings, n204 for expert ratings, not one universal denominator |
+| Stronger consultation ratings across many measures | Figure 2c and Results, journal pp1729–1730 / PDF pp4–5 | Subjective blinded ratings do not prove patient-outcome benefit or error-free reasoning |
+| Clinical Docs top-1 0.89 vs 0.98, hallucination rate 0.00 vs 0.04 | Extended Data Table 2, PDF p25, visually checked | Separate auto-rated simulated ablation, same Gemini base model. Gain is 9 percentage points; hallucination metric does not encompass all diagnostic/management reasoning errors |
+| Potential late-restriction rigidity, style-related unblinding, public-artifact pretraining overlap | Discussion, journal p1734 / PDF p9 | Authors acknowledge limitations; prospectively collected/private data and clinical trials remain necessary |
+| Bangla, local case mix and clinic-resource transfer concern | Our inference from setting and limitations, not a Bangladesh experiment in this paper | Requires prospective local evaluation; avoid unsupported factual claims about every Bangladesh clinic |
+| Constrained web retrieval for management | Methods PDF p13, post-questionnaire section | Used exclusively in the offline post-questionnaire step, not described as live-turn guideline retrieval |
+
+The abstract reports superiority on 29/32 axes including 7/9 multimodal metrics. Do not mistake this aggregate for a percentage clinical accuracy or assume every individual comparison is significant. The slide deck emphasizes the directly checked Figure 2 and Table 2 results instead. Methods PDF p15 reports 25 patient-actors but its geographic actor subtotals add to 20; preserve this as a source inconsistency, do not invent a reconciliation. Slides omit actor count while retaining the scenario/consultation/PCP/specialist numbers.
+
+### 19.4 Presentation content, timing and Canva status
+
+`slides/q4-slide-content.json` contains ten English slides with Bengali rehearsal notes, sources, native table data and editable diagram specifications. The ten timed sections total 600 seconds, with live demonstration after the talk rather than counted as an eleventh slide.
+
+| Slide | Topic | Seconds |
+|---|---|---:|
+| 1 | AIMScribe and conversational diagnostic AI | 30 |
+| 2 | Research problem | 60 |
+| 3 | State-aware AMIE design | 75 |
+| 4 | Two evaluation settings | 75 |
+| 5 | Specific result and safety trade-off | 65 |
+| 6 | Bangladesh transfer limitation | 65 |
+| 7 | Adopt explicit gaps and reassessment | 75 |
+| 8 | AIMScribe architecture, implemented/future boundaries | 65 |
+| 9 | Our unchanged experiment result | 60 |
+| 10 | Transition to live demonstration | 30 |
+
+Presentation design brief: white background, navy typography, restrained teal emphasis, 16:9, readable flat compositions. Keep text, two evidence tables and simplified process diagrams editable. Cite the paper on relevant slides/notes. Separate AMIE/Gemini paper findings from AIMScribe/Groq Qwen results. No invented screenshots, patient images or claim of reproducing AMIE.
+
+The user specifically requested Canva editing. Canva integration was discovered but was not connected at preparation time; connection was requested while paper/content work proceeded. Do not mark the Canva deck complete or claim a design URL exists until a real design is created and inspected. No paid plan, payment method or paid upgrade is authorized. The summary and timed slide content are complete; actual Canva design/editability verification remains pending account connection.
+
+### 19.5 Live demonstration and rehearsal plan
+
+Before the interview, launch the app using the README command, confirm localhost8501 is reachable and confirm the explicitly configured free provider is available. Keep keys and the private secrets file off screen. Open the source evidence and saved experiment table in advance. Source PDFs remain local.
+
+1. Show the editable patient form without requiring a disease name. Explain that Load example fills patient input only and does not load a hard-coded answer.
+2. Load C02, generate, and show patient context, retrieved evidence, the four output categories and hypertension PDF64 restriction. Inspect the actual generated result rather than promising exact model wording.
+3. Load C06 and show that only pregnancy potential changes from false to true while current pregnancy stays false. Respect the 65-second session cooldown. Generate and inspect the blocked losartan branch and source-supported alternative under other prerequisites. Show unchanged history/BP/follow-up context.
+4. Accept a fresh fictional case from the interviewer, leaving unavailable fields unknown. Show clarification alongside supported recommendations. Avoid inventing exam findings or calling an uncertain diagnosis confirmed.
+5. If comparing modes, keep the exact patient fixed and explain that only the pre-model applicability preview changes. The final 12 saved results are historical experiment records; a new UI call is a new run and may differ.
+6. If the API is unavailable or rate-limited, state the failure plainly. A saved output can explain evidence and architecture but must be identified as saved, not presented as a live generation. Do not switch to paid billing or silently replace the model.
+
+Rehearse the ten-minute talk aloud with the per-slide timings. Explain top-k accuracy as inclusion of the ground-truth diagnosis within the first k differential entries. Explain an ablation as removal/change of one component to estimate its contribution. Distinguish percentage points from relative percentage improvement. Be ready to explain why stronger diagnosis scores alone do not establish safe clinical deployment.
