@@ -21,3 +21,7 @@ Thumbs.db
 !/data/index/bm25.json
 /evaluation/development_trials/
 /evaluation/interactive_runs/
+
+# Local portal-ready snapshot and archive; built from explicit allowlisted files.
+/submission/
+/submission.zip
