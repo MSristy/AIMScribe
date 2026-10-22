@@ -1,0 +1,21 @@
+{
+  "title": "AIMScribe Research Prototype",
+  "platform": "Canva",
+  "design_id": "DAHYtmFW57U",
+  "edit_url": "https://www.canva.com/design/DAHYtmFW57U/o3QoYfGj5_GTCnqDOCQQfg/edit",
+  "slide_count": 10,
+  "canvas_language": "English",
+  "presenter_notes_language": "Bengali",
+  "target_presentation_seconds": 600,
+  "timing_method": "Per-slide targets in presenter notes. Manual delivery, not automatic slide playback timing.",
+  "demo": "After the ten-minute presentation",
+  "content_source": "slides/q4-slide-content.json",
+  "summary": "docs/paper-summary.txt",
+  "editability_review": "Canva editor showed separate text objects and table values. Edited source references and architecture labels directly. Process labels are editable, some graphical connectors/decorative assets are separate image objects rather than native vector shapes.",
+  "notes_review": "Inserted Bengali rehearsal notes, timing targets and source references into all ten presenter-note fields. Reopened page-one notes to verify persistence.",
+  "visual_review": "Reviewed screenshots of all ten pages. Corrected result-source filename, exact applicability_preview spelling, future labels and misleading future connector directions. Added illustration-only disclosure on slide two.",
+  "paid_actions": "No trial, payment method or paid plan activated",
+  "sharing": "No sharing or public-access permissions changed. Edit access depends on the user's Canva account permissions.",
+  "local_review_evidence": ".local/q4/canva/",
+  "delivery_date": "2026-10-22"
+}
