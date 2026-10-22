@@ -1,5 +1,5 @@
 flowchart TB
-  S["I | Supplied protocols<br/>4 guidelines; 45 PDF pages<br/>Cover = page 1<br/>Source ID / edition / page"]
+  S["I | Supplied protocols<br/>4 protocols; 45 assigned pages<br/>Cover = page 1<br/>Source ID / edition / page"]
   E["I | Extract + visual review<br/>pypdf text; PDFium images<br/>Tables, footnotes, HTN p64<br/>Extraction is not clinical inference"]
   C["I | Curate + validate 32 cards<br/>Canonical JSONL; source passages<br/>Prerequisites / exclusions / doses<br/>card_id + evidence_id + source_id"]
   D["I | RAG storage + indexing<br/>cards.jsonl -&gt; BM25 JSON index<br/>Corpus SHA256; rebuild script<br/>No case answers in the index"]
@@ -11,7 +11,7 @@ flowchart TB
   K["I | Shared checks in BOTH modes<br/>Schema / retrieved IDs / fact + question refs<br/>Limited observed prerequisites + exclusions<br/>Unknowns -&gt; clarification / review, not clearance"]
   A["I | Saved run / experiment evidence<br/>Patient, original cards, prompt + response<br/>Mode, timing; freeze hash for final batch<br/>Expected checklists: evaluation only"]
   N["I | Canonical output renderer<br/>Copy source actions / medication fields<br/>Exact input facts explain selections"]
-  U["I | Recommendation interface<br/>Probable diagnoses / investigations<br/>Medication planning / advice<br/>Source title / version / PDF citations<br/>Patient context, evidence + missing-info tabs"]
+  U["I | Recommendation interface<br/>Probable diagnoses / investigations<br/>Medication planning / advice<br/>Source title / version / PDF citations<br/>Patient context + missing-info questions"]
   NER["F | NER from clinical text<br/>Entities + spans, negation, temporality,<br/>units and confidence; preserve raw text"]
   NR["F | Doctor confirms NER suggestions<br/>Resolve ambiguity before patient merge<br/>Uncertain values remain unknown"]
   DR["F | Doctor review + acceptance<br/>Accept / edit / reject each recommendation<br/>Link to run, card + source version"]

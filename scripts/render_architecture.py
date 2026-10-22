@@ -10,7 +10,7 @@ COLORS = {'implemented': ('#eef9f8', '#167c80'), 'improvement': ('#fff7e6', '#bd
           'future': ('#f7f2ff', '#7955a0')}
 # Explicit labels distinguish actual implementation from intended connections.
 NODES = [
- ('S', 60, 165, 275, 120, 'implemented', ['I | Supplied protocols', '4 guidelines; 45 PDF pages', 'Cover = page 1', 'Source ID / edition / page']),
+ ('S', 60, 165, 275, 120, 'implemented', ['I | Supplied protocols', '4 protocols; 45 assigned pages', 'Cover = page 1', 'Source ID / edition / page']),
  ('E', 380, 165, 290, 120, 'implemented', ['I | Extract + visual review', 'pypdf text; PDFium images', 'Tables, footnotes, HTN p64', 'Extraction is not clinical inference']),
  ('C', 715, 165, 320, 120, 'implemented', ['I | Curate + validate 32 cards', 'Canonical JSONL; source passages', 'Prerequisites / exclusions / doses', 'card_id + evidence_id + source_id']),
  ('D', 1080, 165, 345, 120, 'implemented', ['I | RAG storage + indexing', 'cards.jsonl -> BM25 JSON index', 'Corpus SHA256; rebuild script', 'No case answers in the index']),
@@ -22,7 +22,7 @@ NODES = [
  ('K', 1110, 880, 560, 115, 'implemented', ['I | Shared checks in BOTH modes', 'Schema / retrieved IDs / fact + question refs', 'Limited observed prerequisites + exclusions', 'Unknowns -> clarification / review, not clearance']),
  ('A', 590, 880, 460, 115, 'implemented', ['I | Saved run / experiment evidence', 'Patient, original cards, prompt + response', 'Mode, timing; freeze hash for final batch', 'Expected checklists: evaluation only']),
  ('N', 1110, 1025, 560, 80, 'implemented', ['I | Canonical output renderer', 'Copy source actions / medication fields', 'Exact input facts explain selections']),
- ('U', 1110, 1145, 560, 145, 'implemented', ['I | Recommendation interface', 'Probable diagnoses / investigations', 'Medication planning / advice', 'Source title / version / PDF citations', 'Patient context, evidence + missing-info tabs']),
+ ('U', 1110, 1145, 560, 145, 'implemented', ['I | Recommendation interface', 'Probable diagnoses / investigations', 'Medication planning / advice', 'Source title / version / PDF citations', 'Patient context + missing-info questions']),
  ('NER', 60, 845, 440, 100, 'future', ['F | NER from clinical text', 'Entities + spans, negation, temporality,', 'units and confidence; preserve raw text']),
  ('NR', 60, 985, 440, 80, 'future', ['F | Doctor confirms NER suggestions', 'Resolve ambiguity before patient merge', 'Uncertain values remain unknown']),
  ('DR', 60, 1210, 440, 90, 'future', ['F | Doctor review + acceptance', 'Accept / edit / reject each recommendation', 'Link to run, card + source version']),

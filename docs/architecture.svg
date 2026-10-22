@@ -67,7 +67,7 @@
 <text x="1210" y="143" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#7955a0" font-weight="400">reviewed source/card update - not automatic</text>
 <rect x="60" y="165" width="275" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
 <text x="74" y="198" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">I | Supplied protocols</text>
-<text x="74" y="221" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">4 guidelines; 45 PDF pages</text>
+<text x="74" y="218" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#17324d" font-weight="400">4 protocols; 45 assigned pages</text>
 <text x="74" y="246" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Cover = page 1</text>
 <text x="74" y="271" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Source ID / edition / page</text>
 <rect x="380" y="165" width="290" height="120" rx="13" fill="#eef9f8" stroke="#167c80" stroke-width="2"/>
@@ -129,7 +129,7 @@
 <text x="1124" y="1201" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Probable diagnoses / investigations</text>
 <text x="1124" y="1226" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Medication planning / advice</text>
 <text x="1124" y="1251" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Source title / version / PDF citations</text>
-<text x="1124" y="1276" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Patient context, evidence + missing-info tabs</text>
+<text x="1124" y="1276" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Patient context + missing-info questions</text>
 <rect x="60" y="845" width="440" height="100" rx="13" fill="#f7f2ff" stroke="#7955a0" stroke-width="2" stroke-dasharray="8 6"/>
 <text x="74" y="878" font-family="Segoe UI,Arial,sans-serif" font-size="22" fill="#17324d" font-weight="700">F | NER from clinical text</text>
 <text x="74" y="901" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#17324d" font-weight="400">Entities + spans, negation, temporality,</text>
