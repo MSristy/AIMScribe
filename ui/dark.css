@@ -1,0 +1,71 @@
+/* Black appearance: loaded only for the UI preference, never patient/model data. */
+:root {
+  color-scheme:dark;
+  --cn-bg:#0B111A;--cn-surface:#131D2A;--cn-ink:#E6EDF7;
+  --cn-muted:#B0BFD0;--cn-teal:#48CFD5;--cn-cyan:#67DCE6;
+  --cn-mint:#183A3C;--cn-line:#304155;--cn-amber:#F2BC69;
+  --cn-shadow:0 8px 28px rgba(0,0,0,.16);
+}
+.stApp {background:var(--cn-bg);color:var(--cn-ink);}
+[data-testid="stHeader"] {background:#0B111AF5;color:var(--cn-ink);}
+[data-testid="stSidebar"] {background:linear-gradient(180deg,#111B28,#0E1722);border-color:var(--cn-line);color:var(--cn-ink);}
+.cn-sidebar-brand {color:#EDF5FF;}
+.cn-hero {background:radial-gradient(ellipse at 88% 30%,#164349 0,transparent 55%),linear-gradient(110deg,#152738,#122D35);border-color:#294450;}
+.cn-hero h1,.cn-descriptor {color:#F0F6FF;}
+.cn-tagline {color:#CBDCEB;}
+.cn-review {color:#AFCCD9;}
+.cn-medical-visual svg {filter:drop-shadow(0 10px 20px #0004);}
+.cn-workflow {background:#172635;border-color:#2A4052;}
+.cn-workflow-title {color:#A9C0D4;}
+.cn-workflow-step span {background:#193441;border-color:#365362;color:#6AE0E3;}
+.st-key-patient-panel,.st-key-results-panel {background:var(--cn-surface);border-color:var(--cn-line);}
+.stApp [data-testid="stMarkdownContainer"],.stApp [data-testid="stText"],
+.stApp [data-testid="stWidgetLabel"],.stApp [data-testid="stRadio"] {color:var(--cn-ink);}
+.stApp [data-testid="stCaptionContainer"] {color:var(--cn-muted);}
+.stApp [data-testid="stTextAreaRootElement"],.stApp [data-testid="stNumberInputContainer"],
+.stApp [data-testid="stSelectbox"] div:has(> input[role="combobox"]),
+.stApp [data-baseweb="input"],.stApp [data-baseweb="select"] > div,.stApp [data-baseweb="textarea"] {
+  background:#0E1825;color:#E6EDF7;border-color:#3A4E63;}
+.stApp input,.stApp textarea {color:#E6EDF7;caret-color:#6DE2E6;}
+.stApp input::placeholder,.stApp textarea::placeholder {color:#A4B5C8;opacity:1;}
+.stApp [data-testid="stNumberInputContainer"] button {background:#192B3C;color:#C6D9E9;}
+.stApp [data-testid="stSelectbox"] [role="button"],.stApp [data-testid="stSelectbox"] button {color:#C6D9E9;}
+.stApp [data-testid="stButton"] button,.stApp [data-testid="stDownloadButton"] button {
+  background:#192B3C;color:#D7EAF5;border-color:#40566A;}
+.stApp [data-testid="stButton"] button:hover:not(:disabled),.stApp [data-testid="stDownloadButton"] button:hover:not(:disabled) {
+  background:#203D4C;color:#7CE7EC;border-color:#48CFD5;}
+.stApp button[kind="primary"] {background:#087F8C;border-color:#159EAB;color:white;}
+.stApp button[kind="primary"]:hover:not(:disabled) {background:#0A96A3;color:white;}
+.stApp [data-testid="stButton"] button:disabled {background:#172332;color:#8A9CB0;border-color:#334456;opacity:.7;}
+.st-key-patient-panel [data-testid="stRadio"] [role="radiogroup"] {background:#192A3B;border-color:#344B60;}
+.stApp [data-baseweb="tab"] {color:#B0C1D1;}
+.stApp [data-baseweb="tab"][aria-selected="true"] {color:#67E0E5;}
+.stApp [role="tablist"] {border-color:#304155;}
+.stApp [role="tab"] {background:transparent;color:#B0C1D1;}
+.stApp [role="tab"][aria-selected="true"] {color:#67E0E5;}
+.st-key-results-panel [data-testid="stMetric"] {background:linear-gradient(135deg,#172737,#14222F);border-color:#334B5D;}
+.st-key-results-panel [data-testid="stMetricValue"] {color:#EAF4FD;}
+.st-key-results-panel [data-testid="stMetricLabel"] {color:#B3C8DB;}
+.st-key-results-panel [data-testid="stExpander"],.stApp [data-testid="stExpander"] {
+  background:#172635;color:#E2EDF8;border-color:#354C60;}
+.stApp [data-testid="stExpander"] summary {color:#E2EDF8;}
+.stApp [data-testid="stVerticalBlockBorderWrapper"],.stApp [data-testid="stVerticalBlockBorderWrapper"] > div {border-color:#354C60;}
+.cn-empty-icon {background:linear-gradient(135deg,#173844,#17403F);border-color:#315B63;color:#73E2E3;}
+.st-key-clarification-panel {background:#342919;border-color:#8C6A35;}
+.st-key-clarification-panel h4 {color:#FFD391;}
+/* Notices keep their real semantic colors and readable contrasting surfaces. */
+.stApp [data-testid="stAlertContainer"]:has([data-testid="stAlertContentWarning"]) {background:#3C301D;color:#FFE0A3;}
+.stApp [data-testid="stAlertContentWarning"] {color:#FFE0A3;}
+.stApp [data-testid="stAlertContainer"]:has([data-testid="stAlertContentError"]) {background:#3D222D;color:#FFD9DF;}
+.stApp [data-testid="stAlertContentError"] {color:#FFD9DF;}
+.stApp [data-testid="stAlertContainer"]:has([data-testid="stAlertContentInfo"]) {background:#173448;color:#C7EDF8;}
+.stApp [data-testid="stAlertContentInfo"] {color:#C7EDF8;}
+.stApp [data-testid="stAlertContainer"]:has([data-testid="stAlertContentSuccess"]) {background:#18392E;color:#C1F0D9;}
+.stApp [data-testid="stAlertContentSuccess"] {color:#C1F0D9;}
+.stApp [data-testid="stAlert"] [data-testid="stMarkdownContainer"] {color:inherit;}
+.stApp [data-testid="stAlert"] [data-testid="stMarkdownContainer"] p {color:inherit;}
+.stApp [data-testid="stJson"],.stApp [data-testid="stCode"] {background:#0E1825;color:#D8E9F5;border-color:#354C60;}
+.stApp table {color:#E1EBF6;background:#162332;}
+.stApp th,.stApp td {border-color:#354C60;}
+.stApp a {color:#72DCE9;}
+.stApp hr {border-color:#304155;}

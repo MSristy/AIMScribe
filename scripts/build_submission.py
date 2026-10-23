@@ -46,7 +46,7 @@ def main():
              'docs/architecture.svg', 'docs/architecture.png', 'docs/architecture.mmd',
              'docs/paper-summary.txt', 'docs/project-documentation.md', 'docs/requirements-tracker.md',
              'docs/q1-card-guide.md', 'slides/canva-delivery.json', 'slides/q4-slide-content.json']
-    for folder in ('src', 'tests', 'data/cards', 'evaluation/cases', 'evaluation/checklists', 'evaluation/experiment'):
+    for folder in ('src', 'ui', 'tests', 'data/cards', 'evaluation/cases', 'evaluation/checklists', 'evaluation/experiment'):
         names.extend(p.relative_to(ROOT).as_posix() for p in (ROOT / folder).rglob('*')
                      if p.is_file() and '__pycache__' not in p.parts and p.suffix != '.pyc')
     for name in ('build_cards.py', 'build_index.py', 'validate_cards.py', 'validate_cases.py',

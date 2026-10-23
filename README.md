@@ -6,6 +6,8 @@ Post-experiment branding release: the project and repository are now **Clinical 
 
 Interactive Streamlit guideline assistant for fictional assessment patients. Existing Groq-hosted Qwen 3.8 27B selects source-backed recommendations; no training is performed.
 
+Approved interface update: a compact sidebar with a sun/moon appearance button switches between White and Black themes. The three-stage workflow guide, native patient form, four result categories and source evidence retain the same clinical behavior. Local presentation assets are in `ui/`; include this folder when copying the application. The backend, model configuration, canonical corpus/index and historical experiment outputs are unchanged. All 49 existing software tests passed; appearance switching also preserved patient information and the retrieved record without a model call.
+
 ## Status and scope
 
 Q1 contains 32 canonical cards across the four supplied protocols. Original PDFs, assigned-page extraction/rendering, source IDs and PDF positions are retained. Q2's light guided interface and two runnable modes are implemented. Q2 continued is complete: frozen cases/checklists, 12 fresh paired outputs, source-reviewed verdicts, compact table and a 392-word comparison note are under `evaluation/experiment/`. Result: both modes 23/24 checks and 5/6 cases passing all four; the preview did not demonstrate net benefit and used 708 extra input tokens. Do not interpret software completion or self-authored case checks as independent clinical validation. Public deployment, training, ASR/NER training and hospital integration are outside scope.

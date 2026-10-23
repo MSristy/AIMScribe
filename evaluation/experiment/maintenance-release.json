@@ -8,7 +8,7 @@
   "original_results_apply_to_archived_source_only": true,
   "no_new_paired_experiment_claim": true,
   "current_files_sha256": {
-    "app.py": "74e63ac3096ae45057c95afb5a171bdc0a4bf9e210233e361b5180400937b224",
+    "app.py": "1a3b808a2b21f3387555bd32b847ac546377f67ade7fdfad6ae525391a9c6822",
     "data/cards/cards.jsonl": "2a5d99bd7402ea3a05d9d51abae32082761c3c702eef0567bf2ba9b39db8084a",
     "data/index/bm25.json": "0c47f9a1937b6194f465ea2a9656e3d5167c83ece45a1755ba4dc9ecd9e9330b",
     "evaluation/experiment/cases.json": "e99eb58399239c0d6046858c85d77872f4c47399104ea4be941e4f130a55604c",
@@ -28,11 +28,25 @@
     "src/prompt_transport.py": "594818035c86270c2f9bd81570b68c71476f51c32b81c500bce0b5443ed28083",
     "src/release_integrity.py": "2fa31afd4049f2c53df48b71f2bf4d3b640a7045dd8c7813c8f64511783be7f7",
     "src/retrieval.py": "c813a66745f7a05742032be04306a9f73b04bda8c85ee013ae430e0f8e5f6720",
-    "src/retrieval_context.py": "5752cc5a7a1bdf2b25409f4dad77680d4df8d4acd169191b2492e34f4d328e9f"
+    "src/retrieval_context.py": "5752cc5a7a1bdf2b25409f4dad77680d4df8d4acd169191b2492e34f4d328e9f",
+    ".streamlit/config.toml": "bb28436774a88234bf5d5ff4c55da29fefb6ec5fbe353645702d19adb6643407",
+    "ui/workspace.css": "cd98f84ee127bd2d41e209bfb1fd67ff76452fd79e37bcb725654872ce660054",
+    "ui/header.html": "a99af6146687496e48afd606c7a9083e7235a66b3dc89a1d391698dc32f0b9bc",
+    "ui/sidebar-brand.html": "0723dcd1713a39717a158216199aa5be282b7c9d0c868ea27b019ba71a45f0e4",
+    "ui/dark.css": "a23a76f728b9475327538b8e6769636aa023d07ce30d65541c91a3546d97e03a"
   },
   "limitations": [
     "Limited English heuristic, not comprehensive NER/negation or a diagnostic probability.",
     "Positive source symptom anchors are necessary for retrieval consideration, not sufficient for diagnosis or treatment eligibility.",
     "No calibrated BM25 threshold, independent clinical validation or new 12-call comparison is claimed."
-  ]
+  ],
+  "presentation_release": {
+    "status": "User-approved for GitHub publication",
+    "approved_on": "2026-10-23",
+    "changes": "Local visual assets, scoped light/dark styles, icon-only appearance switch, native panel layout and compact sidebar workflow. Removed one requested explanatory caption.",
+    "backend_unchanged": true,
+    "new_model_calls": 0,
+    "original_experiment_unchanged": true,
+    "verification": "49 existing software tests passed; original patient/model controls retained; appearance switching preserves patient and evidence record."
+  }
 }

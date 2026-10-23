@@ -2,6 +2,8 @@
 
 This folder contains the runnable two-mode prototype and all requested assessment deliverables. Start here. All patients are fictional. The six self-authored cases and assistant source review are not independent clinical validation.
 
+The approved visual interface includes White/Black appearance through the sidebar sun/moon button, a compact workflow guide and local assets in `ui/`. Keep that folder beside `app.py`. Appearance changes do not change patient information, model settings, retrieval or clinical results.
+
 Post-comparison retrieval maintenance (2026-10-23): 10 cards is a maximum, not a target. Explicit English negative/unknown clauses are excluded from search text, positive source-authored symptom anchors are required, and category coverage never pads with unrelated/zero-score cards. Zero relevant cards displays Insufficient evidence and skips the model call. Raw patient information remains unchanged. The complete software suite passes 49 tests. This limited heuristic is not comprehensive NER or clinical validation. The original 12-output experiment and its results are unchanged and apply to the original 19 source files preserved exactly in evaluation/experiment/frozen-source.zip. A separate maintenance-release.json verifies current runtime hashes; this maintenance release has not undergone a new paired model comparison.
 
 ## Requirement-to-file map

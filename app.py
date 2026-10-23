@@ -12,15 +12,10 @@ from src.retrieval_context import RETRIEVAL_VERSION
 
 ROOT = Path(__file__).resolve().parent
 st.set_page_config(page_title='Clinical NLP | Clinical guideline assistant', page_icon='🩺', layout='wide')
-st.markdown('''<style>
-.stApp {background:#f5f8fc;color:#172b45} [data-testid="stSidebar"] {background:#fff;border-right:1px solid #e3eaf2}
-.block-container {padding-top:2rem;max-width:1600px} h1,h2,h3 {color:#12304e}
-[data-testid="stVerticalBlockBorderWrapper"] {background:white;border-radius:14px}
-.hero {background:linear-gradient(115deg,#e5f3ff,#effaf7);border:1px solid #d6e8f5;padding:24px 28px;border-radius:18px;margin-bottom:20px}
-.hero h1 {margin:0;font-size:2.2rem}.hero p {margin:6px 0;color:#48637b}
-.stButton>button {border-radius:9px} [data-testid="stMetricValue"] {font-size:1.5rem}
-</style>''', unsafe_allow_html=True)
-st.markdown('<div class="hero"><h1>Clinical NLP</h1><p>From patient findings to a source-linked care plan</p><p>Fictional assessment prototype · Recommendations require clinician review</p></div>', unsafe_allow_html=True)
+st.markdown('<style>'+(ROOT/'ui/workspace.css').read_text(encoding='utf-8')+'</style>', unsafe_allow_html=True)
+if st.session_state.get('ui_appearance', 'White') == 'Black':
+    st.markdown('<style>'+(ROOT/'ui/dark.css').read_text(encoding='utf-8')+'</style>', unsafe_allow_html=True)
+st.markdown((ROOT/'ui/header.html').read_text(encoding='utf-8'), unsafe_allow_html=True)
 
 
 @st.cache_data
@@ -141,11 +136,21 @@ def guided_editor(patient):
 if 'patient_json' not in st.session_state:
     load_patient(blank_patient())
 with st.sidebar:
+    with st.container(key='sidebar-identity'):
+        brand_column, appearance_column = st.columns([5, 1], gap='small', vertical_alignment='center')
+        with brand_column:
+            st.markdown((ROOT/'ui/sidebar-brand.html').read_text(encoding='utf-8'), unsafe_allow_html=True)
+        with appearance_column:
+            st.button('☀' if st.session_state.get('ui_appearance', 'White') == 'Black' else '☾',
+                      key='ui_theme_toggle', help='Switch between White and Black appearance',
+                      on_click=lambda: st.session_state.update(ui_appearance='White' if st.session_state.get('ui_appearance', 'White') == 'Black' else 'Black'))
     st.subheader('Patient workspace')
-    st.caption('1. Enter patient → 2. Review evidence → 3. Review care plan')
+    st.markdown('''<div class="cn-workflow cn-workflow-compact" aria-label="Workflow guide: patient information, review evidence, review care plan">
+    <div class="cn-workflow-step"><span>1</span>Patient</div><span aria-hidden="true">›</span>
+    <div class="cn-workflow-step"><span>2</span>Evidence</div><span aria-hidden="true">›</span>
+    <div class="cn-workflow-step"><span>3</span>Care plan</div></div>''', unsafe_allow_html=True)
     recommendation_mode = st.selectbox('Recommendation mode', ['baseline', 'improved'],
                         format_func=lambda value: value.title())
-    st.caption('Improved adds a pre-model applicability preview. Model, evidence retrieval and final source checks stay the same.')
     cases = demo_cases()
     names = {'C01': 'Fever / dengue assessment', 'C02': 'Blood-pressure follow-up', 'C03': 'Watery diarrhoea / hydration',
              'C04': 'Fever with marked joint pain', 'C05': 'Incomplete fever case', 'C06': 'BP follow-up / pregnancy potential'}
@@ -166,8 +171,8 @@ with st.sidebar:
     st.divider()
     st.caption('Prototype for fictional cases. A probable diagnosis is not laboratory confirmation.')
 
-left, right = st.columns([1, 1.55], gap='large')
-with left:
+left, right = st.columns([1, 1.12], gap='medium')
+with left, st.container(key='patient-panel'):
     st.subheader('1 · Patient information')
     mode = st.radio('Input method', ['Guided form', 'Advanced JSON'], horizontal=True)
     if mode != st.session_state.get('last_input_mode'):
@@ -244,7 +249,7 @@ with st.sidebar:
             st.write(human_text(patient.get('history')) or 'Not supplied')
 
 
-with right:
+with right, st.container(key='results-panel'):
     st.subheader('2 · Evidence → 3 · Care plan')
     record = st.session_state.get('record')
     if record and (record['patient'] != patient or record.get('mode', 'baseline') != recommendation_mode or record.get('retrieval_version') != RETRIEVAL_VERSION):
@@ -252,6 +257,9 @@ with right:
         record = None
     if not record:
         with st.container(border=True):
+            st.markdown('''<div class="cn-empty-illustration" aria-hidden="true"><div class="cn-empty-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" focusable="false"><rect x="7" y="4" width="15" height="21" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="M11 11h7m-7 4h7m-7 4h4M4 7v8m-3-4h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div><span>YOUR EVIDENCE WORKSPACE</span></div>''', unsafe_allow_html=True)
             st.markdown('### Start with the patient’s symptoms')
             st.write('Enter available details on the left. Preview shows source cards; Generate creates a provisional plan with supporting findings and references.')
             st.caption('A disease name is optional. Unknown information stays unknown.')
@@ -286,7 +294,7 @@ with right:
                 output = record['output']
                 st.info('Provisional care plan · Assess source conditions and patient suitability before applying.')
                 if output['missing_information']:
-                    with st.container(border=True):
+                    with st.container(border=True, key='clarification-panel'):
                         st.markdown('#### Clarification needed for some actions')
                         for question in output['missing_information']:
                             st.write('• '+question['question'])

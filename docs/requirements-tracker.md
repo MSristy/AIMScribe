@@ -37,3 +37,8 @@ Current milestone: Q1 and Q2 implementation/experiment package completed for the
 
 
 - [x] Care-plan no-evidence display retains four categories and the existing empty-recommendation message.
+
+- [x] Local visual redesign preview implemented and checked (49 existing tests; backend/widget contract unchanged; desktop/tablet/mobile reviewed).
+- [ ] User visual approval, then GitHub publication and submission refresh for the redesigned interface. Prior approved submission and remote remain unchanged.
+
+- [x] User approved the redesigned interface for GitHub publication, including White/Black icon and corrected workflow spacing. Backend and historical experiment evidence remain unchanged.

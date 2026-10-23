@@ -16,3 +16,5 @@ No API keys, passwords, account tokens, real patient data or virtual environment
 
 
 Retrieval maintenance disclosure (2026-10-23): Codex implemented the positive source-anchor gate, limited English negative-list handling, honest zero-evidence UI and regression tests in response to the user-reported unrelated-case bug. No real model calls or new clinical grading were performed for this repair. The exact original frozen source is archived separately; the historical 12 outputs and reported counts were not altered.
+
+The user reviewed and approved the assistant-authored interface redesign, local SVG artwork, scoped CSS and appearance switch. These are presentation changes; the backend, model/corpus and historical comparison outputs were not modified. The assistant verified existing software tests, appearance state preservation and responsive layouts before publication.
